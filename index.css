@@ -76,7 +76,7 @@ header {
   display: grid;
   grid-template-columns: repeat(2, 400px);
   text-align: left;
-  gap: 80px;
+  gap: 300px;
   font-size: 1.2em;
   text-transform: uppercase;
   font-family: "Poppins";
@@ -95,7 +95,7 @@ header {
   display: flex;
   justify-content: start;
   align-items: end;
-  padding-bottom: 30px;
+  padding-bottom: 3px;
 }
 /* item default */
 .slider .list .item .image {
@@ -206,15 +206,15 @@ header {
   content: "";
   bottom: 0;
   width: min(1000px, 100vw);
-  height: 55%;
+  height: 65%;
   left: 50%;
-  transform: translateX(-50%);
-  background-image: url(img/PJmodel.jpg);
+  transform: translateX(-60%);
+  background-image: url(img/duffball16model2.png);
   background-size: cover;
   background-position: top;
   pointer-events: none;
   animation: showModel 1s ease-in-out 1 forwards;
-  width: 500px;
+  width: 1000px;
 }
 @keyframes showModel {
   from {
