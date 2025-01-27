@@ -212,6 +212,29 @@
     text-align: center;
     width: auto;
   }
+
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 9999;
+  }
+  
+  #cookie-banner a {
+    color: #f1c40f;
+  }
+  
+  #cookie-banner button {
+    background: #f1c40f;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+
 }
 
 @media (prefers-color-scheme: light) {
@@ -429,6 +452,29 @@
     color: #2f2f2f;
     margin-bottom: 35px;
   }
+
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 9999;
+  }
+  
+  #cookie-banner a {
+    color: #f1c40f;
+  }
+  
+  #cookie-banner button {
+    background: #f1c40f;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+
 }
 
 @media (prefers-color-scheme: dark) and (max-width: 480px) {
@@ -633,6 +679,29 @@
     color: #ffffff;
     margin-bottom: 35px;
   }
+
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 9999;
+  }
+  
+  #cookie-banner a {
+    color: #f1c40f;
+  }
+  
+  #cookie-banner button {
+    background: #f1c40f;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+
 }
 
 @media (prefers-color-scheme: light) and (max-width: 480px) {
@@ -833,4 +902,27 @@
     color: #2f2f2f;
     margin-bottom: 35px;
   }
+
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 9999;
+  }
+  
+  #cookie-banner a {
+    color: #f1c40f;
+  }
+  
+  #cookie-banner button {
+    background: #f1c40f;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
 }
