@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function() {
   const cookieBanner = document.getElementById('cookie-banner');
   const acceptButton = document.getElementById('accept-cookies');
@@ -114,3 +115,17 @@ document.addEventListener("DOMContentLoaded", function() {
 //        data-ad-slot="YOUR_AD_SLOT_ID"
 //        data-ad-format="auto"
 //        data-full-width-responsive="true"></ins>
+=======
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (!localStorage.getItem("cookiesAccepted")) {
+      document.getElementById("cookie-banner").style.display = "block";
+    }
+  
+    document.getElementById("accept-cookies").addEventListener("click", function () {
+      localStorage.setItem("cookiesAccepted", "true");
+      document.getElementById("cookie-banner").style.display = "none";
+    });
+  });
+  
+>>>>>>> parent of ff485e6 (update terms of service with cookies)
