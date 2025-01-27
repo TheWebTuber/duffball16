@@ -58,3 +58,24 @@ body {
     font-size: 1rem;
   }
   
+  #cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 9999;
+  }
+  
+  #cookie-banner a {
+    color: #f1c40f;
+  }
+  
+  #cookie-banner button {
+    background: #f1c40f;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
