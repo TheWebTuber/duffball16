@@ -3,9 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const acceptButton = document.getElementById('accept-cookies');
   const rejectButton = document.getElementById('reject-cookies');
 
-
-    // Function to set a cookie
-    function setCookie(name, value, days) {
+  // Function to set a cookie
+  function setCookie(name, value, days) {
       let expires = "";
       if (days) {
           const date = new Date();
@@ -29,18 +28,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Function to handle saving cookie settings
   function saveCookieSettings(allowMarketing) {
-    const settings = {
-        necessary: true,
-        preferences: true,
-        statistics: true,
-        marketing: allowMarketing,
-    };
-    setCookie('cookieConsent', JSON.stringify(settings), 365);
-    hideBanner(); // Hide the banner after saving.
-    handleCookieConsent(settings);
+      const settings = {
+          necessary: true,
+          preferences: true,
+          statistics: true,
+          marketing: allowMarketing,
+      };
+      setCookie('cookieConsent', JSON.stringify(settings), 365);
+      hideBanner(); // Hide the banner after saving.
+      handleCookieConsent(settings);
   }
-
-  function handleCookieConsent(settings){
+      function handleCookieConsent(settings){
       if(settings.marketing){
          //Load AdSense ads only if marketing cookies are allowed
           loadAdsenseAds();
@@ -49,12 +47,20 @@ document.addEventListener("DOMContentLoaded", function() {
         hideAdsenseAds();
       }
     }
-    function loadAdsenseAds() {
-      var ads = document.getElementsByClassName('adsbygoogle');
-      for(var i=0; i < ads.length; i++) {
-        ads[i].style.display = 'block';
+  function loadAdsenseAds() {
+      const adScript = document.createElement('script');
+      adScript.async = true;
+      adScript.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID`;
+      adScript.crossOrigin = 'anonymous';
+
+      document.head.appendChild(adScript);
+
+     const ads = document.getElementsByClassName('adsbygoogle');
+      for(let i=0; i < ads.length; i++) {
+          ads[i].style.display = 'block';
+           (adsbygoogle = window.adsbygoogle || []).push({});
       }
-    }
+  }
 
   function hideAdsenseAds() {
       var ads = document.getElementsByClassName('adsbygoogle');
@@ -62,24 +68,24 @@ document.addEventListener("DOMContentLoaded", function() {
         ads[i].style.display = 'none';
       }
   }
-   function hideBanner() {
-     cookieBanner.style.display = 'none';
-    }
 
+  function hideBanner() {
+      cookieBanner.style.display = 'none';
+  }
 
   acceptButton.addEventListener('click', () => {
-    saveCookieSettings(true);
+      saveCookieSettings(true);
   });
 
-    rejectButton.addEventListener('click', () => {
-      saveCookieSettings(false)
-    });
+  rejectButton.addEventListener('click', () => {
+      saveCookieSettings(false);
+  });
 
-    // Always show banner unless consent was given
-      if(getCookie('cookieConsent')){
-          handleCookieConsent(JSON.parse(getCookie('cookieConsent')));
-          hideBanner()
-      }else{
-           cookieBanner.style.display = 'block';
-      }
+  // Always show banner unless consent was given
+    if(getCookie('cookieConsent')){
+        handleCookieConsent(JSON.parse(getCookie('cookieConsent')));
+        hideBanner()
+    }else{
+         cookieBanner.style.display = 'block';
+    }
 });
