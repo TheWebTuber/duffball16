@@ -1,61 +1,37 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const cookieBanner = document.getElementById("cookie-banner");
-  const acceptCookies = document.getElementById("accept-cookies");
-  const rejectCookies = document.getElementById("reject-cookies");
-  const manageCookies = document.getElementById("manage-cookies");
-
-  const necessaryCookies = document.getElementById("necessary-cookies");
-  const statisticsCookies = document.getElementById("statistics-cookies");
-  const marketingCookies = document.getElementById("marketing-cookies");
-
-  // Check if user has already given consent
-  if (!localStorage.getItem("cookiesAccepted")) {
-    cookieBanner.style.display = "block";
+// Function to check if the user has given consent for cookies
+function checkCookieConsent() {
+  const consent = getCookie('cookieConsent');
+  if (consent === 'accepted') {
+      document.getElementById('cookie-banner').style.display = 'none';  // Hide banner if consent is given
+  } else {
+      document.getElementById('cookie-banner').style.display = 'block';  // Show banner if no consent
   }
+}
 
-  // Accept All Cookies
-  acceptCookies.addEventListener("click", function () {
-    localStorage.setItem("cookiesAccepted", "true");
-    localStorage.setItem("statisticsCookies", "true");
-    localStorage.setItem("marketingCookies", "true");
-    cookieBanner.style.display = "none";
-    enableAllCookies();
-  });
+// Function to get the value of a cookie by name
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? match[2] : null;
+}
 
-  // Reject All Cookies
-  rejectCookies.addEventListener("click", function () {
-    localStorage.setItem("cookiesAccepted", "false");
-    localStorage.setItem("statisticsCookies", "false");
-    localStorage.setItem("marketingCookies", "false");
-    cookieBanner.style.display = "none";
-    disableAllCookies();
-  });
+// Function to set a cookie with an expiration date
+function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));  // Set expiry time for the cookie
+  document.cookie = name + "=" + value + "; expires=" + date.toUTCString() + "; path=/";  // Set cookie
+}
 
-  // Manage Cookies Button
-  manageCookies.addEventListener("click", function () {
-    cookieBanner.style.display = "block";
-  });
-
-  // Enable All Cookies
-  function enableAllCookies() {
-    statisticsCookies.checked = true;
-    marketingCookies.checked = true;
-    console.log("All cookies enabled.");
-  }
-
-  // Disable All Cookies
-  function disableAllCookies() {
-    statisticsCookies.checked = false;
-    marketingCookies.checked = false;
-    console.log("All cookies disabled.");
-  }
-
-  // Set Cookies Based on User Selection
-  statisticsCookies.addEventListener("change", function () {
-    localStorage.setItem("statisticsCookies", statisticsCookies.checked);
-  });
-
-  marketingCookies.addEventListener("change", function () {
-    localStorage.setItem("marketingCookies", marketingCookies.checked);
-  });
+// Event listener for the "Accept All" button to set the cookie and hide the banner
+document.getElementById('accept-cookies').addEventListener('click', function() {
+  setCookie('cookieConsent', 'accepted', 30);  // Accept cookies and set cookie for 30 days
+  document.getElementById('cookie-banner').style.display = 'none';  // Hide the consent banner
 });
+
+// Event listener for the "Reject All" button to reject cookies and hide the banner
+document.getElementById('reject-cookies').addEventListener('click', function() {
+  setCookie('cookieConsent', 'rejected', 30);  // Reject cookies and set cookie for 30 days
+  document.getElementById('cookie-banner').style.display = 'none';  // Hide the consent banner
+});
+
+// Check if cookies have been accepted or rejected
+checkCookieConsent();
