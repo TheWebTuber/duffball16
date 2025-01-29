@@ -132,3 +132,11 @@ h2 {
 .imgbanner img{
   width: 100%;
 }
+
+@media (max-width: 480px) {
+/* Thumbnail Styling (inside the container) */
+.content-item img {
+  width: 200px;
+  height: auto; /* Maintain aspect ratio */
+}
+}
