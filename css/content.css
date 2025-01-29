@@ -128,3 +128,7 @@ h2 {
   width: 750px;
   height: auto; /* Maintain aspect ratio */
 }
+
+.imgbanner img{
+  width: 100%;
+}
