@@ -1,39 +1,61 @@
 let items = document.querySelectorAll('.slider .list .item');
-let prevBtn = document.getElementById('prev');
-let nextBtn = document.getElementById('next');
-let lastPosition = items.length - 1;
-let firstPosition = 0;
-let active = 0;
+let next = document.getElementById('next');
+let prev = document.getElementById('prev');
+let thumbnails = document.querySelectorAll('.thumbnail .item');
 
-nextBtn.onclick = () => {
-    active = active + 1;
-    setSlider();
+// config param
+let countItem = items.length;
+let itemActive = 0;
+// event next click
+next.onclick = function(){
+    itemActive = itemActive + 1;
+    if(itemActive >= countItem){
+        itemActive = 0;
+    }
+    showSlider();
 }
-prevBtn.onclick = () => {
-    active = active - 1;
-    setSlider();
+//event prev click
+prev.onclick = function(){
+    itemActive = itemActive - 1;
+    if(itemActive < 0){
+        itemActive = countItem - 1;
+    }
+    showSlider();
 }
-const setSlider = () => {
-    let oldActive = document.querySelector('.slider .list .item.active');
-    if(oldActive) oldActive.classList.remove('active');
-    items[active].classList.add('active');
-    // 
-    nextBtn.classList.remove('d-none');
-    prevBtn.classList.remove('d-none');
-    if(active == lastPosition) nextBtn.classList.add('d-none');
-    if(active == firstPosition) prevBtn.classList.add('d-none');
-}
-setSlider();
+// auto run slider
+let refreshInterval = setInterval(() => {
+    next.click();
+}, 10000)
+function showSlider(){
+    // remove item active old
+    let itemActiveOld = document.querySelector('.slider .list .item.active');
+    let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
+    itemActiveOld.classList.remove('active');
+    thumbnailActiveOld.classList.remove('active');
 
-// set diameter
-const setDiameter = () => {
-    let slider = document.querySelector('.slider');
-    let widthSlider = slider.offsetWidth;
-    let heightSlider = slider.offsetHeight;
-    let diameter = Math.sqrt(Math.pow(widthSlider, 2) + Math.pow(heightSlider, 2));
-    document.documentElement.style.setProperty('--diameter', diameter+'px');
+    // active new item
+    items[itemActive].classList.add('active');
+    thumbnails[itemActive].classList.add('active');
+    setPositionThumbnail();
+
+    // clear auto time run slider
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(() => {
+        next.click();
+    }, 30000)
 }
-setDiameter();
-window.addEventListener('resize', () => {
-    setDiameter();
+function setPositionThumbnail () {
+    let thumbnailActive = document.querySelector('.thumbnail .item.active');
+    let rect = thumbnailActive.getBoundingClientRect();
+    if (rect.left < 0 || rect.right > window.innerWidth) {
+        thumbnailActive.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
+    }
+}
+
+// click thumbnail
+thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        itemActive = index;
+        showSlider();
+    })
 })
