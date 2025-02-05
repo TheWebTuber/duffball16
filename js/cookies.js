@@ -51,4 +51,4 @@
 // <noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/">TermsFeed</a></noscript>
 // <!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
 
-// <a href="https://duffball16.com/privacypolicy" target="_blank">Privacy Policy </a>
+// <a href="#" id="open_preferences_center">Update cookies preferences</a>
