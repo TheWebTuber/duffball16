@@ -2,7 +2,7 @@
 body {
     font-family: "Poppins", sans-serif;
     background-color: #000000; /* Sets the background to black */
-    color: #000000; /* Added to keep default text color*/
+    color: #ffffff; /* Added to keep default text color*/
   }
   
   /* Style the header */
@@ -48,138 +48,73 @@ body {
   }
 
   
-  .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden; /* Clear floats */
+.update-container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center the boxes horizontally */
+}
+
+.update-box {
+  width: 100%; /* Take up most of the screen width */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.update-box h3 {
+  margin-top: 0;
+  color: white;
+}
+
+.update-box p {
+  margin-bottom: 15px;
+  color: white;
+}
+
+.tab-button {
+  background-color: #00000095;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.tab-button:hover {
+  background-color: #3e8e41;
+}
+
+/* Different background colors for each box */
+.update-box:nth-child(1) {
+  background-color: #4285F4; /* Blue */
+}
+
+.update-box:nth-child(2) {
+  background-color: #34A853; /* Green */
+}
+
+.update-box:nth-child(3) {
+  background-color: #FBBC05; /* Yellow */
+}
+
+.update-box:nth-child(4) {
+  background-color: #EA4335; /* Red */
+}
+
+.update-box:nth-child(5) {
+  background-color: #9C27B0; /* Purple */
+}
+
+@media (max-width: 768px) {
+  .update-box {
+    width: 95%; /* Take up almost full width on smaller screens */
   }
-  
-  header h1 {
-    font-size: 2em;
-    margin: 0;
-  }
-  
-  /* Main Content */
-  main {
-    padding: 20px;
-  }
-  
-  .blog-post {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer; /* Make it clear the card is clickable */
-    opacity: 0.8;
-  }
-  
-  .blog-post:hover {
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    opacity: 1;
-  }
-  
-  .post-title {
-    font-size: 1.8em;
-    margin-bottom: 5px;
-    color: #7f1de8;
-  }
-  
-  .post-date {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 10px;
-  }
-  
-  .post-image {
-    width: 100%;
-    max-height: 300px; /* Adjust as needed */
-    object-fit: cover; /* Prevents image distortion */
-    margin-bottom: 15px;
-    border-radius: 5px;
-  }
-  
-  .post-content {
-    margin-bottom: 15px;
-  }
-  
-  .read-more {
-    display: inline-block;
-    background: #e8491d;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  
-  .read-more:hover {
-    background: #7f1de8;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .container {
-      width: 95%;
-    }
-  
-    header {
-      padding: 20px;
-    }
-  
-    header h1 {
-      font-size: 1.5em;
-    }
-  }
-  
-  /* Modal Styles */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0px;
-    top: 0px;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #ff0000;
-    width: 80%; /* Could be more or less, depending on screen size */
-    border-radius: 5px;
-    position: relative; /* For positioning the close button */
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close-button:hover,
-  .close-button:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  #modal-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 15px;
-  }
+}
 
   .footer {
     color: #f2f2f2;
