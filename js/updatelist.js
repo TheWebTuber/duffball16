@@ -11,6 +11,6 @@ const posts = [
         title: "Website Redesign: A Fresh New Look",
         date: "Published: October 15, 2023",
         image: "images/redesign-screenshot.jpg",
-        text: "As you may have noticed, we've given the website a complete makeover! The goal was to create a more user-friendly and visually appealing experience. We've updated the color scheme, typography, and layout to be more modern and accessible. We've also improved the site's responsiveness, so it looks great on all devices. We hope you enjoy the new design!"
+        text: "As you may have noticed, we've given the website a complete makeover! The goal was to create a more user-friendly and visually appealing experience. We've updated the color scheme, typography, and layout to be more modern and accessible. We hope you enjoy the new design!"
     }
 ];
