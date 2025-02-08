@@ -60,7 +60,7 @@ body {
   border-radius: 30px; /* Even more rounded */
   font-weight: 500;
   transition: all 0.3s ease-in-out;
-  background: linear-gradient(to right, #fd0ba4, #870000);
+  background: linear-gradient(to right, #fd0ba4, #bc0f0f);
   background-color: #d84ae2;
   border: none;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
