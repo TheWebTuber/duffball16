@@ -1,0 +1,159 @@
+body {
+  font-family: 'Poppins', sans-serif; /* A modern, geometric font */
+  background-color: #000000; /* A very light gray background */
+  color: #4a4a4a; /* Dark gray text */
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Hide horizontal scrollbar caused by animations */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 50px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Increased shadow */
+  border-radius: 20px; /* More rounded corners */
+  position: relative; /* For absolute positioning of decorations */
+  overflow: hidden; /* Hide overflow from animations/decorations */
+}
+
+/* Animated lines on the container */
+.container::before,
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #ff5e62, #ff9966, #ff5e62);
+  animation: animateLines 8s linear infinite;
+}
+
+.container::after {
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  animation-direction: reverse;
+}
+
+@keyframes animateLines {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.back-button {
+  display: block;
+  margin: 30px auto 0;
+  width: fit-content;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 30px; /* Slightly larger button */
+  border-radius: 30px; /* Even more rounded */
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, #e24a4a, #870000);
+  background-color: #4a90e2;
+  border: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+  position: relative; /* For hover effect */
+  overflow: hidden;
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Ripple effect on hover */
+.back-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.back-button:hover::before {
+  width: 250%;
+  height: 250%;
+  opacity: 1;
+}
+
+.back-button i {
+  margin-right: 8px;
+}
+
+.title-block {
+  text-align: center;
+  margin-bottom: 50px; /* More spacing */
+}
+
+.title-block h1 {
+  font-size: 3.5em; /* Larger title */
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #333; /* Darker title color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); /* Subtle text shadow */
+}
+
+.image-block {
+  margin-bottom: 50px;
+  text-align: center;
+  border-radius: 20px; /* More rounded image */
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Increased shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.image-block:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.image-block img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.text-block {
+  line-height: 1.7;
+  text-align: left; /* Align text to the left for readability */
+  padding: 40px; /* More padding */
+  background-color: #f7f7f7; /* Lighter background */
+  border-radius: 16px;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.text-block p {
+  margin-bottom: 30px; /* More spacing between paragraphs */
+  font-size: 1.15em;
+  color: #555; /* Slightly darker text color */
+}
+
+/* Subtle animation for the container */
+.container {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
