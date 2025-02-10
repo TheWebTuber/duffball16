@@ -134,6 +134,18 @@ h2 {
 }
 
 @media (max-width: 480px) {
+
+  .content-item {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;   /* Centers items */
+    text-align: center;    /* Centers text */
+  }
+
+  .content-item img {
+    margin-bottom: 1rem; /* Adds space between the image and text */
+  }
+  
 /* Thumbnail Styling (inside the container) */
 .content-item img {
   width: 200px;
