@@ -240,3 +240,19 @@ body {
 .text-block p:hover::after {
     width: 100%;
 }
+
+
+
+@media (max-width: 480px) {
+
+/* Amplified Glitch Animation */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+}
