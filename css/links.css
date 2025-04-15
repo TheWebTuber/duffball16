@@ -77,11 +77,6 @@
     transition: transform 0.5s ease; /* Smooth transition */
   }
 
-.about-image img:hover {
-  /* Apply multiple transformations separated by a space */
-  transform: scale(1.2) translateY(-10px); /* Enlarge AND move up 10px on hover */
-}
-
   .about-content {
     flex: 1;
     color: rgb(255, 255, 255);
@@ -323,11 +318,6 @@
     .about-image p {
     color: #ffffff;
   }
-
-.about-image img:hover {
-  /* Apply multiple transformations separated by a space */
-  transform: scale(1.2) translateY(-10px); /* Enlarge AND move up 10px on hover */
-}
 
   h2 {
     margin-top: 10;
