@@ -384,7 +384,7 @@
 
   .thumbnail {
     position: absolute;
-    top: 750px;
+    top: 850px;
     z-index: 11;
     display: flex;
     gap: 10px;
