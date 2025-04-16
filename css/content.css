@@ -50,8 +50,12 @@ header {
   text-align: center;
   width: auto;
 }
-
-.footer a{
+.footer2 {
+  color: #f2f2f2;
+  text-align: center;
+  width: auto;
+}
+.footer2 a{
   font-size: 45px;
 }
 
