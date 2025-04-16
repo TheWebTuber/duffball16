@@ -59,6 +59,11 @@ header {
   font-size: 45px;
 }
 
+.footer2 img{
+  width: 100%;
+}
+
+
 /* making the backround of each colum and theme: temp, humid and light*/
 img {
   opacity: 0.5;
