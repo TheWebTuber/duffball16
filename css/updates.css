@@ -155,7 +155,7 @@ footer {
 }
 
 /* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .card-container {
       /* Adjust min card width for smaller screens */
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
