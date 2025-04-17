@@ -75,6 +75,14 @@ header {
     top: 0;
 }
 
+.item small {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
 /* Navigation buttons */
 #next, #prev {
     position: absolute;
@@ -107,7 +115,6 @@ header {
 .footer {
     color: #ffffff;
     text-align: center;
-    padding: 30px;
 }
 
 /* Responsive */

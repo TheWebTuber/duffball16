@@ -47,77 +47,154 @@ body {
     text-align: center;
   }
 
-  
-.update-container {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center the boxes horizontally */
-}
 
-.update-box {
-  width: 100%; /* Take up most of the screen width */
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  box-sizing: border-box;
+footer {
   text-align: center;
+  padding: 25px 20px;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #6e6e73;
+  border-top: 1px solid #e5e5e5;
 }
 
-.update-box h3 {
-  margin-top: 0;
-  color: white;
+/* --- Card Container (Grid Layout) --- */
+.card-container {
+  display: grid;
+  /* Creates columns: fits as many cards as possible with a min width of 300px */
+  /* and a max width of 1 fraction of the available space */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px; /* Space between cards */
+  max-width: 1200px; /* Max width of the container */
+  margin: 0 auto; /* Center the container */
+  padding: 0 20px; /* Padding on the sides */
 }
 
-.update-box p {
+/* --- Individual Card Styling --- */
+.card {
+  background-color: #ffffff; /* White card background */
+  border-radius: 18px; /* Rounded corners (Apple/Samsung style) */
+  overflow: hidden; /* Ensures image corners are clipped */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect */
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column; /* Stack image and content vertically */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+}
+
+.card img {
+  width: 100%;
+  height: 100%; /* Fixed height for images */
+  object-fit: cover; /* Crop image to fit, maintaining aspect ratio */
+  display: block; /* Remove extra space below image */
+}
+
+.card-content {
+  padding: 20px;
+  flex-grow: 1; /* Allows content to fill remaining space if cards have different heights */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  font-size: 1.3em;
+  font-weight: 500; /* Medium weight */
+  margin-bottom: 8px;
+  color: #1d1d1f;
+}
+
+.card-content .card-meta {
+  font-size: 0.85em;
+  color: #6e6e73; /* Grey metadata text */
   margin-bottom: 15px;
-  color: white;
+  font-weight: 500;
 }
 
-.tab-button {
-  background-color: #00000095;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.card-content p {
+  font-size: 0.95em;
+  color: #333; /* Slightly darker grey for main text */
+  margin-bottom: 15px;
+  flex-grow: 1; /* Push link to the bottom */
+}
+
+.card-content .card-link {
+  display: inline-block; /* Make it block-like for padding */
   text-decoration: none;
-  display: inline-block;
+  color: #007aff; /* Apple blue link color */
+  font-weight: 500;
+  font-size: 0.9em;
+  margin-top: auto; /* Push link to the bottom */
+  align-self: flex-start; /* Align link to the left */
+  padding: 5px 0; /* Add some clickable area */
+  transition: color 0.2s ease;
 }
 
-.tab-button:hover {
-  background-color: #3e8e41;
+.card-content .card-link:hover {
+  color: #0056b3; /* Darker blue on hover */
 }
 
-/* Different background colors for each box */
-.update-box:nth-child(1) {
-  background-color: #4285F4; /* Blue */
+.footer {
+  color: #f2f2f2;
+  text-align: center;
+  width: auto;
 }
 
-.update-box:nth-child(2) {
-  background-color: #34A853; /* Green */
+.footer2 {
+  color: #f2f2f2;
+  text-align: center;
+  width: auto;
 }
 
-.update-box:nth-child(3) {
-  background-color: #FBBC05; /* Yellow */
+.footer2 a{
+  font-size: 45px;
 }
 
-.update-box:nth-child(4) {
-  background-color: #EA4335; /* Red */
+.footer2 img{
+  width: 100%;
 }
 
-.update-box:nth-child(5) {
-  background-color: #9C27B0; /* Purple */
-}
-
+/* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
-  .update-box {
-    width: 95%; /* Take up almost full width on smaller screens */
+  header h1 {
+      font-size: 2em;
+  }
+  .card-container {
+      /* Adjust min card width for smaller screens */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 15px;
+  }
+  .card {
+      border-radius: 15px;
+  }
+  .card img {
+      height: 180px;
+  }
+  .card-content {
+      padding: 15px;
   }
 }
 
-  .footer {
-    color: #f2f2f2;
-    text-align: center;
-    width: auto;
+@media (max-width: 480px) {
+   header {
+      padding: 20px 15px;
+   }
+  header h1 {
+      font-size: 1.8em;
   }
+   header p {
+      font-size: 1em;
+  }
+  .card-container {
+      /* Stack cards vertically on very small screens */
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 0 10px;
+  }
+   .card img {
+      height: 160px;
+  }
+}
