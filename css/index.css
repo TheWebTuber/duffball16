@@ -383,18 +383,9 @@
   }
 
   .thumbnail {
-    position: absolute;
-    top: 700px;
-    z-index: 11;
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    height: 130px;
-    padding: 0 50px;
-    box-sizing: border-box;
-    overflow: auto;
-    justify-content: center;
+    display: none;
   }
+  
 
   .thumbnail::-webkit-scrollbar {
     width: 0;

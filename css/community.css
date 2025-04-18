@@ -1,0 +1,174 @@
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #000000; /* Sets the background to black */
+  }
+
+  /* Style the header */
+  .header {
+    padding: 20px;
+    text-align: center;
+    z-index: 100;
+  }
+
+  header {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+  }
+
+  /* Style the top navigation bar */
+  .topnav {
+    overflow: hidden;
+    z-index: 100;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Style the topnav links */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    z-index: 100;
+  }
+
+  /* Change color on hover */
+  .topnav a:hover {
+    background-image: linear-gradient(to bottom, #ddd 1%, transparent);
+    color: black;
+    z-index: 100;
+    align-items: center;
+    text-align: center;
+  }
+
+
+footer {
+  text-align: center;
+  padding: 25px 20px;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #6e6e73;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* --- Card Container (Grid Layout) --- */
+.card-container {
+  display: grid;
+  /* Creates columns: fits as many cards as possible with a min width of 300px */
+  /* and a max width of 1 fraction of the available space */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px; /* Space between cards */
+  max-width: 1200px; /* Max width of the container */
+  margin: 0 auto; /* Center the container */
+  padding: 0 20px; /* Padding on the sides */
+}
+
+/* --- Individual Card Styling --- */
+.card {
+  background-color: #ffffff; /* White card background */
+  border-radius: 18px; /* Rounded corners (Apple/Samsung style) */
+  overflow: hidden; /* Ensures image corners are clipped */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect */
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column; /* Stack image and content vertically */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+}
+
+.card img {
+  width: 100%;
+  height: 100%; /* Fixed height for images */
+  object-fit: cover; /* Crop image to fit, maintaining aspect ratio */
+  display: block; /* Remove extra space below image */
+}
+
+.card-content {
+  padding: 20px;
+  flex-grow: 1; /* Allows content to fill remaining space if cards have different heights */
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content h3 {
+  font-size: 1.3em;
+  font-weight: 500; /* Medium weight */
+  margin-bottom: 8px;
+  color: #1d1d1f;
+}
+
+.card-content .card-meta {
+  font-size: 0.85em;
+  color: #6e6e73; /* Grey metadata text */
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.card-content p {
+  font-size: 0.95em;
+  color: #333; /* Slightly darker grey for main text */
+  margin-bottom: 15px;
+  flex-grow: 1; /* Push link to the bottom */
+}
+
+.card-content .card-link {
+  display: inline-block; /* Make it block-like for padding */
+  text-decoration: none;
+  color: #007aff; /* Apple blue link color */
+  font-weight: 500;
+  font-size: 0.9em;
+  margin-top: auto; /* Push link to the bottom */
+  align-self: flex-start; /* Align link to the left */
+  padding: 5px 0; /* Add some clickable area */
+  transition: color 0.2s ease;
+}
+
+.card-content .card-link:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+.footer {
+  color: #f2f2f2;
+  text-align: center;
+  width: auto;
+}
+
+.footer2 {
+  color: #f2f2f2;
+  text-align: center;
+  width: auto;
+}
+
+.footer2 a{
+  font-size: 45px;
+}
+
+.footer2 img{
+  width: 100%;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 480px) {
+  .card-container {
+      /* Adjust min card width for smaller screens */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 15px;
+  }
+  .card {
+      border-radius: 15px;
+  }
+  .card img {
+      height: 180px;
+  }
+  .card-content {
+      padding: 15px;
+  }
+}

@@ -1,21 +1,29 @@
-  body {
+body {
+    background-image: linear-gradient(to top right, #000000, #000000);
     font-family: "Poppins", sans-serif;
-    background-color: #000000; /* Sets the background to black */
-  }
+    min-height: 100vh;
+}
 
-  /* Style the header */
-  .header {
+/* Optional: wrap all content in a container for layout control */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+.header {
     padding: 20px;
     text-align: center;
     z-index: 100;
-  }
+}
 
-  header {
+header {
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 100;
-  }
+}
 
   /* Style the top navigation bar */
   .topnav {
@@ -45,130 +53,161 @@
     text-align: center;
   }
 
-
-footer {
-  text-align: center;
-  padding: 25px 20px;
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #6e6e73;
-  border-top: 1px solid #e5e5e5;
+/* Slider styles */
+.slider {
+    position: relative;
+    margin: 100px auto;
+    width: 80%;
+    height: 500px;
+    overflow: hidden;
 }
 
-/* --- Card Container (Grid Layout) --- */
-.card-container {
-  display: grid;
-  /* Creates columns: fits as many cards as possible with a min width of 300px */
-  /* and a max width of 1 fraction of the available space */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px; /* Space between cards */
-  max-width: 1200px; /* Max width of the container */
-  margin: 0 auto; /* Center the container */
-  padding: 0 20px; /* Padding on the sides */
+.item {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    text-align: justify;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    transition: 0.5s;
+    left: 25%;
+    top: 0;
 }
 
-/* --- Individual Card Styling --- */
-.card {
-  background-color: #ffffff; /* White card background */
-  border-radius: 18px; /* Rounded corners (Apple/Samsung style) */
-  overflow: hidden; /* Ensures image corners are clipped */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect */
-  display: flex; /* Use flexbox for internal layout */
-  flex-direction: column; /* Stack image and content vertically */
+.item small {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 10px;
 }
 
-.card:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+
+/* Navigation buttons */
+#next, #prev {
+    position: absolute;
+    top: 40%;
+    background: none;
+    border: none;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    color: #ffffff;
+    opacity: 1;
+    transition: opacity 0.5s;
+    z-index: 10;
 }
 
-.card img {
-  width: 100%;
-  height: 100%; /* Fixed height for images */
-  object-fit: cover; /* Crop image to fit, maintaining aspect ratio */
-  display: block; /* Remove extra space below image */
+#next {
+    right: 20px;
 }
 
-.card-content {
-  padding: 20px;
-  flex-grow: 1; /* Allows content to fill remaining space if cards have different heights */
+#prev {
+    left: 20px;
+}
+
+#prev:hover,
+#next:hover {
+    opacity: 0.75;
+}
+
+/* Footer */
+.footer {
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .slider {
+        width: 90%;
+        height: 750px;
+    }
+.item {
+    width: 90%;
+    left: 0%;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left; /* or center, depending on your style */
+    padding: 20px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#next, #prev {
+  /* position: fixed; remove absolute positioning */
+  top: -3%;
+  background-color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 20px 10px 0 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#next:hover, #prev:hover {
+  background-color: #dddddd98;
+}
+
+/* Wrap your buttons in a flex container */
+.slider {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.card-content h3 {
-  font-size: 1.3em;
-  font-weight: 500; /* Medium weight */
-  margin-bottom: 8px;
-  color: #1d1d1f;
+/* Group the buttons side by side */
+.slider button {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.card-content .card-meta {
-  font-size: 0.85em;
-  color: #6e6e73; /* Grey metadata text */
-  margin-bottom: 15px;
-  font-weight: 500;
+.slider button:hover {
+  background-color: #dddddd;
 }
 
-.card-content p {
-  font-size: 0.95em;
-  color: #333; /* Slightly darker grey for main text */
-  margin-bottom: 15px;
-  flex-grow: 1; /* Push link to the bottom */
-}
 
-.card-content .card-link {
-  display: inline-block; /* Make it block-like for padding */
-  text-decoration: none;
-  color: #007aff; /* Apple blue link color */
-  font-weight: 500;
-  font-size: 0.9em;
-  margin-top: auto; /* Push link to the bottom */
-  align-self: flex-start; /* Align link to the left */
-  padding: 5px 0; /* Add some clickable area */
-  transition: color 0.2s ease;
-}
-
-.card-content .card-link:hover {
-  color: #0056b3; /* Darker blue on hover */
-}
-
-.footer {
-  color: #f2f2f2;
-  text-align: center;
-  width: auto;
-}
-
-.footer2 {
-  color: #f2f2f2;
-  text-align: center;
-  width: auto;
-}
-
-.footer2 a{
-  font-size: 45px;
-}
-
-.footer2 img{
-  width: 100%;
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 480px) {
-  .card-container {
-      /* Adjust min card width for smaller screens */
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 0 15px;
+    
+  /* Style the top navigation bar */
+  .topnav {
+    overflow: hidden;
+    z-index: 100;
+    align-items: center;
+    text-align: center;
   }
-  .card {
-      border-radius: 15px;
+
+  /* Style the topnav links */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 9px;
+    text-decoration: none;
+    z-index: 100;
   }
-  .card img {
-      height: 180px;
+
+  /* Change color on hover */
+  .topnav a:hover {
+    background-image: linear-gradient(to bottom, #ddd 1%, transparent);
+    color: rgb(0, 0, 0);
+    z-index: 100;
+    align-items: center;
+    text-align: center;
   }
-  .card-content {
-      padding: 15px;
-  }
+
 }
