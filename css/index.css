@@ -264,7 +264,7 @@ header {
 
   .arrows {
     position: absolute;
-    top: 20%;
+    top: 10%;
     right: 15px;
     z-index: 100;
   }
