@@ -168,6 +168,7 @@
     box-sizing: border-box;
     overflow: auto;
     justify-content: center;
+    top: 10%; /*Added this as last updsate*/
   }
 
   .thumbnail::-webkit-scrollbar {
