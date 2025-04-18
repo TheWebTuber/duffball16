@@ -73,8 +73,8 @@ header {
 }
 
 .thumbnail .item {
-  width: 180px;
-  height: 90px;
+  width: 120px;
+  height: 60px;
   filter: brightness(0.5);
   transition: 0.5s;
   flex-shrink: 0;
