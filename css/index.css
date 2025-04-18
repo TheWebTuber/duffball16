@@ -73,8 +73,8 @@ header {
 }
 
 .thumbnail .item {
-  width: 120px;
-  height: 60px;
+  width: 180px;
+  height: 90px;
   filter: brightness(0.5);
   transition: 0.5s;
   flex-shrink: 0;
@@ -218,7 +218,9 @@ header {
 
 /* Responsive Adjustments */
 @media screen and (max-width: 678px) {
-
+  .thumbnail {
+    justify-content: start;
+  }
 
   .slider .list .item .content h2 {
     font-size: 60px;
