@@ -248,6 +248,11 @@ header {
     position: relative;
   }
 
+  .slider .list .item .content {
+    top: 10%; /* Move it higher on small screens */
+  }
+  
+
   .slider .list .item .content p:nth-child(1) {
     text-transform: uppercase;
     letter-spacing: 10px;
@@ -256,7 +261,7 @@ header {
   }
 
   .slider .list .item .content h2 {
-    font-size: 40px;
+    font-size: 30px;
     margin: 0;
     z-index: 10;
     color: #f2f2f2;
