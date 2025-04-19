@@ -289,4 +289,11 @@ header {
   .thumbnail {
     display: none;
   }
+
+  /* Thumbnail Box (Newly Added) */
+.thumbnail-box {
+  display: none;
+
+}
+
 }
