@@ -262,6 +262,13 @@ header {
     color: #f2f2f2;
   }
 
+  .slider .list .item .content p {
+    font-size: 15px;
+    margin: 10;
+    z-index: 10;
+    color: #f2f2f2;
+  }
+
   .arrows {
     position: absolute;
     top: 10%;
