@@ -1,5 +1,5 @@
 // Replace these with your API key and channel ID
-const API_KEY = 'AIzaSyBinatmIGvvBUkTVw9CnmISaCO4T5knJGQ';
+const API_KEY = 'AIzaSyBvpCwNhDR-PvJ02tJ2iJDekFc3R9-g5V0';
 const CHANNEL_ID = 'UCdOJvhjojFe3Z0yKeGEIERA'; // e.g., UCxxxxxx
 
 const subscribersEl = document.getElementById('subscribers');
