@@ -98,7 +98,7 @@ async function fetchStats() {
 
     const isLive = liveData.items && liveData.items.length > 0;
 
-    liveEl.textContent = isLive ? " LIVE" : " OFFLINE";
+    liveEl.textContent = isLive ? "Streaming Live" : "Not Livestreaming";
 
     updatedEl.textContent = new Date().toLocaleTimeString("nl-NL", {
       hour: "2-digit",
