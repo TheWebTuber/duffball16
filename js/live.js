@@ -1,3 +1,7 @@
+// Replace these with your API key and channel ID
+const API_KEY = "AIzaSyDQzjv3EHmUqzgNoodAtoLd2x242L8JfVg";
+const CHANNEL_ID = "UC2iwDFfrVjWYFpXahr-o8cA"; // e.g., UCxxxxxx
+
 const subscribersEl = document.getElementById("subscribers");
 const viewsEl = document.getElementById("views");
 const videosEl = document.getElementById("videos");
@@ -8,17 +12,12 @@ const goalFill = document.getElementById("goalFill");
 const goalText = document.getElementById("goalText");
 
 let lastStats = { subs: 0, views: 0, videos: 0 };
-let firstLoad = true;
-
-function formatFullNumber(num) {
-  return Number(num).toLocaleString();
-}
 
 function animateValue(el, start, end, duration = 800) {
   const range = end - start;
 
   if (range === 0) {
-    el.textContent = formatFullNumber(end);
+    el.textContent = end.toLocaleString();
     return;
   }
 
@@ -30,9 +29,11 @@ function animateValue(el, start, end, duration = 800) {
     const progress = Math.min((timestamp - startTime) / duration, 1);
     const value = Math.floor(start + range * progress);
 
-    el.textContent = formatFullNumber(value);
+    el.textContent = value.toLocaleString();
 
-    if (progress < 1) requestAnimationFrame(step);
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
   }
 
   requestAnimationFrame(step);
@@ -49,9 +50,8 @@ function updateClock() {
 }
 
 function updateGoal(subs) {
-  subs = Number(subs);
-
   let goal = 100;
+
   if (subs >= 100) goal = 500;
   if (subs >= 500) goal = 1000;
   if (subs >= 1000) goal = 5000;
@@ -64,44 +64,49 @@ function updateGoal(subs) {
   const percent = Math.min((subs / goal) * 100, 100);
 
   goalFill.style.width = percent + "%";
-  goalText.textContent = `${formatFullNumber(subs)} / ${formatFullNumber(goal)}`;
+  goalText.textContent = `${subs.toLocaleString()} / ${goal.toLocaleString()}`;
 }
 
 async function fetchStats() {
   try {
-    const response = await fetch("../api/youtube.php");
-    const data = await response.json();
+    const statsUrl = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`;
+    const statsResponse = await fetch(statsUrl);
+    const statsData = await statsResponse.json();
 
-    if (data.error) {
-      liveEl.textContent = "API error";
-      console.error(data);
+    if (!statsData.items || statsData.items.length === 0) {
+      liveEl.textContent = "Channel error";
       return;
     }
 
-    const subs = Number(data.subs || 0);
-    const views = Number(data.views || 0);
-    const videos = Number(data.videos || 0);
+    const stats = statsData.items[0].statistics;
 
-    if (firstLoad) {
-      subscribersEl.textContent = formatFullNumber(subs);
-      viewsEl.textContent = formatFullNumber(views);
-      videosEl.textContent = formatFullNumber(videos);
-      firstLoad = false;
-    } else {
-      animateValue(subscribersEl, lastStats.subs, subs);
-      animateValue(viewsEl, lastStats.views, views);
-      animateValue(videosEl, lastStats.videos, videos);
-    }
+    const subs = Number(stats.subscriberCount || 0);
+    const views = Number(stats.viewCount || 0);
+    const videos = Number(stats.videoCount || 0);
+
+    animateValue(subscribersEl, lastStats.subs, subs);
+    animateValue(viewsEl, lastStats.views, views);
+    animateValue(videosEl, lastStats.videos, videos);
 
     updateGoal(subs);
 
     lastStats = { subs, views, videos };
 
-    liveEl.textContent = data.live ? "🟢 LIVE" : "🔴 OFFLINE";
-    updatedEl.textContent = data.updated || "--:--";
+    const liveUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&eventType=live&type=video&key=${API_KEY}`;
+    const liveResponse = await fetch(liveUrl);
+    const liveData = await liveResponse.json();
+
+    const isLive = liveData.items && liveData.items.length > 0;
+
+    liveEl.textContent = isLive ? " LIVE" : " OFFLINE";
+
+    updatedEl.textContent = new Date().toLocaleTimeString("nl-NL", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
 
   } catch (error) {
-    console.error("Error loading API:", error);
+    console.error("Error fetching YouTube data:", error);
     liveEl.textContent = "Error";
   }
 }
