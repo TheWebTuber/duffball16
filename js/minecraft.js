@@ -3,7 +3,7 @@ const infoBox = document.getElementById('server-info');
 const playerList = document.getElementById('players');
 
 const SERVER_IP = 'mc.duffball16.com';
-const JAVA_PORT = 25566;
+const JAVA_PORT = 25565;
 const BEDROCK_PORT = 19133;
 
 async function fetchStatus() {
