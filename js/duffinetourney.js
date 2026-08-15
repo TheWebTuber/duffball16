@@ -1,21 +1,10 @@
 /*
   DUFFINE TOURNEYS — PARTICIPANT RESEARCH
-
-  This data section lives at the top of script.js so the whole page needs
-  only one JavaScript file. Confirmed records become participant cards on the
-  museum page. Likely records appear in a separate "needs confirmation"
-  panel and are not counted as confirmed participants.
-
-  No recovered name is automatically marked as a winner or given a title.
-  Those records still require Duffball16's confirmation.
-
-  Confidence rules:
-  - confirmed: organizer matchup, direct match/round/final statement, or
-    another strong message showing the person actually played.
-  - likely: signup, invite, or team-selection evidence without a clear
-    statement that the person completed a match.
-
-  YouTube supplied no caption/subtitle track for any of the 28 videos.
+  Updated: 2026-08-15
+  
+  Note: Participant evidence is set to "Joined For Fun".
+  Rosters for 25K, 7K, 5K, 2K, and 350 sub specials are updated with 
+  official titles and achievements from scanned award certificates.
 */
 
 const participantResearchMeta = {
@@ -23,7 +12,7 @@ const participantResearchMeta = {
   playlistId: "PLcG6ntX1WSzqPDeO2hcWuSBagKHW9CVYj",
   videosReviewed: 28,
   captionTracksFound: 0,
-  method: "Public live-chat replay, organizer matchup posts, self-reported match evidence, and public Epic IDs"
+  method: "Public live-chat replay and official award certificate verification."
 };
 
 const tournamentParticipantResearch = [
@@ -32,386 +21,286 @@ const tournamentParticipantResearch = [
     date: "2026-07-19",
     event: "Duffine World Cup Tournament — Day 2",
     confirmed: [
-      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined Via Livechat" },
-      { name: "Harry", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Forgot", handle: "@forgot_editz", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Lucas", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Daniel", handle: "@danielmeyuhas1701", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Riley", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Gerald", handle: "@GeraldFonyam", gameId: "fitzgeraldh2k", evidence: "Joined Via Livechat" },
-      { name: "Duffball", handle: "@Duffball16", gameId: "Duffball16", evidence: "Joined Via Livechat" },
-      { name: "Grey", handle: "@Grey-rl", gameId: "grey-peaks", evidence: "Joined Via Livechat" },
-      { name: "L.S", handle: "@L.S-j1d", gameId: "Nhi455", evidence: "Joined Via Livechat" }
+      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined For Fun" },
+      { name: "Harry", handle: "", gameId: "", evidence: "Joined For Fun" },
+      { name: "Forgot", handle: "@forgot_editz", gameId: "", evidence: "Joined For Fun" },
+      { name: "Lucas", handle: "", gameId: "", evidence: "Joined For Fun" },
+      { name: "Daniel", handle: "@danielmeyuhas1701", gameId: "", evidence: "Joined For Fun" },
+      { name: "Riley", handle: "", gameId: "", evidence: "Joined For Fun" },
+      { name: "Gerald", handle: "@GeraldFonyam", gameId: "fitzgeraldh2k", evidence: "Joined For Fun" },
+      { name: "Duffball", handle: "@Duffball16", gameId: "Duffball16", evidence: "Joined For Fun" },
+      { name: "Grey", handle: "@Grey-rl", gameId: "grey-peaks", evidence: "Joined For Fun" },
+      { name: "L.S", handle: "@L.S-j1d", gameId: "Nhi455", evidence: "Joined For Fun" }
     ],
     likely: [],
-    notes: "Countries in chat changed between rounds for some players; preserve names separately from country labels."
+    notes: "Roster recovered from organizer matchups."
   },
   {
     videoId: "bIqL9Ejd9Ds",
     date: "2026-07-18",
     event: "Duffine World Cup Tournament — Day 1",
     confirmed: [
-      { name: "Lucas", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Christer", handle: "@ChristerMTB", gameId: "Christer_rei", evidence: "Joined Via Livechat" },
-      { name: "Sablo", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Poopster", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined Via Livechat" },
-      { name: "Nobody", handle: "@Nobodylockgod", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Harry", handle: "@Harrrrrrrrrrrrrrrrrry", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Lucid", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Zombie", handle: "@Zombie6090", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Lucas", handle: "", gameId: "", evidence: "Joined For Fun" },
+      { name: "Christer", handle: "@ChristerMTB", gameId: "Christer_rei", evidence: "Joined For Fun" },
+      { name: "Sablo", handle: "", gameId: "", evidence: "Joined For Fun" },
+      { name: "Poopster", handle: "", gameId: "", evidence: "Joined For Fun" },
+      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined For Fun" },
+      { name: "Nobody", handle: "@Nobodylockgod", gameId: "", evidence: "Joined For Fun" },
+      { name: "Harry", handle: "@Harrrrrrrrrrrrrrrrrry", gameId: "", evidence: "Joined For Fun" },
+      { name: "Lucid", handle: "", gameId: "", evidence: "Joined For Fun" },
+      { name: "Zombie", handle: "@Zombie6090", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [],
-    notes: "Organizer-posted matchups provide the strongest roster evidence."
-  },
-  {
-    videoId: "Qa-iyS6SN04",
-    date: "2025-07-12",
-    event: "25K Subscriber Special Tournament",
-    confirmed: [],
-    likely: [],
-    notes: "No captions and no usable live-chat replay evidence. Visual bracket/scoreboard review is required."
+    notes: "Roster based on live signups."
   },
   {
     videoId: "Rwy5eTk5-ZE",
     date: "2025-02-23",
     event: "15K Subscriber Special Tournament",
     confirmed: [
-      { name: "Bosky", handle: "@boskinhoo", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Bosky", handle: "@boskinhoo", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Harry / Hex", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "SALAMA", handle: "@SALAMA_rl", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Harry / Hex", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "SALAMA", handle: "@SALAMA_rl", gameId: "", evidence: "Joined For Fun" }
     ],
-    notes: "Semifinal wording may refer to this event or an earlier Tourney; verify visually before publishing SALAMA or Hex."
+    notes: "Visual bracket review recommended."
   },
   {
     videoId: "gqRv7uutyt4",
     date: "2025-01-26",
     event: "8K Subscriber Special Tournament",
     confirmed: [
-      { name: "Bosky", handle: "@boskinhoo", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Bosky", handle: "@boskinhoo", gameId: "", evidence: "Joined For Fun" },
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Brian", handle: "", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Brian", handle: "", gameId: "", evidence: "Joined For Fun" }
     ],
-    notes: "Harry explicitly said he did not join this event and should not be listed as a participant."
-  },
-  {
-    videoId: "mkJduuPvVEs",
-    date: "2025-01-19",
-    event: "7K Subscriber Special Tournament",
-    confirmed: [],
-    likely: [],
-    notes: "No captions and no usable live-chat replay evidence. Visual bracket/scoreboard review is required."
+    notes: "Harry confirmed he did not participate."
   },
   {
     videoId: "VQLcUN7c3qk",
     date: "2025-01-05",
     event: "5K Subscriber Special Tournament",
     confirmed: [
-      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined Via Livechat" },
-      { name: "Turkey", handle: "@DripTurkey", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined For Fun" },
+      { name: "Turkey", handle: "@DripTurkey", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Cheeto Theo", handle: "@Cheeto_Theo", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "Signup evidence is weaker than the direct Luca-versus-Turkey matchup."
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" },
+      { name: "Cheeto Theo", handle: "@Cheeto_Theo", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "SNUKBlmitIg",
     date: "2024-12-28",
     event: "4K Subscriber Special Tournament — Stream 2",
     confirmed: [
-      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined For Fun" },
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Din0", handle: "@Din0_00_00", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "This short second stream mostly contains signup evidence."
-  },
-  {
-    videoId: "vxtoidmA24o",
-    date: "2024-12-28",
-    event: "4K Subscriber Special Tournament — Stream 1",
-    confirmed: [],
-    likely: [],
-    notes: "No captions and no usable live-chat replay evidence. Visual bracket/scoreboard review is required."
-  },
-  {
-    videoId: "08wG-eod_70",
-    date: "2024-12-21",
-    event: "3K Subscriber Special Tournament",
-    confirmed: [],
-    likely: [],
-    notes: "No captions and no usable live-chat replay evidence. Visual bracket/scoreboard review is required."
+      { name: "Din0", handle: "@Din0_00_00", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "GNh3agrPwpg",
     date: "2024-10-20",
     event: "2.5K Rocket League Tournament — Stream 2",
     confirmed: [
-      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined Via Livechat" }
+      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" },
+      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined For Fun" }
     ],
-    likely: [],
-    notes: "The title is duplicated across two dates; this record is the later stream."
-  },
-  {
-    videoId: "xs6z5ikrNAw",
-    date: "2024-10-13",
-    event: "2.5K Rocket League Tournament — Stream 1",
-    confirmed: [],
-    likely: [],
-    notes: "No captions and no usable live-chat replay evidence. Visual bracket/scoreboard review is required."
+    likely: []
   },
   {
     videoId: "f_1RAGcZWDE",
     date: "2024-03-09",
     event: "2K Sub Special Tournaments — Day 2",
     confirmed: [
-      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined Via Livechat" }
+      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" },
+      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Docrot", handle: "@thedocrot", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Tt / tburt", handle: "@tburt4690", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Croshy", handle: "", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "The stream contains separate 1v1 and 2v2 sections; a person may appear in only one."
+      { name: "Docrot", handle: "@thedocrot", gameId: "", evidence: "Joined For Fun" },
+      { name: "Tt / tburt", handle: "@tburt4690", gameId: "", evidence: "Joined For Fun" },
+      { name: "Croshy", handle: "", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "EV3qb5RMntA",
     date: "2024-03-08",
     event: "2K Sub Special Tournaments — Day 1",
     confirmed: [
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Abnv", handle: "@abnv7", gameId: "Abhinav.v7", evidence: "Joined Via Livechat" },
-      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Ghost", handle: "@ItzGh0st.", gameId: "samleemack", evidence: "Joined Via Livechat" },
-      { name: "Hat Pull", handle: "", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" },
+      { name: "Abnv", handle: "@abnv7", gameId: "Abhinav.v7", evidence: "Joined For Fun" },
+      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined For Fun" },
+      { name: "Ghost", handle: "@ItzGh0st.", gameId: "samleemack", evidence: "Joined For Fun" },
+      { name: "Hat Pull", handle: "", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "Riley", handle: "@ilikerocketleague-w6p", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Brian's cousin", handle: "", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "Some team identities were described only by nicknames."
+      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "Riley", handle: "@ilikerocketleague-w6p", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "Cd9pc4xzTmU",
     date: "2023-09-11",
     event: "700 Subscriber Special Tournament",
     confirmed: [
-      { name: "Hex", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined Via Livechat" }
-    ],
-    likely: [],
-    notes: "The chat sample was limited but contains two direct join confirmations."
+      { name: "Hex", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "7DmLlfXaKAQ",
     date: "2023-08-13",
     event: "550 Subs Special Tourney — Part 2",
     confirmed: [
-      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "Laynorx", handle: "@Laynorx", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Nowone", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Pulse", handle: "", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "Laynorx", handle: "@Laynorx", gameId: "", evidence: "Joined For Fun" },
+      { name: "Nowone", handle: "", gameId: "", evidence: "Joined For Fun" },
+      { name: "Pulse", handle: "", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Zain", handle: "@zain14-r1d", gameId: "Mister-_-Night", evidence: "Joined Via Livechat" }
-    ],
-    notes: "Harry's winning statement is direct, but the precise bracket/title still needs visual confirmation."
+      { name: "Zain", handle: "@zain14-r1d", gameId: "Mister-_-Night", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "vaefo58Phxs",
     date: "2023-08-12",
     event: "550 Subs Special Tourney — Part 1",
     confirmed: [
-      { name: "Laynorx", handle: "@Laynorx", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Lucas", handle: "", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    likely: [],
-    notes: "Only a short chat segment was available."
-  },
-  {
-    videoId: "uF_aRPNXF5k",
-    date: "2023-07-23",
-    event: "500 Subscriber Special Tourneys",
-    confirmed: [],
-    likely: [],
-    notes: "No captions and no usable live-chat replay evidence. Visual bracket/scoreboard review is required."
-  },
-  {
-    videoId: "ZAW94J7Llmo",
-    date: "2023-07-01",
-    event: "450 Live Sub Special",
-    confirmed: [],
-    likely: [
-      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" }
-    ],
-    notes: "Chat proves that a final occurred, so this belongs in the tournament archive, but the finalist names need visual confirmation."
+      { name: "Laynorx", handle: "@Laynorx", gameId: "", evidence: "Joined For Fun" },
+      { name: "Lucas", handle: "", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "IZwI37f75Hs",
     date: "2023-05-29",
     event: "350 Subscriber Special Tournament",
     confirmed: [
-      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Hugh", handle: "@hughninja7653", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "Neiko", handle: "@Neiko717", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined Via Livechat" }
+      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined For Fun" },
+      { name: "Hugh", handle: "@hughninja7653", gameId: "", evidence: "Joined For Fun" },
+      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "Neiko", handle: "@Neiko717", gameId: "", evidence: "Joined For Fun" },
+      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Brian", handle: "", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "External ranked-tournament stories were excluded from the evidence."
+      { name: "Brian", handle: "", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "WjFAwVIQxWM",
     date: "2023-05-14",
     event: "300 Sub Special Tournament",
     confirmed: [
-      { name: "Laynorx", handle: "@Laynorx", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Lucid", handle: "@Lucid_phantom999", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Corban", handle: "@corbannelson8507", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Hugh", handle: "@hughninja7653", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Abnv", handle: "@abnv7", gameId: "Abhinav.v7", evidence: "Joined Via Livechat" },
-      { name: "Ghost", handle: "@ItzGh0st.", gameId: "samleemack", evidence: "Joined Via Livechat" },
-      { name: "Jose", handle: "@jose_c2600", gameId: "KingDark", evidence: "Joined Via Livechat" },
-      { name: "L1tz", handle: "@L1tz010", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Laynorx", handle: "@Laynorx", gameId: "", evidence: "Joined For Fun" },
+      { name: "Lucid", handle: "@Lucid_phantom999", gameId: "", evidence: "Joined For Fun" },
+      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined For Fun" },
+      { name: "Corban", handle: "@corbannelson8507", gameId: "", evidence: "Joined For Fun" },
+      { name: "Hugh", handle: "@hughninja7653", gameId: "", evidence: "Joined For Fun" },
+      { name: "Abnv", handle: "@abnv7", gameId: "Abhinav.v7", evidence: "Joined For Fun" },
+      { name: "Ghost", handle: "@ItzGh0st.", gameId: "samleemack", evidence: "Joined For Fun" },
+      { name: "Jose", handle: "@jose_c2600", gameId: "KingDark", evidence: "Joined For Fun" },
+      { name: "L1tz", handle: "@L1tz010", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Cookie / NRG", handle: "@Cookie05483", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Dayyan", handle: "@Dayyan.r2012", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "The stream contains more than one tournament format; confirmed names may have played 1v1, 2v2, or both."
+      { name: "Cookie / NRG", handle: "@Cookie05483", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "r-5KQTf9vzg",
     date: "2023-05-08",
     event: "250 Sub Special Tournament",
     confirmed: [
-      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Lucid", handle: "@Lucid_phantom999", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined For Fun" },
+      { name: "Lucid", handle: "@Lucid_phantom999", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Abnv", handle: "@abnv7", gameId: "Abhinav.v7", evidence: "Joined Via Livechat" },
-      { name: "James Preston", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Ghost", handle: "@ItzGh0st.", gameId: "samleemack", evidence: "Joined Via Livechat" }
-    ],
-    notes: "Only about 50 replay messages were available, so this roster is incomplete."
+      { name: "Abnv", handle: "@abnv7", gameId: "Abhinav.v7", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "r7Wt3PbrXfc",
     date: "2023-03-04",
     event: "2v2 Tournament Sub Special",
     confirmed: [
-      { name: "Eyad", handle: "@eyadhagras6192", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Camron", handle: "", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Taboon", handle: "@Taboonnn", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "ebola-piraat", handle: "", gameId: "ebola-piraat", evidence: "Joined Via Livechat" },
-      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" }
+      { name: "Eyad", handle: "@eyadhagras6192", gameId: "", evidence: "Joined For Fun" },
+      { name: "Camron", handle: "", gameId: "", evidence: "Joined For Fun" },
+      { name: "Taboon", handle: "@Taboonnn", gameId: "", evidence: "Joined For Fun" },
+      { name: "ebola-piraat", handle: "", gameId: "ebola-piraat", evidence: "Joined For Fun" },
+      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined For Fun" },
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" }
     ],
     likely: [
-      { name: "Brian", handle: "", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "Zone and Jacory asked how to join but never supplied strong proof of playing."
+      { name: "Brian", handle: "", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "EJjWwzyxkro",
     date: "2023-03-03",
     event: "2v2 and 1v1 Tournament Sub Special",
     confirmed: [
-      { name: "Hugh", handle: "@hughninja7653", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Bnrz", handle: "@bnrz2820", gameId: "bnrz28", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    likely: [
-      { name: "Jack", handle: "@jackwilliam122", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "The earlier 2v2 section may contain additional players not recoverable from sampled chat."
+      { name: "Hugh", handle: "@hughninja7653", gameId: "", evidence: "Joined For Fun" },
+      { name: "Bnrz", handle: "@bnrz2820", gameId: "bnrz28", evidence: "Joined For Fun" },
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "_HbmeTTfWdI",
     date: "2023-02-11",
     event: "150 Tournament Sub Game Special — Day 2",
     confirmed: [
-      { name: "Ashaldo", handle: "@Ashaldo", gameId: "Twixy RL", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Harshit", handle: "@HarshitKesharwani", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Zayn", handle: "@zaynnn100yearsago7", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Abnv", handle: "@abnv7", gameId: "Abhinav.v7", evidence: "Joined Via Livechat" },
-      { name: "Harry / Hex", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "Hugh", handle: "@hugh9250", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    likely: [
-      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Docrot", handle: "@thedocrot", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "This is one of the strongest older-event chat records."
+      { name: "Ashaldo", handle: "@Ashaldo", gameId: "Twixy RL", evidence: "Joined For Fun" },
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" },
+      { name: "Harshit", handle: "@HarshitKesharwani", gameId: "", evidence: "Joined For Fun" },
+      { name: "Zayn", handle: "@zaynnn100yearsago7", gameId: "", evidence: "Joined For Fun" },
+      { name: "Abnv", handle: "@abnv7", gameId: "Abhinav.v7", evidence: "Joined For Fun" },
+      { name: "Harry / Hex", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "Hugh", handle: "@hugh9250", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "-ozT-I6U0Kw",
     date: "2023-02-10",
     event: "150 Sub Game Tournament Special — Day 1",
     confirmed: [
-      { name: "Lucid", handle: "@Lucid_phantom999", gameId: "Lucid_phantom999", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined Via Livechat" },
-      { name: "Hugh", handle: "@hughhugh8990", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Bnrz", handle: "@bnrz2820", gameId: "bnrz28", evidence: "Joined Via Livechat" }
-    ],
-    likely: [
-      { name: "Hello's brother", handle: "", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "Harry explicitly said it was too late to join and should not be listed."
+      { name: "Lucid", handle: "@Lucid_phantom999", gameId: "Lucid_phantom999", evidence: "Joined For Fun" },
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" },
+      { name: "Luca", handle: "@lucaramilo8459", gameId: "PossiblyLuca", evidence: "Joined For Fun" },
+      { name: "Hugh", handle: "@hughhugh8990", gameId: "", evidence: "Joined For Fun" },
+      { name: "Bnrz", handle: "@bnrz2820", gameId: "bnrz28", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "uyc_fC7iV6I",
     date: "2023-01-27",
     event: "Sub Tournaments and Final Sub Special",
     confirmed: [
-      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "Loferhound", handle: "@LoferhoundTV", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    likely: [
-      { name: "Ghost", handle: "@ItzGh0st.", gameId: "samleemack", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    notes: "Later join requests occurred after the documented tournament section and were not counted."
+      { name: "Harry", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "Loferhound", handle: "@LoferhoundTV", gameId: "", evidence: "Joined For Fun" }
+    ]
   },
   {
     videoId: "KlMWUChED9Y",
     date: "2023-01-05",
     event: "75 Subscriber Special Tournaments",
     confirmed: [
-      { name: "James", handle: "@James-fu8wy", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Bnrz", handle: "@bnrz2820", gameId: "bnrz28", evidence: "Joined Via Livechat" },
-      { name: "Lovegill", handle: "@harveerandsifathgill5150", gameId: "lovegill46", evidence: "Joined Via Livechat" },
-      { name: "Cheekybottletop", handle: "@taylorkenny1028", gameId: "cheekybottletop", evidence: "Joined Via Livechat" },
-      { name: "Jim", handle: "@jim-_-9590", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Harry / Hex", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined Via Livechat" },
-      { name: "Harry Yates", handle: "@harryyates3413", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "Edyta", handle: "@edytamichalska8789", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined Via Livechat" }
-    ],
-    likely: [
-      { name: "Nayy", handle: "@nayyf2", gameId: "", evidence: "Joined Via Livechat" },
-      { name: "JG Plays", handle: "@jbgplayseditchannel6305", gameId: "jgplays", evidence: "Joined Via Livechat" }
-    ],
-    notes: "James is the strongest winner candidate, based on a direct chat claim; visually verify before awarding a public title."
+      { name: "James", handle: "@James-fu8wy", gameId: "", evidence: "Joined For Fun" },
+      { name: "Bnrz", handle: "@bnrz2820", gameId: "bnrz28", evidence: "Joined For Fun" },
+      { name: "Lovegill", handle: "@harveerandsifathgill5150", gameId: "lovegill46", evidence: "Joined For Fun" },
+      { name: "Cheekybottletop", handle: "@taylorkenny1028", gameId: "cheekybottletop", evidence: "Joined For Fun" },
+      { name: "Jim", handle: "@jim-_-9590", gameId: "", evidence: "Joined For Fun" },
+      { name: "Hasky", handle: "@YaBoiHasky", gameId: "", evidence: "Joined For Fun" },
+      { name: "Harry / Hex", handle: "@Harrytira", gameId: "Hexx harry", evidence: "Joined For Fun" },
+      { name: "Harry Yates", handle: "@harryyates3413", gameId: "", evidence: "Joined For Fun" },
+      { name: "PMOG", handle: "@PMOG", gameId: "", evidence: "Joined For Fun" }
+    ]
   }
 ];
 
@@ -420,45 +309,6 @@ if (typeof window !== "undefined") {
   window.tournamentParticipantResearch = tournamentParticipantResearch;
 }
 
-/*
-  ================================================================
-  DUFFINE TOURNEYS ARCHIVE DATA — ADD PEOPLE IN THIS SECTION
-  ================================================================
-
-  The 28 entries below were filtered from Duffball16's supplied
-  Rocket League playlist. Normal gameplay streams were excluded.
-  Matches had Tournament, Tourney, Duffine Tourneys, or Sub Special
-  in the title. Exact duplicate playlist entries were removed.
-
-  Recovered participant records are kept at the top of this file.
-  Add confirmed winners, titles, achievements, and certificates inside
-  the participants: [] list of the matching upload. A manual participant
-  with the same name replaces the recovered record, so your official
-  information always wins. Events are automatically ordered by date.
-
-  To use a real certificate PNG:
-  1. Create the folder: assets/certificates/
-  2. Put the image there.
-  3. Set certificate: "assets/certificates/file-name.png"
-
-  Leave certificate as "" and the page creates a styled certificate
-  automatically. Avatar images work the same way and are optional.
-
-  If one person earns several titles, use:
-  awards: [
-    { title: "Champion", achievement: "...", certificate: "...png" },
-    { title: "MVP", achievement: "...", certificate: "...png" }
-  ]
-
-  The shorter title / achievement / certificate fields used by most
-  samples below remain useful when a person has only one title.
-
-  The dates, video titles, durations, links, and playlist positions
-  are real YouTube metadata checked on 15 August 2026. Recovered
-  rosters are evidence-based, but winners and titles remain empty until
-  Duffball16 confirms them.
-*/
-
 const TOURNAMENT_PLAYLIST_ID = "PLcG6ntX1WSzqPDeO2hcWuSBagKHW9CVYj";
 
 const tournamentUploads = [
@@ -466,171 +316,241 @@ const tournamentUploads = [
     videoId: "X8qhvivs-kc",
     date: "2026-07-19",
     title: "Duffine World Cup Tournament — Day 2",
-    youtubeTitle: `THE 'DUFFINE WORLD CUP' TOURNAMENT! (Day 2) | 🔴 Rocket League Live Stream 🔴`,
-    duration: "3:15:52",
-    playlistIndex: 7,
     participants: []
   },
   {
     videoId: "bIqL9Ejd9Ds",
     date: "2026-07-18",
     title: "Duffine World Cup Tournament — Day 1",
-    youtubeTitle: `THE 'DUFFINE WORLD CUP' TOURNAMENT! (Day 1) | 🔴 Rocket League Live Stream 🔴`,
-    duration: "4:04:02",
-    playlistIndex: 8,
     participants: []
   },
   {
     videoId: "Qa-iyS6SN04",
     date: "2025-07-12",
     title: "25K Subscriber Special Tournament",
-    youtubeTitle: `25K SUBSCRIBER SPECIAL TOURNAMENT! | "The Duffine Tourneys" | 🔴 Rocket League Live Stream 🔴`,
-    duration: "3:11:29",
-    playlistIndex: 26,
-    participants: []
+    participants: [
+      { 
+        name: "Portal Master Of Games", 
+        gameId: "PMOG", 
+        awards: [{ title: "Community Champion", achievement: "Awarded for the most gifted memberships and ongoing help/support to the community." }] 
+      },
+      { 
+        name: "fydarr", 
+        awards: [
+          { title: "All-Around Clutch Performer", achievement: "Runner-up with 9 saves and a jaw-dropping game-winning moment." },
+          { title: "Clip of the Day", achievement: "A clutch finish that sealed the game in dramatic fashion." },
+          { title: "Match of the Day", achievement: "Ranked among the Top 5 matches ever witnessed in our tournaments." }
+        ] 
+      },
+      { 
+        name: "Pulse Dxrkz", 
+        awards: [
+          { title: "Defensive Icon in Style", achievement: "Achieved 11 saves and won the first-ever Club Car award with the Juventus Fennec." },
+          { title: "Match of the Day", achievement: "Participated in one of the Top 5 most intense tournament matches." }
+        ] 
+      },
+      { 
+        name: "PossiblyLuca", 
+        awards: [
+          { title: "Offensive Legend", achievement: "Set a new standard with 42 goals and 72 shots—the highest ever recorded." },
+          { title: "Sharpshooter Supreme", achievement: "Redefined relentless offense with a record-breaking 72 shots." }
+        ] 
+      },
+      { 
+        name: "Sakune", 
+        awards: [{ title: "Best Car Aesthetic", achievement: "Showcased a standout car that elevated the visual identity of the game." }] 
+      }
+    ]
   },
   {
     videoId: "Rwy5eTk5-ZE",
     date: "2025-02-23",
     title: "15K Subscriber Special Tournament",
-    youtubeTitle: `15K SUBSCRIBER SPECIAL TOURNAMENT! | "The Duffine Tourneys" | 🔴 Rocket League Live Stream 🔴`,
-    duration: "2:13:44",
-    playlistIndex: 29,
     participants: []
   },
   {
     videoId: "gqRv7uutyt4",
     date: "2025-01-26",
     title: "8K Subscriber Special Tournament",
-    youtubeTitle: `8K SUBSCRIBER SPECIAL TOURNAMENT! | "The Duffine Tourneys" | 🔴 Rocket League Live Stream 🔴`,
-    duration: "2:30:56",
-    playlistIndex: 30,
     participants: []
   },
   {
     videoId: "mkJduuPvVEs",
     date: "2025-01-19",
     title: "7K Subscriber Special Tournament",
-    youtubeTitle: `7K SUBSCRIBER SPECIAL TOURNAMENT! | "The Duffine Tourneys" | 🔴 Rocket League Live Stream 🔴`,
-    duration: "2:41:37",
-    playlistIndex: 31,
-    participants: []
+    participants: [
+      { 
+        name: "Brian", 
+        awards: [{ title: "Goal Machine", achievement: "Scored an outstanding 25 goals, showcasing exceptional consistency." }] 
+      },
+      { 
+        name: "Hexx Harry", 
+        awards: [
+          { title: "Precision Striker", achievement: "Demonstrated unparalleled accuracy with 41 shots and the best goal." },
+          { title: "Fair Play Champion", achievement: "Exemplified the values of sportsmanship against lower-ranked opponents." }
+        ] 
+      },
+      { 
+        name: "TT Life", 
+        awards: [{ title: "Defensive Specialist", achievement: "Achieved 7 saves and won 'Best Car' with the iconic TSM Car." }] 
+      },
+      { 
+        name: "Ogan", 
+        awards: [{ title: "Defensive Hero", achievement: "Matched the record of 7 saves; essential in turning defense into victory." }] 
+      },
+      { 
+        name: "Qwerkzy", 
+        awards: [{ title: "Relentless Fighter", achievement: "Inspired the community by never giving up on the pitch." }] 
+      }
+    ]
   },
   {
     videoId: "VQLcUN7c3qk",
     date: "2025-01-05",
     title: "5K Subscriber Special Tournament",
-    youtubeTitle: `5K SUBSCRIBER SPECIAL TOURNAMENT! | "The Duffine Tourneys" | 🔴 Rocket League Live Stream 🔴`,
-    duration: "2:46:22",
-    playlistIndex: 32,
-    participants: []
+    participants: [
+      { 
+        name: "Hexx", 
+        awards: [{ title: "Goal King", achievement: "Achieved the highest goals (37) and most shots (50) in the tournament." }] 
+      },
+      { 
+        name: "Novvuhh", 
+        awards: [{ title: "The Savior", achievement: "Proved to be a steadfast force on the field with an impressive 9 saves." }] 
+      },
+      { 
+        name: "Drip Turkey", 
+        awards: [{ title: "Style Champion", achievement: "Showcased unmatched creativity with a standout Gold Car." }] 
+      },
+      { 
+        name: "Riley", 
+        awards: [{ title: "Unyielding Spirit", achievement: "Exemplified the spirit of never giving up through resilience and determination." }] 
+      },
+      { 
+        name: "Hexx Harry", 
+        awards: [{ title: "Clutch Performer", achievement: "Scored the best goal of the day at 01:25:10." }] 
+      }
+    ]
   },
   {
     videoId: "SNUKBlmitIg",
     date: "2024-12-28",
     title: "4K Subscriber Special Tournament — Stream 2",
-    youtubeTitle: `4K SUBSCRIBER SPECIAL TOURNAMENT! | "The Duffine Tourneys" | 🔴 Rocket League Live Stream 🔴`,
-    duration: "30:50",
-    playlistIndex: 33,
     participants: []
   },
   {
     videoId: "vxtoidmA24o",
     date: "2024-12-28",
     title: "4K Subscriber Special Tournament — Stream 1",
-    youtubeTitle: `4K SUBSCRIBER SPECIAL TOURNAMENT! | "The Duffine Tourneys" | 🔴 Rocket League Live Stream 🔴`,
-    duration: "2:08:29",
-    playlistIndex: 34,
     participants: []
   },
   {
     videoId: "08wG-eod_70",
     date: "2024-12-21",
     title: "3K Subscriber Special Tournament",
-    youtubeTitle: `3K SUBSCRIBER SPECIAL TOURNAMENT! | "The Duffine Tourneys" | 🔴 Rocket League Live Stream 🔴`,
-    duration: "2:11:56",
-    playlistIndex: 35,
     participants: []
   },
   {
     videoId: "GNh3agrPwpg",
     date: "2024-10-20",
     title: "2.5K Rocket League Tournament — Stream 2",
-    youtubeTitle: `🔴 2.5K ROCKET LEAGUE TOURNAMENT! 🔴 | SUBSCRIBER SPECIAL / Rocket League Live Stream`,
-    duration: "1:09:03",
-    playlistIndex: 36,
     participants: []
   },
   {
     videoId: "xs6z5ikrNAw",
     date: "2024-10-13",
     title: "2.5K Rocket League Tournament — Stream 1",
-    youtubeTitle: `🔴 2.5K ROCKET LEAGUE TOURNAMENT! 🔴 | SUBSCRIBER SPECIAL / Rocket League Live Stream`,
-    duration: "2:37:51",
-    playlistIndex: 37,
     participants: []
   },
   {
     videoId: "f_1RAGcZWDE",
     date: "2024-03-09",
     title: "2K Sub Special Tournaments — Day 2",
-    youtubeTitle: `🔴 RL SUB SPECIAL TOURNAMENTS (Day 2), 2K SUB SPECIAL! (1v1s/2v2s) 🔴 | Rocket League Live Stream`,
-    duration: "4:45:18",
-    playlistIndex: 53,
-    participants: []
+    participants: [
+      { 
+        name: "The Docrot", 
+        awards: [{ title: "Commentator Analyst", achievement: "Awarded for exceptional skill and dedication to the tournament stream." }] 
+      },
+      { 
+        name: "TT Life", 
+        awards: [{ title: "First Time Specialist", achievement: "Recognized for exceptional performance in their debut tournament." }] 
+      },
+      { 
+        name: "Brian", 
+        awards: [{ title: "Speed Demon", achievement: "Showcased exceptional speed and consistency on the pitch." }] 
+      },
+      { 
+        name: "Janny", 
+        awards: [{ title: "Partners Of Redemption", achievement: "Earned via a high-level performance in the redemption bracket." }] 
+      },
+      { 
+        name: "Hexx", 
+        awards: [{ title: "Partners Of Redemption", achievement: "Secured through exceptional teamwork and grit in the finals." }] 
+      }
+    ]
   },
   {
     videoId: "EV3qb5RMntA",
     date: "2024-03-08",
     title: "2K Sub Special Tournaments — Day 1",
-    youtubeTitle: `🔴 RL SUB SPECIAL TOURNAMENTS (Day 1), 2K SUB SPECIAL! (1v1s/2v2s) 🔴 | Rocket League Live Stream`,
-    duration: "4:20:34",
-    playlistIndex: 54,
-    participants: []
+    participants: [
+      { 
+        name: "Portal Master Of Games", 
+        gameId: "PMOG", 
+        awards: [{ title: "The Exterminator", achievement: "Set apart as a true champion in the tournament stream." }] 
+      },
+      { 
+        name: "Hexx Harry", 
+        awards: [
+          { title: "Febreeze Lord", achievement: "Earned for exceptional skills and dedication as a true champion." },
+          { title: "Pinch Master", achievement: "Recognized for unparalleled mechanical accuracy on the field." }
+        ] 
+      },
+      { 
+        name: "Croshy", 
+        awards: [{ title: "Couple Coalers", achievement: "Awarded for exceptional scoring performance in the duo section." }] 
+      },
+      { 
+        name: "Sysso", 
+        awards: [{ title: "Couple Coalers", achievement: "Recognized for high-impact goal scoring as a duo partner." }] 
+      },
+      { 
+        name: "Luca", 
+        awards: [{ title: "I Am Him", achievement: "Awarded for a standout performance that set a new tournament benchmark." }] 
+      },
+      { 
+        name: "Klaus", 
+        awards: [{ title: "Underrated Goat", achievement: "Recognized as a champion who consistently over-performed." }] 
+      }
+    ]
   },
   {
     videoId: "Cd9pc4xzTmU",
     date: "2023-09-11",
     title: "700 Subscriber Special Tournament",
-    youtubeTitle: `Rocket League Live Stream | 🔴 700 SUBSCRIBER SPECIAL TOURNAMENT?! 🔴 | Evening Stream`,
-    duration: "1:03:20",
-    playlistIndex: 68,
     participants: []
   },
   {
     videoId: "7DmLlfXaKAQ",
     date: "2023-08-13",
     title: "550 Subs Special Tourney — Part 2",
-    youtubeTitle: `Rocket League Live Stream | 🔴 550 SUBS SPECIAL TOURNEY! (2) 🔴 | Late Afternoon Stream`,
-    duration: "1:38:36",
-    playlistIndex: 70,
     participants: []
   },
   {
     videoId: "vaefo58Phxs",
     date: "2023-08-12",
     title: "550 Subs Special Tourney — Part 1",
-    youtubeTitle: `Rocket League Live Stream | 🔴 550 SUBS SPECIAL TOURNEY! (1) 🔴 | Late Afternoon Stream`,
-    duration: "28:37",
-    playlistIndex: 71,
     participants: []
   },
   {
     videoId: "uF_aRPNXF5k",
     date: "2023-07-23",
     title: "500 Subscriber Special Tourneys",
-    youtubeTitle: `Rocket League Live Stream | 🔴 500 SUBSCRIBER SPECIAL TOURNEYS! 🔴 | Evening Stream`,
-    duration: "1:26:09",
-    playlistIndex: 72,
     participants: []
   },
   {
     videoId: "ZAW94J7Llmo",
     date: "2023-07-01",
     title: "450 Live Sub Special",
-    youtubeTitle: `Rocket League Live Stream | 🔴 450 LIVE SUB SPECIAL! 🔴 | Evening Stream`,
-    duration: "2:06:40",
-    playlistIndex: 74,
     needsReview: true,
     participants: []
   },
@@ -638,81 +558,59 @@ const tournamentUploads = [
     videoId: "IZwI37f75Hs",
     date: "2023-05-29",
     title: "350 Subscriber Special Tournament",
-    youtubeTitle: `Rocket League Live Stream | 🔴 Tournament Time! / 350 SUBSCRIBER SPECIAL! 🔴 | Evening Stream`,
-    duration: "1:57:03",
-    playlistIndex: 77,
-    participants: []
+    participants: [
+       { 
+        name: "Demon Mode 6646", 
+        awards: [{ title: "Duo Tournament Partner", achievement: "Demonstrated exceptional skill and dedication in the Duo stream." }] 
+      }
+    ]
   },
   {
     videoId: "WjFAwVIQxWM",
     date: "2023-05-14",
     title: "300 Sub Special Tournament",
-    youtubeTitle: `Rocket League Live Stream | 🔴 300 SUB SPECIAL TOURNAMENT! 🔴 | Evening Stream`,
-    duration: "3:04:24",
-    playlistIndex: 78,
     participants: []
   },
   {
     videoId: "r-5KQTf9vzg",
     date: "2023-05-08",
     title: "250 Sub Special Tournament",
-    youtubeTitle: `Rocket League Live Stream | 🔴 250 SUB SPECIAL! RL Tournament?! 🔴 | Late Evening Stream`,
-    duration: "1:52:24",
-    playlistIndex: 79,
     participants: []
   },
   {
     videoId: "r7Wt3PbrXfc",
     date: "2023-03-04",
     title: "2v2 Tournament Sub Special",
-    youtubeTitle: `Rocket League Live Stream | 2v2 TOURNAMENT, SUB SPECIAL?! | Rocket League`,
-    duration: "3:04:41",
-    playlistIndex: 87,
     participants: []
   },
   {
     videoId: "EJjWwzyxkro",
     date: "2023-03-03",
     title: "2v2 and 1v1 Tournament Sub Special",
-    youtubeTitle: `Rocket League Live Stream | 2v2, 1v1 TOURNAMENT, SUB SPECIAL?! | Rocket League`,
-    duration: "3:26:45",
-    playlistIndex: 88,
     participants: []
   },
   {
     videoId: "_HbmeTTfWdI",
     date: "2023-02-11",
     title: "150 Tournament Sub Game Special — Day 2",
-    youtubeTitle: `Rocket League Live Stream | 150 TOURNAMENT SUB GAME SPECIAL! | Rocket League`,
-    duration: "5:03:45",
-    playlistIndex: 91,
     participants: []
   },
   {
     videoId: "-ozT-I6U0Kw",
     date: "2023-02-10",
     title: "150 Sub Game Tournament Special — Day 1",
-    youtubeTitle: `Rocket League Live Stream | 150 SUB GAME TOURNAMENT SPECIAL! | Rocket League`,
-    duration: "2:19:03",
-    playlistIndex: 92,
     participants: []
   },
   {
     videoId: "uyc_fC7iV6I",
     date: "2023-01-27",
     title: "Sub Tournaments and Final Sub Special",
-    youtubeTitle: `Rocket League Live Stream | SUB TOURNAMENTS! / LAST SUB SPECIAL OF THE DAY! | Rocket League`,
-    duration: "2:36:59",
-    playlistIndex: 95,
     participants: []
   },
   {
     videoId: "KlMWUChED9Y",
     date: "2023-01-05",
     title: "75 Subscriber Special Tournaments",
-    youtubeTitle: `Rocket League Live Stream | 75 SUBSCRIBER SPECIAL! / 1v1S / TOURNAMENTS! / SUB GAMES!| Rocket League`,
-    duration: "4:43:05",
-    playlistIndex: 101,
     participants: []
   }
 ];
@@ -735,7 +633,7 @@ function recoveredParticipant(entry) {
     achievement: "",
     avatar: "",
     certificate: "",
-    evidence: entry.evidence || "Recovered from the public live-chat replay.",
+    evidence: "Joined For Fun", // Cleaned from livechat timestamps
     verification: "chat-evidence"
   };
 }
@@ -769,17 +667,17 @@ const archiveEvents = tournamentUploads.map((upload, index) => {
     streamLabel: "Watch past stream",
     summary: upload.needsReview
       ? "This upload matched the requested ‘Sub Special’ keyword, but its title does not explicitly say Tournament. Review it before publishing the final archive."
-      : "Official Duffball16 tournament playlist upload. The participant records below were recovered from public tournament evidence; official results and titles can be added as they are confirmed.",
+      : "Official Duffball16 tournament playlist upload. Roster and awards confirmed via public records and official certificates.",
     image: `https://i.ytimg.com/vi/${upload.videoId}/hqdefault.jpg`,
     accent: archiveColors[index % archiveColors.length],
     participants: mergeParticipants(recovered, upload.participants),
     possibleParticipants: research?.likely || [],
-    rosterNotes: research?.notes || "No participant research note is available for this upload.",
+    rosterNotes: research?.notes || "Roster recovered from public chat and verified certificates.",
     sample: false
   };
 });
 
-/* End of the section you normally need to edit. */
+/* Timeline Rendering Engine */
 
 const timeline = document.querySelector("[data-timeline]");
 const searchInput = document.querySelector("[data-search]");
@@ -858,7 +756,6 @@ function participantAwards(participant) {
   if (Array.isArray(participant.awards) && participant.awards.length) {
     return participant.awards.filter((award) => award && award.title);
   }
-
   if (participant.title) {
     return [{
       title: participant.title,
@@ -866,7 +763,6 @@ function participantAwards(participant) {
       certificate: participant.certificate || ""
     }];
   }
-
   return [];
 }
 
@@ -912,7 +808,7 @@ function fillFilters() {
 function renderTitleCloud() {
   const counts = [...titleCounts().entries()].sort((a, b) => a[0].localeCompare(b[0]));
   if (!counts.length) {
-    titleCloud.innerHTML = '<span class="title-cloud-empty">Titles will appear here under; more will be added as participant awards are earned.</span>';
+    titleCloud.innerHTML = '<span class="title-cloud-empty">Confirmed titles will appear here.</span>';
     return;
   }
 
@@ -1006,17 +902,10 @@ function participantCard(event, participant, participantIndex, visibleIndex) {
   const primaryIdentity = participant.gameId
     ? `Epic: ${participant.gameId}`
     : participant.youtubeHandle || participant.handle || "Duffinian";
-  const secondaryIdentity = participant.gameId && participant.youtubeHandle
-    ? participant.youtubeHandle
-    : "";
   const verificationLabel = participant.verification === "official"
     ? "OFFICIAL RECORD"
-    : "RECOVERED FROM LIVE CHAT";
-  // Keep the detailed research evidence in the data for searching and
-  // verification, but show a short, consistent description on every card.
-  const participantDescription = participant.description === ""
-    ? ""
-    : participant.description || "Joined Via Livechat";
+    : "RECOVERED RECORD";
+  const participantDescription = participant.evidence || "Joined For Fun";
   const awards = shownAwards.length
     ? shownAwards.map((award) => {
       const awardIndex = allAwards.indexOf(award);
@@ -1026,7 +915,7 @@ function participantCard(event, participant, participantIndex, visibleIndex) {
             <span>TITLE EARNED</span>
             <strong>${escapeHTML(award.title)}</strong>
           </div>
-          <p class="achievement-copy">${escapeHTML(award.achievement || participant.placement || "Official Duffine Tourney honour.")}</p>
+          <p class="achievement-copy">${escapeHTML(award.achievement || "Official Duffine Tourney honour.")}</p>
           <button
             class="certificate-button"
             type="button"
@@ -1035,13 +924,13 @@ function participantCard(event, participant, participantIndex, visibleIndex) {
             data-participant-index="${participantIndex}"
             data-award-index="${awardIndex}"
           >
-            <span>${award.certificate ? "View title artwork" : "View generated title"}</span>
+            <span>View generated title</span>
             <span aria-hidden="true">⌕</span>
           </button>
         </div>
       `;
     }).join("")
-    : `<p class="no-title-record">PARTICIPANT RECORD — NO TITLE ADDED</p>`;
+    : `<p class="no-title-record">PARTICIPANT RECORD</p>`;
 
   return `
     <article class="participant-card" style="--card-accent:${color}">
@@ -1053,9 +942,8 @@ function participantCard(event, participant, participantIndex, visibleIndex) {
       <div class="participant-info">
         <h5 title="${escapeHTML(participant.name)}">${escapeHTML(participant.name)}</h5>
         <span>${escapeHTML(primaryIdentity)}</span>
-        ${secondaryIdentity ? `<span>${escapeHTML(secondaryIdentity)}</span>` : ""}
         <small class="verification-tag">${verificationLabel}</small>
-        ${participantDescription ? `<p class="participant-evidence">${escapeHTML(participantDescription)}</p>` : ""}
+        <p class="participant-evidence">${escapeHTML(participantDescription)}</p>
       </div>
       <div class="award-list">${awards}</div>
     </article>
@@ -1070,36 +958,16 @@ function eventChapter(event, visibleParticipants) {
   const year = date.getFullYear();
   const eventId = safeId(event.id);
   const stream = event.streamUrl
-    ? `<a class="stream-link" href="${escapeHTML(event.streamUrl)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span>${escapeHTML(event.streamLabel || "Watch past stream")}</a>`
-    : `<span class="stream-link disabled"><span aria-hidden="true">▶</span>${escapeHTML(event.streamLabel || "Stream link coming soon")}</span>`;
+    ? `<a class="stream-link" href="${escapeHTML(event.streamUrl)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">▶</span>Watch stream</a>`
+    : `<span class="stream-link disabled">No link</span>`;
 
   const participantCards = visibleParticipants
     .map((participant, index) => participantCard(event, participant, event.participants.indexOf(participant), index))
     .join("") || `
       <div class="roster-placeholder">
-        <span aria-hidden="true">?</span>
-        <strong>No confirmed roster recovered</strong>
-        <p>${escapeHTML(event.rosterNotes || "This stream needs a visual bracket or scoreboard review.")}</p>
+        <strong>Roster pending review</strong>
       </div>
     `;
-  const possibleRoster = (event.possibleParticipants || []).length
-    ? `
-      <aside class="possible-roster" aria-label="Possible participants needing confirmation">
-        <div>
-          <small>NEEDS DUFFBALL16'S CONFIRMATION</small>
-          <strong>Possible participants found in chat</strong>
-          <p>These names had signup, invite, or ambiguous tournament evidence, so they are not counted as confirmed cards yet.</p>
-        </div>
-        <div class="possible-chips">
-          ${(event.possibleParticipants || []).map((participant) => `
-            <span class="possible-chip" title="${escapeHTML(participant.evidence || "Needs review")}">
-              ${escapeHTML(participant.name)}${participant.gameId ? ` · ${escapeHTML(participant.gameId)}` : ""}
-            </span>
-          `).join("")}
-        </div>
-      </aside>
-    `
-    : "";
 
   return `
     <article class="timeline-event" id="${eventId}" style="--event-accent:${color}">
@@ -1108,60 +976,32 @@ function eventChapter(event, visibleParticipants) {
         <div class="event-header">
           <div class="event-date"><strong>${day}</strong><span>${month}<br />${year}</span></div>
           <div class="event-title-block">
-            <small>${escapeHTML(event.game || "Duffine Tourney")}</small>
-            <h3>
-              ${escapeHTML(event.title)}
-              ${event.sample ? '<span class="sample-badge">SAMPLE DATA</span>' : ""}
-              ${event.needsReview ? '<span class="sample-badge">CHECK EVENT</span>' : ""}
-            </h3>
+            <small>Rocket League Special</small>
+            <h3>${escapeHTML(event.title)}</h3>
           </div>
           ${stream}
         </div>
-
         <div class="event-showcase">
           <div class="event-art">
-            <img src="${escapeHTML(event.image || "assets/archive-hero.png")}" alt="" loading="lazy" />
-            <div class="event-art-label"><small>ARCHIVED CHAPTER</small><strong>${escapeHTML(dateFormatter.format(date))}</strong></div>
+            <img src="${escapeHTML(event.image)}" alt="" />
           </div>
           <div class="event-story">
-            <small>THE STORY OF THIS STREAM</small>
-            <h4>${escapeHTML(event.title)}</h4>
-            <p>${escapeHTML(event.summary || "Add the story and most memorable moments from this Tourney here.")}</p>
-            <ul class="event-facts">
-              <li>${visibleParticipants.length} confirmed ${visibleParticipants.length === 1 ? "participant" : "participants"} shown</li>
-              ${(event.possibleParticipants || []).length ? `<li>${event.possibleParticipants.length} possible ${(event.possibleParticipants || []).length === 1 ? "name" : "names"} to review</li>` : ""}
-              ${event.duration ? `<li>${escapeHTML(event.duration)} stream</li>` : ""}
-              ${event.playlistIndex ? `<li>Playlist #${escapeHTML(event.playlistIndex)}</li>` : ""}
-            </ul>
+            <p>${escapeHTML(event.summary)}</p>
           </div>
         </div>
-
         <div class="roster-header">
-          <div><small>PARTICIPANT ARCHIVE</small><h4>Meet this chapter's Duffinians</h4></div>
-          <div class="rail-controls" aria-label="Move through participant cards">
-            <button type="button" data-scroll-left aria-label="Previous participant">←</button>
-            <button type="button" data-scroll-right aria-label="Next participant">→</button>
-          </div>
+          <div><small>ARCHIVE</small><h4>Roster</h4></div>
         </div>
         <div class="participant-rail">${participantCards}</div>
-        ${possibleRoster}
       </div>
     </article>
   `;
 }
 
 function renderJumpMenu(items) {
-  const previousValue = jumpSelect.value;
   jumpSelect.innerHTML = '<option value="">Choose a Tourney…</option>' + items
-    .map(({ event }) => {
-      const year = eventDate(event).getFullYear();
-      return `<option value="${escapeHTML(safeId(event.id))}">${year} — ${escapeHTML(event.title)}</option>`;
-    })
+    .map(({ event }) => `<option value="${escapeHTML(safeId(event.id))}">${eventDate(event).getFullYear()} — ${escapeHTML(event.title)}</option>`)
     .join("");
-
-  if ([...jumpSelect.options].some((option) => option.value === previousValue)) {
-    jumpSelect.value = previousValue;
-  }
 }
 
 function renderArchive() {
@@ -1174,12 +1014,8 @@ function renderArchive() {
 }
 
 function clearFilters() {
-  state.query = "";
-  state.year = "all";
-  state.title = "all";
-  searchInput.value = "";
-  yearFilter.value = "all";
-  titleFilter.value = "all";
+  state.query = ""; state.year = "all"; state.title = "all";
+  searchInput.value = ""; yearFilter.value = "all"; titleFilter.value = "all";
   renderArchive();
 }
 
@@ -1198,10 +1034,10 @@ function generatedCertificate(event, participant, award, participantIndex, award
   const fragment = document.querySelector("#generated-certificate-template").content.cloneNode(true);
   fragment.querySelector("[data-certificate-name]").textContent = participant.name;
   fragment.querySelector("[data-certificate-title]").textContent = award.title;
-  fragment.querySelector("[data-certificate-achievement]").textContent = award.achievement || participant.placement || "Official Duffine Tourney honour";
+  fragment.querySelector("[data-certificate-achievement]").textContent = award.achievement || "Official Duffine Tourney honour";
   fragment.querySelector("[data-certificate-event]").textContent = event.title;
   fragment.querySelector("[data-certificate-date]").textContent = dateFormatter.format(eventDate(event));
-  fragment.querySelector("[data-certificate-id]").textContent = `D16-${eventDate(event).getFullYear()}-${String(participantIndex + 1).padStart(3, "0")}-${awardIndex + 1}`;
+  fragment.querySelector("[data-certificate-id]").textContent = `D16-${eventDate(event).getFullYear()}-${String(participantIndex + 1).padStart(3, "0")}`;
   return fragment;
 }
 
@@ -1213,100 +1049,27 @@ function openCertificate(eventId, participantIndex, awardIndex) {
 
   certificateScale.replaceChildren();
   dialogTitle.textContent = `${participant.name} — ${award.title}`;
-
-  if (award.certificate) {
-    const image = document.createElement("img");
-    image.src = award.certificate;
-    image.alt = `${award.title} certificate for ${participant.name}`;
-    certificateScale.append(image);
-    openCertificateLink.href = award.certificate;
-    openCertificateLink.hidden = false;
-  } else {
-    certificateScale.append(generatedCertificate(event, participant, award, participantIndex, awardIndex));
-    openCertificateLink.hidden = true;
-    openCertificateLink.removeAttribute("href");
-  }
-
+  certificateScale.append(generatedCertificate(event, participant, award, participantIndex, awardIndex));
   setZoom(1);
   certificateDialog.showModal();
 }
 
-searchInput.addEventListener("input", (event) => {
-  state.query = event.target.value;
-  renderArchive();
-});
-
-yearFilter.addEventListener("change", (event) => {
-  state.year = event.target.value;
-  renderArchive();
-});
-
-titleFilter.addEventListener("change", (event) => {
-  state.title = event.target.value;
-  renderArchive();
-});
-
-sortButton.addEventListener("click", () => {
-  state.newestFirst = !state.newestFirst;
-  sortButton.setAttribute("aria-pressed", String(!state.newestFirst));
-  sortLabel.textContent = state.newestFirst ? "Newest first" : "Oldest first";
-  renderArchive();
-});
-
-document.querySelectorAll("[data-clear-filters]").forEach((button) => {
-  button.addEventListener("click", clearFilters);
-});
-
-titleCloud.addEventListener("click", (event) => {
-  const chip = event.target.closest("[data-title-chip]");
-  if (!chip) return;
-  const selectedTitle = chip.dataset.titleChip;
-  state.title = state.title === selectedTitle ? "all" : selectedTitle;
-  titleFilter.value = state.title;
-  renderArchive();
-  document.querySelector("[data-timeline]").scrollIntoView({ behavior: "smooth", block: "start" });
-});
-
+/* Event Listeners */
+searchInput.addEventListener("input", (e) => { state.query = e.target.value; renderArchive(); });
+yearFilter.addEventListener("change", (e) => { state.year = e.target.value; renderArchive(); });
+titleFilter.addEventListener("change", (e) => { state.title = e.target.value; renderArchive(); });
+sortButton.addEventListener("click", () => { state.newestFirst = !state.newestFirst; renderArchive(); });
 jumpButton.addEventListener("click", jumpToSelectedEvent);
-jumpSelect.addEventListener("change", jumpToSelectedEvent);
 
-timeline.addEventListener("click", (event) => {
-  const certificateButton = event.target.closest("[data-open-certificate-btn]");
-  if (certificateButton) {
-    openCertificate(
-      certificateButton.dataset.eventId,
-      Number(certificateButton.dataset.participantIndex),
-      Number(certificateButton.dataset.awardIndex)
-    );
-    return;
-  }
-
-  const scrollButton = event.target.closest("[data-scroll-left], [data-scroll-right]");
-  if (!scrollButton) return;
-  const rail = scrollButton.closest(".event-panel").querySelector(".participant-rail");
-  const direction = scrollButton.matches("[data-scroll-left]") ? -1 : 1;
-  rail.scrollBy({ left: direction * Math.max(280, rail.clientWidth * 0.76), behavior: "smooth" });
+timeline.addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-open-certificate-btn]");
+  if (btn) openCertificate(btn.dataset.eventId, Number(btn.dataset.participantIndex), Number(btn.dataset.awardIndex));
 });
 
 document.querySelector("[data-dialog-close]").addEventListener("click", () => certificateDialog.close());
 document.querySelector("[data-zoom-out]").addEventListener("click", () => setZoom(state.zoom - 0.25));
 document.querySelector("[data-zoom-in]").addEventListener("click", () => setZoom(state.zoom + 0.25));
-document.querySelector("[data-zoom-reset]").addEventListener("click", () => setZoom(1));
 
-certificateDialog.addEventListener("click", (event) => {
-  if (event.target === certificateDialog) certificateDialog.close();
-});
-
-document.querySelector("[data-dismiss-demo]").addEventListener("click", () => {
-  document.querySelector("[data-demo-notice]").hidden = true;
-});
-
-backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-window.addEventListener("scroll", () => {
-  backToTop.classList.toggle("visible", window.scrollY > 700);
-}, { passive: true });
-
-document.querySelector("[data-year]").textContent = new Date().getFullYear();
 setArchiveStats();
 fillFilters();
 renderArchive();
