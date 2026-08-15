@@ -330,7 +330,7 @@ const tournamentUploads = [
     title: "25K Subscriber Special Tournament",
     participants: [
       { 
-        name: "Portal Master Of Games", 
+        name: "PMOG", 
         gameId: "PMOG", 
         awards: [{ title: "Community Champion", achievement: "Awarded for the most gifted memberships and ongoing help/support to the community." }] 
       },
@@ -494,7 +494,7 @@ const tournamentUploads = [
     title: "2K Sub Special Tournaments — Day 1",
     participants: [
       { 
-        name: "Portal Master Of Games", 
+        name: "PMOG", 
         gameId: "PMOG", 
         awards: [{ title: "The Exterminator", achievement: "Set apart as a true champion in the tournament stream." }] 
       },
