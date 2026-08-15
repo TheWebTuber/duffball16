@@ -936,7 +936,7 @@ function participantCard(event, participant, participantIndex, visibleIndex) {
     <article class="participant-card" style="--card-accent:${color}">
       <div class="card-topline">
         <span>ENTRY ${String(visibleIndex + 1).padStart(2, "0")}</span>
-        <span>D16-${archiveId}</span>
+        <span>DB16-${archiveId}</span>
       </div>
       <div class="participant-avatar">${avatar}</div>
       <div class="participant-info">
@@ -1037,7 +1037,7 @@ function generatedCertificate(event, participant, award, participantIndex, award
   fragment.querySelector("[data-certificate-achievement]").textContent = award.achievement || "Official Duffine Tourney honour";
   fragment.querySelector("[data-certificate-event]").textContent = event.title;
   fragment.querySelector("[data-certificate-date]").textContent = dateFormatter.format(eventDate(event));
-  fragment.querySelector("[data-certificate-id]").textContent = `D16-${eventDate(event).getFullYear()}-${String(participantIndex + 1).padStart(3, "0")}`;
+  fragment.querySelector("[data-certificate-id]").textContent = `DB16-${eventDate(event).getFullYear()}-${String(participantIndex + 1).padStart(3, "0")}`;
   return fragment;
 }
 
