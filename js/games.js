@@ -1,6 +1,6 @@
 // Paste the complete MC SMP website address between the quotes.
 // Example: const SMP_WEBSITE_URL = "https://example.com";
-const SMP_WEBSITE_URL = "PASTE_MC_SMP_WEBSITE_URL_HERE";
+const SMP_WEBSITE_URL = "https://duffball16.com/minecraft";
 
 const header = document.querySelector("[data-header]");
 const year = document.querySelector("[data-year]");
