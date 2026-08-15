@@ -938,6 +938,60 @@ header {
   opacity: 1;
   transform: translateY(0);
 }
+/* --- History Sub-Nodes Styling --- */
+
+/* Make the history nodes in the map smaller than the main nodes */
+.map-sub {
+  transform: scale(0.85);
+  opacity: 0.8;
+  border-style: dashed;
+  background: rgba(4, 6, 12, 0.95) !important;
+  z-index: 5 !important;
+}
+
+/* Position RL History near the Tourney Node */
+.map-archive-rl {
+  top: -45px;
+  left: 45px;
+  border-color: rgba(25, 217, 255, 0.3) !important;
+}
+
+/* Position MC History near the SMP Node */
+.map-history-mc {
+  bottom: -45px;
+  right: 45px;
+  border-color: rgba(96, 243, 145, 0.3) !important;
+  filter: grayscale(1);
+  cursor: help;
+}
+
+/* Visual Connector Lines for the Map */
+.map-sub-branch {
+  position: absolute;
+  width: 1px;
+  height: 45px;
+  background: var(--line);
+  z-index: 1;
+}
+
+.sub-branch-rl {
+  top: 15px;
+  left: 100px;
+  transform: rotate(-35deg);
+}
+
+.sub-branch-mc {
+  bottom: 15px;
+  right: 100px;
+  transform: rotate(-35deg);
+}
+
+/* Ensure the grid looks perfect with 4 cards */
+@media (min-width: 901px) {
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 900px) {
   :root {

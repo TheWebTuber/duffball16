@@ -92,4 +92,18 @@ copyButton?.addEventListener("click", async () => {
   } catch {
     showToast("Creator code: DUFFBALL16");
   }
+  // Logic for the MC History Block (Future Project)
+const mcHistoryLinks = document.querySelectorAll("[data-mc-history-link]");
+
+mcHistoryLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    // This uses your original showToast function
+    if (typeof showToast === "function") {
+      showToast("The MC History & Events archive is planned for a future update!");
+    } else {
+      alert("The MC History & Events archive is planned for a future update!");
+    }
+  });
+});
 });
