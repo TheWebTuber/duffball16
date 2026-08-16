@@ -413,7 +413,7 @@ code {
   background:
     linear-gradient(90deg, rgba(2,6,3,.98) 0%, rgba(2,6,3,.72) 47%, rgba(2,6,3,.94) 100%),
     linear-gradient(0deg, var(--bg), transparent 48%),
-    url("../img/Duffball16SMP.png") center 42% / cover no-repeat;
+    url("../img/minecraft.png") center 42% / cover no-repeat;
 }
 
 .hero::before {
