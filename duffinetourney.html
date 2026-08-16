@@ -238,5 +238,9 @@
         </div>
       </article>
     </template>
+    <script>document.querySelectorAll("[data-year]").forEach((year) => {
+  year.textContent = new Date().getFullYear();
+});
+</script>
   </body>
 </html>
