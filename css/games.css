@@ -969,7 +969,7 @@ header {
 .map-sub-branch {
   position: absolute;
   width: 1px;
-  height: 45px;
+  height: 45px; 
   background: var(--line);
   z-index: 1;
 }
@@ -992,6 +992,7 @@ header {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 
 @media (max-width: 900px) {
   :root {

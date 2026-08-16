@@ -1,77 +1,707 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minecraft Server Status</title>
-    <link rel="stylesheet" href="css/minecraft.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph Meta Tags -->
-    <meta
-      property="og:title"
-      content="Duffball16 SMP - Minecraft Server"
-    />
-    <meta
-      property="og:description"
-      content="Join Duffball16 SMP! Play with friends or meet new creators in an awesome 24/7 survival world. Fully cross-platform for Java and Bedrock — build, explore, and have fun together anytime!"
-    />
-    <meta
-      property="og:image"
-      content="https://duffball16.com/img/Duffball16SMP.png"
-    />
-    <meta property="og:url" content="https://duffball16.com/minecraft" />
-    <meta property="og:type" content="website" />
+  <title>Duffball16 SMP | Minecraft Java & Bedrock Server</title>
+  <meta
+    name="description"
+    content="Join the Duffball16 SMP, a cross-platform Minecraft survival server for Java and Bedrock players. Find the server address, Bedrock port, live status, join guide, rules and live world map."
+  />
+  <link rel="canonical" href="https://duffball16.com/minecraft" />
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Duffball16 SMP - Minecraft Server"
-    />
-    <meta
-      name="twitter:description"
-      content="Dive into the Duffball16 SMP — a cross-platform Minecraft survival world for both Java & Bedrock players. Adventure, build, and connect 24/7 with an active community!"
-    />
-    <meta
-      name="twitter:image"
-      content="https://duffball16.com/img/Duffball16SMP.png"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Duffball16 SMP</h1>
-      <div id="status" class="status-box">Checking server status...</div>
-      <div id="server-info" class="server-info hidden">
-        <div class="server-grid">
-          <div class="server-block">
-            <p><strong>Java Edition</strong></p>
-            <p><strong>IP:</strong> mc.duffball16.com</p>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Duffball16 SMP - Minecraft Server" />
+  <meta
+    property="og:description"
+    content="Join Duffball16 SMP! Java and Bedrock players can share the same survival world. Get the server address, join guide, live status and world map."
+  />
+  <meta property="og:image" content="https://duffball16.com/img/Duffball16SMP.png" />
+  <meta property="og:url" content="https://duffball16.com/minecraft" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Duffball16 SMP - Minecraft Server" />
+  <meta
+    name="twitter:description"
+    content="A cross-platform Minecraft survival world for Java and Bedrock players. Build, explore and play together on Duffball16 SMP."
+  />
+  <meta name="twitter:image" content="https://duffball16.com/img/Duffball16SMP.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/minecraft.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!-- Game-page navigation -->
+  <nav class="smp-nav" aria-label="Minecraft page navigation">
+    <a class="smp-brand" href="#top" aria-label="Duffball16 SMP top">
+      <span class="brand-cube" aria-hidden="true">DB16</span>
+      <span>
+        <strong>DUFFBALL16 SMP</strong>
+        <small>MINECRAFT SERVER</small>
+      </span>
+    </a>
+
+    <div class="smp-links">
+      <a href="#about">About</a>
+      <a href="#join">Join</a>
+      <a href="#status-section">Status</a>
+      <a href="#rules">Rules</a>
+      <a href="#live-map">Live Map</a>
+    </div>
+
+    <a class="nav-cta" href="#join">Join the SMP</a>
+  </nav>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-haze hero-haze-left" aria-hidden="true"></div>
+      <div class="hero-haze hero-haze-right" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <p class="eyebrow"><span></span> DUFFBALL16 // MINECRAFT SERVER</p>
+
+        <h1>
+          DUFFBALL16
+          <em>SMP</em>
+        </h1>
+
+        <p class="hero-copy">
+          A shared Minecraft survival world for <strong>Java and Bedrock players</strong>.
+          Build, explore, survive and create together — with one server address, live status
+          information and a browser-based world map.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#join">
+            <span>Enter the World</span>
+            <b aria-hidden="true">→</b>
+          </a>
+          <a
+            class="button button-ghost"
+            href="https://map.duffball16.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Open Live Map</span>
+            <b aria-hidden="true">↗</b>
+          </a>
+        </div>
+
+        <div id="status" class="status-box hero-status" aria-live="polite">
+          Checking server status...
+        </div>
+
+        <dl class="hero-stats" aria-label="Server highlights">
+          <div>
+            <dt>Access</dt>
+            <dd>Java + Bedrock</dd>
           </div>
-          <div class="server-block">
-            <p><strong>Bedrock Edition</strong></p>
-            <p><strong>IP:</strong> mc.duffball16.com</p>
-            <p><strong>Port:</strong> 19133</p>
+          <i aria-hidden="true"></i>
+          <div>
+            <dt>World</dt>
+            <dd>Survival SMP</dd>
+          </div>
+          <i aria-hidden="true"></i>
+          <div>
+            <dt>Explore</dt>
+            <dd>Live Map</dd>
+          </div>
+        </dl>
+      </div>
+
+      <a class="scroll-cue" href="#about">
+        <span>SCROLL TO EXPLORE</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <div class="signal-strip" aria-hidden="true">
+      <div class="signal-track">
+        <span>JAVA + BEDROCK</span><i>◆</i>
+        <span>SURVIVAL WORLD</span><i>◆</i>
+        <span>MC.DUFFBALL16.COM</span><i>◆</i>
+        <span>LIVE WORLD MAP</span><i>◆</i>
+        <span>BUILD • EXPLORE • SURVIVE</span><i>◆</i>
+        <span>JAVA + BEDROCK</span><i>◆</i>
+        <span>SURVIVAL WORLD</span><i>◆</i>
+        <span>MC.DUFFBALL16.COM</span><i>◆</i>
+        <span>LIVE WORLD MAP</span><i>◆</i>
+        <span>BUILD • EXPLORE • SURVIVE</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- 01 ABOUT -->
+    <section class="section about-section" id="about">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> 01 // THE WORLD</p>
+            <h2>ONE WORLD. <em>TWO EDITIONS.</em></h2>
+          </div>
+
+          <p class="heading-note">
+            Duffball16 SMP brings Java and Bedrock players into the same community world.
+            Whether you want to build, explore or simply play survival with others, this is
+            the place to start.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <div class="feature-icon" aria-hidden="true">◇</div>
+            <h3>Cross-Platform</h3>
+            <p>
+              Java and Bedrock players can connect to the Duffball16 SMP and play in the same world.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <div class="feature-icon" aria-hidden="true">▦</div>
+            <h3>Survival World</h3>
+            <p>
+              Gather resources, travel, build and leave your mark on a world that grows with the community.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <div class="feature-icon" aria-hidden="true">◎</div>
+            <h3>Live Map</h3>
+            <p>
+              View explored areas and builds from your browser using the Duffball16 SMP live world map.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 JOIN -->
+    <section class="section join-section" id="join">
+      <div class="section-shell">
+        <div class="section-heading centered">
+          <p class="eyebrow"><span></span> 02 // SERVER ACCESS</p>
+          <h2>CHOOSE YOUR <em>EDITION.</em></h2>
+          <p class="heading-note">
+            Both editions use the same server address. Bedrock players also need the port shown below.
+          </p>
+        </div>
+
+        <div class="join-grid">
+          <article class="edition-card edition-java">
+            <div class="edition-topline">
+              <span>JAVA EDITION</span>
+              <b>01</b>
+            </div>
+
+            <div class="edition-symbol" aria-hidden="true">J</div>
+
+            <h3>Java Access</h3>
+            <p class="edition-description">
+              Open Minecraft Java Edition, go to Multiplayer and add the Duffball16 SMP as a new server.
+            </p>
+
+            <div class="server-address">
+              <small>SERVER ADDRESS</small>
+              <strong>mc.duffball16.com</strong>
+              <button class="copy-button" type="button" data-copy="mc.duffball16.com">
+                Copy IP
+              </button>
+            </div>
+
+            <ol class="mini-steps">
+              <li><span>01</span> Multiplayer</li>
+              <li><span>02</span> Add Server</li>
+              <li><span>03</span> Join</li>
+            </ol>
+          </article>
+
+          <article class="edition-card edition-bedrock">
+            <div class="edition-topline">
+              <span>BEDROCK EDITION</span>
+              <b>02</b>
+            </div>
+
+            <div class="edition-symbol" aria-hidden="true">B</div>
+
+            <h3>Bedrock Access</h3>
+            <p class="edition-description">
+              On Bedrock platforms that support adding custom servers, enter the server address and port below.
+            </p>
+
+            <div class="server-address">
+              <small>SERVER ADDRESS</small>
+              <strong>mc.duffball16.com</strong>
+              <button class="copy-button" type="button" data-copy="mc.duffball16.com">
+                Copy IP
+              </button>
+            </div>
+
+            <div class="port-box">
+              <small>BEDROCK PORT</small>
+              <strong>19133</strong>
+              <button class="copy-button copy-port" type="button" data-copy="19133">
+                Copy Port
+              </button>
+            </div>
+
+            <ol class="mini-steps">
+              <li><span>01</span> Play</li>
+              <li><span>02</span> Add Server</li>
+              <li><span>03</span> Join</li>
+            </ol>
+          </article>
+        </div>
+
+        <p class="copy-status" id="copy-status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 03 STATUS -->
+    <section class="section status-section" id="status-section">
+      <div class="section-shell status-grid">
+        <div class="status-copy">
+          <p class="eyebrow"><span></span> 03 // LIVE SERVER</p>
+          <h2>CHECK BEFORE <em>YOU JOIN.</em></h2>
+          <p>
+            The status panel uses the existing Duffball16 Minecraft status script to show whether
+            the server is reachable and, when available, which players are currently online.
+          </p>
+
+          <div class="connection-facts">
+            <div>
+              <small>JAVA</small>
+              <strong>mc.duffball16.com</strong>
+            </div>
+            <div>
+              <small>BEDROCK</small>
+              <strong>mc.duffball16.com : 19133</strong>
+            </div>
           </div>
         </div>
 
-        <h3>Players Online</h3>
+        <div class="status-console">
+          <div class="console-header">
+            <div>
+              <span class="console-dot"></span>
+              <span class="console-dot"></span>
+              <span class="console-dot"></span>
+            </div>
+            <small>DUFFBALL16 // SERVER MONITOR</small>
+          </div>
 
-        <ul id="players"></ul>
+          <div class="console-body">
+            <div class="console-line">
+              <span>ENDPOINT</span>
+              <strong>mc.duffball16.com</strong>
+            </div>
 
-        <section class="minecraft-map">
-  <h2>DUFFBALL16 Live Map</h2>
+            <div class="console-line">
+              <span>NETWORK</span>
+              <strong>JAVA + BEDROCK</strong>
+            </div>
 
-<!-- Embed the live map using an iframe -->
-  <iframe
-    src="https://map.duffball16.com"
-    title="DUFFBALL16 SMP Live Map"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
-</section>
+            <div class="console-live">
+              <small>LIVE STATUS</small>
+              <div id="status-mirror">See status above</div>
+            </div>
 
+            <!--
+              Keep this exact ID. Your existing js/minecraft.js can continue
+              to reveal it when server/player information is available.
+            -->
+            <div id="server-info" class="server-info hidden">
+              <div class="players-panel">
+                <div class="players-heading">
+                  <span>PLAYERS ONLINE</span>
+                  <small>LIVE LIST</small>
+                </div>
+                <ul id="players"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 HOW TO JOIN -->
+    <section class="section guide-section" id="how-to-join">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> 04 // QUICK GUIDE</p>
+            <h2>FROM MENU TO <em>WORLD.</em></h2>
+          </div>
+          <p class="heading-note">
+            New to multiplayer? Use the steps below. The server name itself can be anything you want;
+            the important part is entering the correct address and, for Bedrock, the correct port.
+          </p>
+        </div>
+
+        <div class="guide-columns">
+          <article class="guide-card">
+            <div class="guide-title">
+              <b>JAVA</b>
+              <h3>Java Edition</h3>
+            </div>
+            <ol class="join-steps">
+              <li>
+                <span>01</span>
+                <div>
+                  <strong>Open Multiplayer</strong>
+                  <p>Start Minecraft Java Edition and select <b>Multiplayer</b>.</p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <strong>Add the Server</strong>
+                  <p>Select <b>Add Server</b> and enter <code>mc.duffball16.com</code>.</p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <strong>Enter the SMP</strong>
+                  <p>Save the server, select it from your list and press <b>Join Server</b>.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-title">
+              <b>BEDROCK</b>
+              <h3>Bedrock Edition</h3>
+            </div>
+            <ol class="join-steps">
+              <li>
+                <span>01</span>
+                <div>
+                  <strong>Open Servers</strong>
+                  <p>Open Minecraft Bedrock Edition and go to the server section.</p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <strong>Add Duffball16 SMP</strong>
+                  <p>Enter <code>mc.duffball16.com</code> as the address.</p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <strong>Enter Port 19133</strong>
+                  <p>Use Bedrock port <code>19133</code>, save the server and join.</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 EXPERIENCE -->
+    <section class="section experience-section">
+      <div class="section-shell experience-grid">
+        <div class="experience-copy">
+          <p class="eyebrow"><span></span> 05 // THE SMP</p>
+          <h2>BUILD SOMETHING <em>THAT STAYS.</em></h2>
+
+          <p class="lead">
+            Duffball16 SMP is more than a server address. It is a shared world for the Duffball16
+            community and anyone joining the adventure.
+          </p>
+
+          <p>
+            Explore the map, collect resources, create bases and towns, work on projects with other
+            players or simply travel to see what the world has become. Because Java and Bedrock are
+            connected, friends do not all need to be using the same Minecraft edition to play together.
+          </p>
+
+          <p>
+            The live map also makes it easy to revisit explored areas and see how the server changes over time.
+          </p>
+        </div>
+
+        <div class="world-panel" aria-hidden="true">
+          <span class="world-label">WORLD SIGNAL</span>
+          <div class="world-cube">
+            <span>DB16</span>
+          </div>
+          <div class="world-readout">
+            <small>MODE</small><strong>SURVIVAL</strong>
+            <small>ACCESS</small><strong>CROSSPLAY</strong>
+            <small>MAP</small><strong>LIVE</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 RULES -->
+    <section class="section rules-section" id="rules">
+      <div class="section-shell">
+        <div class="section-heading centered">
+          <p class="eyebrow"><span></span> 06 // SERVER RULES</p>
+          <h2>PLAY FAIR. <em>BUILD TOGETHER.</em></h2>
+          <p class="heading-note">
+            The goal is a world people actually want to return to. Keep the community and other players'
+            work in mind while you play.
+          </p>
+        </div>
+
+        <!-- Adjust these rules if your official server rules are different. -->
+        <div class="rules-grid">
+          <article class="rule-card">
+            <span>01</span>
+            <h3>Respect Players</h3>
+            <p>No harassment, targeted abuse or behaviour intended to ruin the experience for others.</p>
+          </article>
+
+          <article class="rule-card">
+            <span>02</span>
+            <h3>No Griefing</h3>
+            <p>Do not intentionally destroy, damage or sabotage another player's builds or projects.</p>
+          </article>
+
+          <article class="rule-card">
+            <span>03</span>
+            <h3>No Unfair Cheats</h3>
+            <p>Do not use hacks or other unfair tools that give you an advantage over normal players.</p>
+          </article>
+
+          <article class="rule-card">
+            <span>04</span>
+            <h3>Use Common Sense</h3>
+            <p>If something clearly harms the server or community, do not do it just because it is not listed here.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 LIVE MAP -->
+    <section class="section map-section" id="live-map">
+      <div class="section-shell">
+        <div class="map-heading">
+          <div>
+            <p class="eyebrow"><span></span> 07 // WORLD VIEW</p>
+            <h2>SEE WHERE THE WORLD <em>HAS GROWN.</em></h2>
+          </div>
+
+          <div>
+            <p>
+              The Duffball16 SMP Live Map lets you view the Minecraft world from your browser,
+              including explored areas and builds visible through the map.
+            </p>
+            <a
+              class="button button-primary"
+              href="https://map.duffball16.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Full Map <b aria-hidden="true">↗</b>
+            </a>
+          </div>
+        </div>
+
+        <div class="map-frame">
+          <div class="map-frame-top">
+            <span>DUFFBALL16 SMP // LIVE MAP</span>
+            <small>map.duffball16.com</small>
+          </div>
+
+          <iframe
+            src="https://map.duffball16.com"
+            title="Duffball16 SMP Live Map"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 FAQ -->
+    <section class="section faq-section" id="faq">
+      <div class="section-shell faq-grid">
+        <div class="faq-copy">
+          <p class="eyebrow"><span></span> 08 // QUICK ANSWERS</p>
+          <h2>BEFORE YOU <em>SPAWN IN.</em></h2>
+          <p>
+            The most important connection details are collected here so you can find them again quickly.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>
+              Can Java players join?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Yes. In Java Edition, add <code>mc.duffball16.com</code> as the server address.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              Can Bedrock players join?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Yes. On Bedrock platforms that support custom servers, use
+              <code>mc.duffball16.com</code> with port <code>19133</code>.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              Can Java and Bedrock players play together?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Yes. Duffball16 SMP is set up so Java and Bedrock players can share the same server world.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              Where can I see the Minecraft world?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Use the embedded map above or open
+              <a href="https://map.duffball16.com" target="_blank" rel="noopener noreferrer">map.duffball16.com</a>
+              in a new tab.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              What if I cannot connect?
+              <span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              First check the server status on this page and confirm the address and Bedrock port.
+              If you still need help, use the Duffball16 community or contact pages.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <div class="final-grid" aria-hidden="true"></div>
+
+      <div class="final-copy">
+        <p>THE WORLD IS ALREADY RUNNING</p>
+        <h2>YOUR NEXT BUILD<br /><em>STARTS HERE.</em></h2>
+
+        <div class="final-actions">
+          <a class="button button-primary" href="#join">Get Server Details</a>
+          <a
+            class="button button-ghost"
+            href="https://map.duffball16.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore the Map
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <span class="footer-mark" aria-hidden="true">DB16</span>
+      <div>
+        <strong>DUFFBALL16 SMP</strong>
+        <small>JAVA + BEDROCK MINECRAFT SERVER</small>
       </div>
     </div>
-    <script src="js/minecraft.js"></script>
-  </body>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/">Home</a>
+      <a href="/community">Community</a>
+      <a href="/contact">Contact</a>
+      <a href="/termsofservice">Terms</a>
+      <a href="/privacypolicy">Privacy</a>
+    </nav>
+
+    <p class="legal">
+      Minecraft is a trademark of Microsoft/Mojang. Duffball16 SMP is an independent community server
+      and is not affiliated with or endorsed by Microsoft or Mojang.
+    </p>
+
+    <p class="copyright">© 2026 Duffball16. All rights reserved.</p>
+  </footer>
+
+  <!-- Keep your existing server-status script. -->
+  <script src="js/minecraft.js"></script>
+
+  <!-- Small page-only helpers: copy buttons + mirror the existing status text. -->
+  <script>
+    (() => {
+      const copyStatus = document.getElementById("copy-status");
+
+      document.querySelectorAll("[data-copy]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const value = button.dataset.copy;
+
+          try {
+            await navigator.clipboard.writeText(value);
+            if (copyStatus) copyStatus.textContent = `Copied: ${value}`;
+          } catch (error) {
+            if (copyStatus) copyStatus.textContent = `Copy this manually: ${value}`;
+          }
+        });
+      });
+
+      const sourceStatus = document.getElementById("status");
+      const mirrorStatus = document.getElementById("status-mirror");
+
+      if (sourceStatus && mirrorStatus) {
+        const syncStatus = () => {
+          mirrorStatus.textContent = sourceStatus.textContent.trim() || "Checking server status...";
+          mirrorStatus.className = "";
+
+          if (sourceStatus.classList.contains("status-online")) {
+            mirrorStatus.classList.add("mirror-online");
+          } else if (sourceStatus.classList.contains("status-offline")) {
+            mirrorStatus.classList.add("mirror-offline");
+          } else if (sourceStatus.classList.contains("status-maintenance")) {
+            mirrorStatus.classList.add("mirror-maintenance");
+          }
+        };
+
+        syncStatus();
+
+        new MutationObserver(syncStatus).observe(sourceStatus, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+          attributes: true,
+          attributeFilter: ["class"]
+        });
+      }
+    })();
+  </script>
+</body>
 </html>
