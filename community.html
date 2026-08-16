@@ -1,137 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6881919842214298"
-    crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/duffball16.png">
-    <link rel="icon" type="image/x-icon" href="img/duffball16.png">
-    <title>Duffball16 Official Site</title>
-    <link rel="stylesheet" href="css/community.css">
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6881919842214298"
+    crossorigin="anonymous"
+  ></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Duffball16 Community | Live Stats, Duffinians & Milestones</title>
+  <meta
+    name="description"
+    content="Follow Duffball16 live YouTube stats, the next subscriber goal, the Duffinians community, and channel milestones all in one place."
+  />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://duffball16.com/community" />
+  <link rel="icon" href="img/duffball16.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Duffball16 Community | Live Stats & The Duffinians" />
+  <meta
+    property="og:description"
+    content="Live Duffball16 channel stats, community goals, Duffinians history and milestones."
+  />
+  <meta
+    property="og:image"
+    content="https://duffball16.com/img/The_Duffinians%20comunity.png"
+  />
+  <meta property="og:url" content="https://duffball16.com/community" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="Duffball16 Community | Live Stats & The Duffinians"
+  />
+  <meta
+    name="twitter:description"
+    content="Live channel stats, subscriber goals and the Duffball16 community journey."
+  />
+  <meta
+    name="twitter:image"
+    content="https://duffball16.com/img/The_Duffinians%20comunity.png"
+  />
+
+  <!-- Shared site design first, then both page styles.
+       live.css is loaded BEFORE community.css so the community page keeps
+       its purple/cyan page accent while the live dashboard retains its
+       own direct gold/purple styling. -->
+  <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="css/live.css" />
+  <link rel="stylesheet" href="css/community.css" />
 </head>
+
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-              <!-- Open Graph Meta Tags -->
-              <meta property="og:title" content="Duffball16 Official Site - Updates" />
-              <meta property="og:description" content="Want to take part of the Duffinians Comunity? Dive into our story and adevntures! Click here to know about us!" />
-              <meta property="og:image" content="https://duffball16.com/img/The_Duffinians comunity.png" />
-              <meta property="og:url" content="https://duffball16.com/" />
-              <meta property="og:type" content="website" />
+  <header class="site-header">
+    <nav class="topnav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/content">Our Content</a>
+      <a href="/community" aria-current="page">Community</a>
+      <a href="/games">Games</a>
+      <a href="/aboutme">About Me</a>
+      <a href="/links">Links</a>
+      <a
+        class="nav-donate"
+        href="https://streamelements.com/duffball16/tip"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Donate</a>
+    </nav>
+  </header>
 
-              <header>
-                <div class="topnav">
-                  <a href="https://duffball16.com/">Home</a>
-                  <a href="https://duffball16.com/content">Our Content</a>
-                  <a href="https://duffball16.com/community">Community</a>
-                  <a href="https://duffball16.com/games">Games</a>
-                  <a href="https://duffball16.com/aboutme">About Me</a>
-                  <a href="https://streamelements.com/duffball16/tip">Donate</a>
-                </div>
-            </header>
+  <main id="main-content">
 
-            <div class="footer2">
-              <a> Community First - Powered by the Duffinians</a>
-              <p>Duffball16 isn’t just a channel - it’s a growing community. Known as the Duffinians, viewers are a big part of what makes this space special. Every stream, video, and short is created with the audience in mind. Whether it's reacting to your suggestions, chatting live, or hitting big channel goals together, the Duffinian community is always part of the journey. Your feedback, support, and hype fuel the content here, and that shared energy is what makes this more than just another gaming channel.</p>
-              <!-- <img src="img/The_Duffinians comunity.png" alt="Duffball16 Community"> -->
+    <!-- =========================================================
+         LIVE COMMUNITY DASHBOARD
+         Keep the IDs in this section because js/live.js uses them.
+         ========================================================= -->
+    <section class="live-main" aria-labelledby="live-community-title">
+      <div class="live-shell shell">
+
+        <div class="live-heading">
+          <div class="profile">
+            <img
+              src="img/duffball16.png"
+              alt="Duffball16 profile picture"
+            />
+
+            <div>
+              <p class="eyebrow">Community // Live YouTube Data</p>
+              <h1 id="live-community-title">
+                Duffball16 <span class="outline-word">Live.</span>
+              </h1>
             </div>
+          </div>
 
-                <main>
-                    <section class="card-container">
+          <div class="live-row glass-panel" aria-live="polite">
+            <span
+              id="liveDot"
+              class="dot offline"
+              aria-hidden="true"
+            ></span>
+            <span id="liveStatus">Checking status...</span>
+          </div>
+        </div>
 
+        <section class="stats" aria-label="Live Duffball16 channel statistics">
 
-                      <!-- New Card 1: 24 Million Views -->
-<article class="card">
-    <img src="milestones/24mil.jpg" alt="Duffball16 24 Million Viewers Milestone">
-    <div class="card-content">
-        <h3>24,000,000 views milestone</h3>
-        <p class="card-meta">Milestone | August 30, 2025</p>
-        <p>
-            24 MIL is actually crazy, I can’t believe that we have 24 MILLION viewers on this channel overall. Kinda gets me nervous even thinking about that! I hope you guys carry on enjoying all the fun, the laughs and all the jokes on the channel! Let’s get to subscribing to boost this community up!
-        </p>
-    </div>
-</article>
+          <article class="stat-card">
+            <div class="label">Subscribers</div>
+            <div class="number" id="subscribers">0</div>
+            <small>Current channel subscribers</small>
+          </article>
 
-<!-- New Card 2: 1,650 Videos -->
-<article class="card">
-    <img src="milestones/1650videos.jpg" alt="Duffball16 1,650 Videos Milestone">
-    <div class="card-content">
-        <h3>1,650 videos total!</h3>
-        <p class="card-meta">Milestone | August 28, 2025</p>
-        <p>
-            Already reaching up to 1,650 VIDEOS… now that’s consistency for you! We are closing in more and more on the 2k mark which will be a phenomenal achievement but until then, continue showing your support by recommending me even more content/video ideas! Thank you guys so much for being around this long!
-        </p>
-    </div>
-</article>
+          <article class="stat-card">
+            <div class="label">Views</div>
+            <div class="number" id="views">0</div>
+            <small>Total channel views</small>
+          </article>
 
-<!-- New Card 3: Follow Your Dreams -->
-<article class="card">
-    <img src="milestones/folowdreams.jpg" alt="Duffball16 Inspirational Milestone">
-    <div class="card-content">
-        <h3>Follow Your Dreams!</h3>
-        <p class="card-meta">Milestone | August 25, 2025</p>
-        <p>
-            If you were to ask my younger self if this was possible, I would NOT believe it. It’s funny to think about as we strive for the highest achievements even when it seems impossible. Let this be a lesson, FOLLOW YOUR DREAMS! Of course, I would also love to say, thank you all for everything you’ve done for me and the channel and for all the memories, let’s march on and create many more to come!
-        </p>
-    </div>
-</article>
+          <article class="stat-card">
+            <div class="label">Videos</div>
+            <div class="number" id="videos">0</div>
+            <small>Published channel videos</small>
+          </article>
 
-            
-                        <!-- Card Example 3: Member Spotlight -->
-                        <article class="card">
-                          <img src="milestones/sub.png" alt="Duffball16 21.000 Subscribers Milestone">
-                          <div class="card-content">
-                              <h3>21,000 SUBSCRIBERS</h3>
-                               <p class="card-meta">Milestone | April 8, 2025</p>
-                              <p>
-Thank you guys so much for this amazing achievement, hitting these numbers always brings a tear to my eye and couldn’t have asked for a more blessed community. Let’s aim for that 30,000 mark next!</p>
-                              
-                         </div>
-                      </article>
+          <article class="stat-card">
+            <div class="label">Status</div>
+            <div class="number small-number" id="liveStatusMirror">
+              Checking...
+            </div>
+            <small>Livestream state</small>
+          </article>
 
+          <article class="stat-card">
+            <div class="label">Last Update</div>
+            <div class="number small-number" id="updated">--:--</div>
+            <small>Latest data refresh</small>
+          </article>
 
-                        <!-- Card Example 2: News -->
-                        <article class="card">
-                            <img src="milestones/upl.png" alt="Duffball16 1.350 Uploads Milestone">
-                            <div class="card-content">
-                                <h3>1,350 uploads total!</h3>
-                                <p class="card-meta">Milestone | April 5, 2025</p>
-                                <p>
-Lights, Camera, Action! We made in total 1,350 Uploads together! I never imagined we would EVER make over 1000 at first, but this is just insane! Let’s see if we can get 2000 together on this journey!</p>
-                           </div>
-                        </article>
+          <article class="stat-card">
+            <div class="label">Clock</div>
+            <div class="number small-number" id="clock">--:--</div>
+            <small>Live dashboard clock</small>
+          </article>
 
+        </section>
 
-                        <!-- Card Example 1: Event -->
-                        <article class="card">
-                          <img src="milestones/views.png" alt="Duffball16 16.500.000 viewers milestone">
-                          <div class="card-content">
-                              <h3> 16,500,000 views milestone</h3>
-                              <p class="card-meta">Milestone | Mar 20, 2025</p>
-                              <p>
+        <section class="goal-box glass-panel" aria-label="Subscriber goal">
+          <div class="goal-top">
+            <span>Next Subscriber Goal</span>
+            <strong id="goalText">Loading...</strong>
+          </div>
 
-Now this is crazy… over 15M Channel views! This is one of my biggest achievements in my opinion, as we were able to get this many people around the globe to tune in with us. We won’t stop here though, we got the 20M mark next!</p>
-                          </div>
-                      </article>
-          
+          <div class="goal-bar" aria-hidden="true">
+            <div id="goalFill"></div>
+          </div>
+        </section>
 
-            
-            
-                         <!-- Add more <article class="card"> elements here! -->
-                         <!-- Copy and paste the structure above and change the content -->
-            
-                    </section>
-                </main>
+        <div class="actions">
+          <a
+            class="btn btn-primary"
+            href="https://www.youtube.com/@DUFFBALL16"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Visit Channel</a>
 
-    <div class="footer">
-        <p>This website is made by: <a href="https://www.youtube.com/@PMOG"  target="_blank" >Portal Master Of Games</a> [Youtube: <a href="https://www.youtube.com/@PMOG" target="_blank">@PMOG</a>]</p>
+          <a class="btn btn-secondary" href="#milestones">
+            Milestone History
+          </a>
+        </div>
+
       </div>
-      <div class="footer" >
-        <p>We use cookies to ensure you get the best experience on our website. <a href="https://duffball16.com/termsofservice"  target="_blank" >Terms of Service</a> | <a href="https://duffball16.com/privacypolicy" target="_blank">Privacy Policy </a><!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
-    
-            |  © 2026 Duffball16. All rights reserved.</p>
-      </div>
+    </section>
 
-      <script src="js/community.js"></script>
+
+    <!-- =========================================================
+         DUFFINIANS COMMUNITY
+         Original redesigned Community page continues from here.
+         ========================================================= -->
+    <section class="visual-hero community-hero">
+      <img
+        class="hero-media"
+        src="img/The_Duffinians comunity.png"
+        alt="The Duffinians community artwork"
+      />
+
+      <div class="hero-copy-block">
+        <p class="eyebrow">Duffball16 // Community</p>
+
+        <h2 class="display-title">
+          Powered by the <span class="outline-word">Duffinians.</span>
+        </h2>
+
+        <p class="lead">
+          Duffball16 is more than a channel. The viewers, comments,
+          live chats, ideas and shared milestones are part of what gives
+          the whole project its personality.
+        </p>
+
+        <div class="button-row">
+          <a class="btn btn-primary" href="#milestones">
+            See Milestones
+          </a>
+          <a class="btn btn-secondary" href="/links">
+            Join the Community
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="page-section compact">
+      <div class="shell community-intro glass-panel">
+        <div>
+          <p class="eyebrow">01 // Community first</p>
+          <h2 class="section-title">
+            The journey is <span class="outline-word">shared.</span>
+          </h2>
+        </div>
+
+        <p>
+          Every stream, video and Short is made with the audience in mind.
+          Suggestions, reactions, support and shared goals turn individual
+          uploads into a growing history that the Duffinians can look back
+          on together.
+        </p>
+      </div>
+    </section>
+
+
+    <section class="page-section section-rule" id="milestones">
+      <div class="shell">
+
+        <div class="split-heading">
+          <div>
+            <p class="eyebrow">02 // Milestone archive</p>
+            <h2 class="section-title">
+              Moments worth <span class="outline-word">remembering.</span>
+            </h2>
+          </div>
+
+          <p>
+            This grid is intentionally reusable. To add a future milestone,
+            duplicate one <code>&lt;article class="milestone-card"&gt;</code>
+            block and change the image, title, date and text.
+          </p>
+        </div>
+
+
+        <section
+          class="milestone-grid"
+          aria-label="Duffball16 milestones"
+        >
+
+          <article class="milestone-card">
+            <img
+              src="milestones/24mil.jpg"
+              alt="Duffball16 24 million views milestone"
+            />
+            <div class="milestone-body">
+              <p class="milestone-meta">
+                Milestone // August 30, 2025
+              </p>
+              <h3>24,000,000 views</h3>
+              <p>
+                24 MIL is actually crazy. Reaching this many viewers
+                across the channel is hard to even imagine. Thank you
+                for being part of the fun, laughs and jokes — and for
+                helping the community keep growing.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="milestone-card">
+            <img
+              src="milestones/1650videos.jpg"
+              alt="Duffball16 1650 videos milestone"
+            />
+            <div class="milestone-body">
+              <p class="milestone-meta">
+                Milestone // August 28, 2025
+              </p>
+              <h3>1,650 videos total</h3>
+              <p>
+                Reaching 1,650 videos is a huge consistency milestone
+                and another step toward the 2,000 mark. Keep the content
+                ideas coming and let’s see how far the archive can grow.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="milestone-card">
+            <img
+              src="milestones/folowdreams.jpg"
+              alt="Duffball16 follow your dreams milestone"
+            />
+            <div class="milestone-body">
+              <p class="milestone-meta">
+                Milestone // August 25, 2025
+              </p>
+              <h3>Follow your dreams</h3>
+              <p>
+                Looking back at how far the channel has come is a
+                reminder that goals can feel impossible until they are
+                suddenly part of your history. Thank you for all the
+                memories already made.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="milestone-card">
+            <img
+              src="milestones/sub.png"
+              alt="Duffball16 21000 subscribers milestone"
+            />
+            <div class="milestone-body">
+              <p class="milestone-meta">
+                Milestone // April 8, 2025
+              </p>
+              <h3>21,000 subscribers</h3>
+              <p>
+                Thank you for this achievement and for sticking around
+                through the channel’s journey. Every subscriber helps
+                turn Duffball16 into a bigger shared project.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="milestone-card">
+            <img
+              src="milestones/upl.png"
+              alt="Duffball16 1350 uploads milestone"
+            />
+            <div class="milestone-body">
+              <p class="milestone-meta">
+                Milestone // April 5, 2025
+              </p>
+              <h3>1,350 uploads</h3>
+              <p>
+                More than a thousand uploads once sounded impossible.
+                Reaching 1,350 shows how much content has been made
+                along the way — with 2,000 waiting further ahead.
+              </p>
+            </div>
+          </article>
+
+
+          <article class="milestone-card">
+            <img
+              src="milestones/views.png"
+              alt="Duffball16 16.5 million views milestone"
+            />
+            <div class="milestone-body">
+              <p class="milestone-meta">
+                Milestone // March 20, 2025
+              </p>
+              <h3>16,500,000 views</h3>
+              <p>
+                Crossing 15 million channel views was one of the biggest
+                achievements of the journey at the time. The next target
+                was already waiting: 20 million and beyond.
+              </p>
+            </div>
+          </article>
+
+          <!--
+            FUTURE MILESTONE:
+            Duplicate a milestone-card above and place the newest
+            milestone first in this grid.
+          -->
+
+        </section>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">DUFFBALL16</div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/content">Content</a>
+        <a href="/community">Community</a>
+        <a href="/games">Games</a>
+        <a href="/aboutme">About</a>
+        <a href="/links">Links</a>
+        <a href="/contact">Contact</a>
+        <a href="/termsofservice">Terms</a>
+        <a href="/privacypolicy">Privacy</a>
+      </nav>
+
+      <p class="footer-credit">
+        Website made by
+        <a
+          href="https://www.youtube.com/@PMOG"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Portal Master Of Games (@PMOG)</a>.
+      </p>
+
+      <p class="footer-copy">
+        © 2026 Duffball16. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Keep your friend's existing live.js exactly where it is on your server. -->
+  <script src="js/live.js"></script>
+
+  <!-- Keeps the second visual Status card synced without using
+       a duplicate liveStatus ID. This does not change live.js. -->
+  <script>
+    (() => {
+      const source = document.getElementById("liveStatus");
+      const mirror = document.getElementById("liveStatusMirror");
+
+      if (!source || !mirror) return;
+
+      const sync = () => {
+        mirror.textContent = source.textContent;
+      };
+
+      sync();
+
+      new MutationObserver(sync).observe(source, {
+        childList: true,
+        characterData: true,
+        subtree: true
+      });
+    })();
+  </script>
+
+  <script src="js/community.js"></script>
 </body>
 </html>

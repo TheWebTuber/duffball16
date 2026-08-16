@@ -80,41 +80,117 @@ img {
   transform: translateY(0);
 }
 
-/* Original Duffball16 links-page navigation styling. */
-header {
+/* Shared Duffball16 navigation treatment.
+   The Games hub keeps its own visual identity below this point. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 100;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(180deg, rgba(2, 3, 8, 0.96), rgba(2, 3, 8, 0.82));
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  transition:
+    padding 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.site-header.is-scrolled {
+  padding-block: 8px;
+  border-color: rgba(25, 217, 255, 0.10);
+  background: rgba(2, 3, 8, 0.94);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
 }
 
 .topnav {
-  overflow: hidden;
-  z-index: 100;
+  display: flex;
+  max-width: min(100%, 900px);
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 7px;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.26);
+  scrollbar-width: none;
+}
+
+.topnav::-webkit-scrollbar {
+  display: none;
 }
 
 .topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  padding: 14px 16px;
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: normal;
-  text-transform: none;
-  text-align: center;
-  text-decoration: none;
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: #b7c0d0;
+  font: 700 0.56rem/1 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .topnav a:hover,
 .topnav a:focus-visible {
-  background-image: linear-gradient(to bottom, #ddd 1%, transparent);
-  color: black;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
   outline: none;
+  transform: translateY(-1px);
+}
+
+.topnav a[aria-current="page"] {
+  background: linear-gradient(115deg, var(--cyan), var(--purple));
+  color: #02050a;
+  box-shadow: 0 0 26px rgba(25, 217, 255, 0.18);
+}
+
+.topnav a.nav-donate {
+  border: 1px solid rgba(255, 61, 95, 0.42);
+  color: #ffdbe3;
+}
+
+
+/* Smooth hand-off from the main Duffball16 pages into the Games hub.
+   Browsers without cross-document View Transitions simply ignore the at-rule. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 260ms;
+  animation-timing-function: ease;
+}
+
+body {
+  animation: games-page-enter 360ms ease both;
+}
+
+@keyframes games-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero {
@@ -882,27 +958,54 @@ header {
   background: rgba(255, 255, 255, 0.04);
 }
 
-.footer {
-  padding: 36px 20px;
-  border-top: 1px solid var(--line);
-  background: #000;
-  color: #9ca4b7;
+.site-footer {
+  padding: 38px 20px 46px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #010207;
+}
+
+.footer-inner {
+  width: var(--shell);
+  margin-inline: auto;
   text-align: center;
 }
 
-.footer p {
-  margin: 6px auto;
-  font-size: 0.68rem;
+.footer-brand {
+  color: #fff;
+  font: 800 0.88rem/1 var(--font-display);
+  letter-spacing: 0.12em;
 }
 
-.footer a {
-  color: #d8ddea;
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 20px;
+  margin-top: 16px;
 }
 
-.footer a:hover,
-.footer a:focus-visible {
+.footer-links a {
+  color: #9ba6b8;
+  font: 650 0.5rem/1 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
   color: var(--cyan);
-  text-decoration: underline;
+  outline: none;
+}
+
+.footer-credit,
+.footer-copy {
+  margin: 16px auto 0;
+  color: #657084;
+  font-size: 0.63rem;
+}
+
+.footer-credit a {
+  color: #aab4c5;
 }
 
 .toast {
@@ -1162,6 +1265,35 @@ header {
   }
 }
 
+
+@media (max-width: 900px) {
+  .topnav {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 620px) {
+  html {
+    scroll-padding-top: 78px;
+  }
+
+  .site-header {
+    padding: 9px 8px;
+  }
+
+  .topnav {
+    width: 100%;
+    padding: 5px;
+    border-radius: 16px;
+  }
+
+  .topnav a {
+    min-height: 35px;
+    padding-inline: 11px;
+    font-size: 0.5rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1179,5 +1311,9 @@ header {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  body {
+    animation: none;
   }
 }
