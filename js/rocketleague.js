@@ -153,3 +153,7 @@ hero?.addEventListener("pointerleave", () => {
   rightCar?.style.setProperty("--car-y", "0px");
   if (tiltCard) tiltCard.style.transform = "";
 });
+
+document.querySelectorAll("[data-year]").forEach((year) => {
+  year.textContent = new Date().getFullYear();
+});

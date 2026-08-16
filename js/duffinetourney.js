@@ -1073,3 +1073,7 @@ document.querySelector("[data-zoom-in]").addEventListener("click", () => setZoom
 setArchiveStats();
 fillFilters();
 renderArchive();
+
+document.querySelectorAll("[data-year]").forEach((year) => {
+  year.textContent = new Date().getFullYear();
+});

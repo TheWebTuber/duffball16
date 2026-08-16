@@ -62,3 +62,7 @@ async function fetchStatus() {
 
 fetchStatus();
 setInterval(fetchStatus, 60000);
+
+document.querySelectorAll("[data-year]").forEach((year) => {
+  year.textContent = new Date().getFullYear();
+});
