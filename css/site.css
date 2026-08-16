@@ -397,3 +397,227 @@ button, a { -webkit-tap-highlight-color: transparent; }
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Progressive same-origin page transition.
+   Supported browsers animate between redesigned Duffball16 pages;
+   unsupported browsers ignore this safely. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 260ms;
+  animation-timing-function: ease;
+}
+
+
+/* =========================================================
+   FINAL PHONE NAVIGATION CAPSULE
+   Desktop keeps the centered full bar.
+   Phones get one small clickable current-page box.
+   ========================================================= */
+.mobile-nav-toggle {
+  display: none;
+}
+
+/* Keep the original full bar centered on tablets too. */
+@media (min-width: 701px) and (max-width: 900px) {
+  .topnav {
+    justify-content: center;
+    overflow-x: visible;
+  }
+
+  .topnav a {
+    padding-inline: 11px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --mobile-nav-height: 64px;
+  }
+
+  html {
+    scroll-padding-top: 74px;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    display: block;
+    width: 100%;
+    min-height: var(--mobile-nav-height);
+    padding: 8px 10px;
+    overflow: visible;
+    border-bottom: 0;
+    background:
+      linear-gradient(180deg, rgba(2, 3, 8, .98), rgba(2, 3, 8, .88));
+  }
+
+  .mobile-nav-toggle {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    width: min(100%, 520px);
+    min-height: 48px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px 6px 7px;
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    background:
+      linear-gradient(
+        115deg,
+        color-mix(in srgb, var(--page-accent) 8%, transparent),
+        rgba(255, 255, 255, .035)
+      );
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .32);
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .mobile-nav-toggle:focus-visible {
+    border-color: var(--page-accent);
+    outline: 2px solid
+      color-mix(in srgb, var(--page-accent) 30%, transparent);
+    outline-offset: 2px;
+  }
+
+  .mobile-nav-brand {
+    display: grid;
+    width: 34px;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid
+      color-mix(in srgb, var(--page-accent) 48%, transparent);
+    border-radius: 11px;
+    background:
+      color-mix(in srgb, var(--page-accent) 10%, transparent);
+    color: var(--page-accent);
+    font: 800 8px/1 var(--display);
+    letter-spacing: .06em;
+  }
+
+  .mobile-nav-current {
+    min-width: 0;
+    overflow: hidden;
+    color: #fff;
+    font: 800 10px/1 var(--display);
+    letter-spacing: .08em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .mobile-nav-hint {
+    color: var(--muted-2);
+    font: 700 7px/1 var(--display);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .mobile-nav-chevron {
+    display: grid;
+    width: 27px;
+    height: 27px;
+    place-items: center;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, .055);
+    color: var(--page-accent);
+    font-size: 16px;
+    line-height: 1;
+    transition: transform .22s ease, background .22s ease;
+  }
+
+  .site-header.mobile-nav-open .mobile-nav-chevron {
+    background:
+      color-mix(in srgb, var(--page-accent) 12%, transparent);
+    transform: rotate(180deg);
+  }
+
+  .site-header .topnav {
+    position: absolute;
+    top: calc(100% - 4px);
+    left: 50%;
+    z-index: 2;
+    display: grid;
+    width: min(calc(100% - 20px), 520px);
+    max-width: none;
+    max-height: 0;
+    margin: 0;
+    padding: 0 8px;
+    overflow: hidden;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    border: 0;
+    border-radius: 18px;
+    background: rgba(7, 10, 18, .985);
+    box-shadow: 0 24px 55px rgba(0, 0, 0, .48);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -8px);
+    transition:
+      max-height .30s ease,
+      padding .30s ease,
+      opacity .20s ease,
+      transform .30s cubic-bezier(.2, .75, .2, 1),
+      visibility 0s linear .30s;
+  }
+
+  .site-header.mobile-nav-open .topnav {
+    max-height: 520px;
+    padding: 9px;
+    border: 1px solid var(--line-strong);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    transition:
+      max-height .30s ease,
+      padding .30s ease,
+      opacity .20s ease,
+      transform .30s cubic-bezier(.2, .75, .2, 1),
+      visibility 0s;
+  }
+
+  .site-header .topnav a {
+    width: 100%;
+    min-height: 42px;
+    justify-content: flex-start;
+    padding: 0 14px;
+    border-radius: 11px;
+    font-size: 8px;
+  }
+
+  .site-header .topnav a[aria-current="page"] {
+    justify-content: space-between;
+  }
+
+  .site-header .topnav a[aria-current="page"]::after {
+    content: "CURRENT";
+    opacity: .58;
+    font-size: 6px;
+    letter-spacing: .12em;
+  }
+
+  .site-header .topnav a.nav-donate {
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  body,
+  main,
+  .shell,
+  .page-section,
+  .visual-hero {
+    max-width: 100%;
+  }
+}

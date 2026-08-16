@@ -3,6 +3,7 @@ const thumbnails = Array.from(document.querySelectorAll('.thumbnail .item'));
 const nextButton = document.getElementById('next');
 const prevButton = document.getElementById('prev');
 const slider = document.querySelector('.slider');
+const thumbnailStrip = document.querySelector('.thumbnail');
 
 let activeIndex = 0;
 let rotationTimer;
@@ -19,7 +20,16 @@ function showSlide(index) {
   });
 
   const currentThumb = thumbnails[activeIndex];
-  if (currentThumb) currentThumb.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
+  if (currentThumb && thumbnailStrip) {
+    const target =
+      currentThumb.offsetLeft -
+      (thumbnailStrip.clientWidth - currentThumb.offsetWidth) / 2;
+
+    thumbnailStrip.scrollTo({
+      left: Math.max(0, target),
+      behavior: 'smooth'
+    });
+  }
 }
 
 function restartRotation() {
@@ -48,3 +58,41 @@ document.addEventListener('keydown', (event) => {
 
 showSlide(0);
 restartRotation();
+
+
+// Phone-friendly swipe navigation.
+// Only the slide changes; the whole page never gets dragged sideways.
+let touchStartX = 0;
+let touchStartY = 0;
+
+slider?.addEventListener(
+  "touchstart",
+  (event) => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  },
+  { passive: true }
+);
+
+slider?.addEventListener(
+  "touchend",
+  (event) => {
+    if (event.target.closest("a, button, .thumbnail")) return;
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+
+    if (
+      Math.abs(deltaX) < 55 ||
+      Math.abs(deltaX) < Math.abs(deltaY) * 1.2
+    ) {
+      return;
+    }
+
+    showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
+    restartRotation();
+  },
+  { passive: true }
+);

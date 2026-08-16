@@ -11,7 +11,22 @@
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
-<header class="site-header"><nav class="topnav" aria-label="Main navigation"><a href="/">Home</a><a href="/content">Our Content</a><a href="/community">Community</a><a href="/games">Games</a><a href="/aboutme">About Me</a><a href="/links" aria-current="page">Links</a><a class="nav-donate" href="https://streamelements.com/duffball16/tip" target="_blank" rel="noopener noreferrer">Donate</a></nav></header>
+<header class="site-header" data-mobile-nav>
+    <button
+      class="mobile-nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Open website pages"
+    >
+      <span class="mobile-nav-brand" aria-hidden="true">DB16</span>
+      <span class="mobile-nav-current">Links</span>
+      <span class="mobile-nav-hint">Pages</span>
+      <span class="mobile-nav-chevron" aria-hidden="true">⌄</span>
+    </button>
+
+    <nav class="topnav" id="primary-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/content">Our Content</a><a href="/community">Community</a><a href="/games">Games</a><a href="/aboutme">About Me</a><a href="/links" aria-current="page">Links</a><a class="nav-donate" href="https://streamelements.com/duffball16/tip" target="_blank" rel="noopener noreferrer">Donate</a></nav>
+  </header>
 <main id="main-content">
   <section class="links-hero page-section"><div class="shell links-hero-grid"><div class="profile-orbit"><div class="profile-photo"><img src="img/pjpfp.jpg" alt="Duffball16 profile photo"></div><span class="orbit-label one">YOUTUBE</span><span class="orbit-label two">DISCORD</span><span class="orbit-label three">SHORTS</span></div><div><p class="eyebrow">Duffball16 // Links</p><h1 class="display-title">Find me <span class="outline-word">everywhere.</span></h1><p class="lead">Want videos, community chat, quick updates or a way to get in touch? This is the simple hub for the main Duffball16 routes.</p><div class="button-row"><a class="btn btn-primary" href="https://www.youtube.com/@Duffball16" target="_blank" rel="noopener noreferrer">Open YouTube</a><a class="btn btn-secondary" href="/contact">Contact</a></div></div></div></section>
 
@@ -28,4 +43,5 @@
   <section class="page-section compact"><div class="shell contact-strip glass-panel"><div><p class="eyebrow">02 // Contact</p><h2 class="section-title">Need to send a <span class="outline-word">message?</span></h2><p>General creator messages and website-specific questions have separate routes so it is easier to send the right kind of message.</p></div><div class="contact-options"><a href="mailto:duffball16@gmail.com"><small>Creator email</small><strong>duffball16@gmail.com</strong></a><a href="/contact"><small>Website help</small><strong>Open contact page</strong></a></div></div></section>
 </main>
 <footer class="site-footer"><div class="footer-inner"><div class="footer-brand">DUFFBALL16</div><nav class="footer-links"><a href="/">Home</a><a href="/content">Content</a><a href="/community">Community</a><a href="/games">Games</a><a href="/aboutme">About</a><a href="/links">Links</a><a href="/contact">Contact</a><a href="/termsofservice">Terms</a><a href="/privacypolicy">Privacy</a></nav><p class="footer-credit">Website made by <a href="https://www.youtube.com/@PMOG" target="_blank" rel="noopener noreferrer">Portal Master Of Games (@PMOG)</a>.</p><p class="footer-copy">© 2026 Duffball16. All rights reserved.</p></div></footer>
+  <script src="js/site.js"></script>
 </body></html>

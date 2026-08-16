@@ -21,8 +21,21 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="site-header">
-    <nav class="topnav" aria-label="Main navigation">
+  <header class="site-header" data-mobile-nav>
+    <button
+      class="mobile-nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Open website pages"
+    >
+      <span class="mobile-nav-brand" aria-hidden="true">DB16</span>
+      <span class="mobile-nav-current">Home</span>
+      <span class="mobile-nav-hint">Pages</span>
+      <span class="mobile-nav-chevron" aria-hidden="true">⌄</span>
+    </button>
+
+    <nav class="topnav" id="primary-nav" aria-label="Main navigation">
       <a href="/" aria-current="page">Home</a>
       <a href="/content">Our Content</a>
       <a href="/community">Community</a>
@@ -198,5 +211,6 @@
   </footer>
 
   <script src="js/index.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>

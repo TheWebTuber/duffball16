@@ -47,8 +47,21 @@
   <body>
     <a class="skip-link" href="#main-content">Skip to experiences</a>
 
-    <header class="site-header" data-header>
-      <nav class="topnav" aria-label="Main navigation">
+    <header class="site-header" data-header data-mobile-nav>
+    <button
+      class="mobile-nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Open website pages"
+    >
+      <span class="mobile-nav-brand" aria-hidden="true">DB16</span>
+      <span class="mobile-nav-current">Games</span>
+      <span class="mobile-nav-hint">Pages</span>
+      <span class="mobile-nav-chevron" aria-hidden="true">⌄</span>
+    </button>
+
+    <nav class="topnav" id="primary-nav" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/content">Our Content</a>
         <a href="/community">Community</a>
@@ -57,7 +70,7 @@
         <a href="/links">Links</a>
         <a class="nav-donate" href="https://streamelements.com/duffball16/tip" target="_blank" rel="noopener noreferrer">Donate</a>
       </nav>
-    </header>
+  </header>
 
     <main id="main-content">
       <section class="hero" aria-labelledby="page-title">
@@ -133,7 +146,7 @@
                 </div>
                 <span class="card-link">Explore tournaments <b aria-hidden="true">↗</b></span>
               </div>
-              <span class="card-corner" aria-hidden="true">D16</span>
+              <span class="card-corner" aria-hidden="true">DB16</span>
             </a>
 
             <a
@@ -358,5 +371,6 @@
     </footer>
 
     <div class="toast" role="status" aria-live="polite" data-toast></div>
-  </body>
+    <script src="js/site.js"></script>
+</body>
 </html>

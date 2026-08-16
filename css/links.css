@@ -24,3 +24,134 @@
 .contact-strip > div:first-child > p:not(.eyebrow){color:var(--muted);font-size:13px}.contact-options{display:grid;gap:12px}.contact-options a{display:grid;gap:5px;padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}.contact-options a:hover,.contact-options a:focus-visible{border-color:var(--page-accent);outline:none}.contact-options small{color:var(--muted-2);font:800 8px/1 var(--display);letter-spacing:.1em;text-transform:uppercase}.contact-options strong{overflow-wrap:anywhere;font:700 14px/1.3 var(--display)}
 @media(max-width:900px){.links-hero-grid{grid-template-columns:1fr}.profile-orbit{min-height:430px}.profile-photo{width:min(68%,390px)}.contact-strip{grid-template-columns:1fr}}
 @media(max-width:700px){.social-grid{grid-template-columns:1fr}.profile-orbit{min-height:350px}.orbit-label{font-size:7px}.social-card{min-height:260px;padding:23px}.contact-strip{padding:24px 20px}}
+
+
+/* =========================================================
+   FINAL LINKS PHONE FIT
+   ========================================================= */
+.links-hero,
+.links-hero-grid,
+.profile-orbit,
+.social-grid,
+.social-card,
+.contact-strip,
+.contact-options {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.links-hero {
+  width: 100%;
+  overflow: hidden;
+}
+
+.links-hero-grid > *,
+.social-card > *,
+.contact-strip > * {
+  min-width: 0;
+}
+
+.social-actions a,
+.contact-options strong,
+.links-hero .lead {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .links-hero.page-section {
+    width: 100vw;
+    min-height: max(
+      640px,
+      calc(100svh - var(--mobile-nav-height, 64px))
+    );
+    padding: 28px 0 46px;
+    overflow: hidden;
+  }
+
+  .links-hero-grid {
+    width: calc(100% - 28px);
+    max-width: 520px;
+    margin-inline: auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .profile-orbit {
+    width: 100%;
+    min-height: 270px;
+    max-height: 300px;
+    overflow: hidden;
+  }
+
+  .profile-photo {
+    width: min(62vw, 235px);
+    max-width: 235px;
+  }
+
+  .profile-orbit::before {
+    width: min(76vw, 285px);
+    max-width: 285px;
+  }
+
+  .profile-orbit::after {
+    width: min(54vw, 205px);
+    max-width: 205px;
+  }
+
+  .orbit-label {
+    max-width: 96px;
+    padding: 7px 9px;
+    overflow: hidden;
+    font-size: 6px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .orbit-label.one {
+    top: 12%;
+    right: 4%;
+  }
+
+  .orbit-label.two {
+    bottom: 16%;
+    left: 3%;
+  }
+
+  .orbit-label.three {
+    right: 5%;
+    bottom: 8%;
+  }
+
+  .links-hero .display-title {
+    max-width: 100%;
+    font-size: clamp(42px, 12.8vw, 66px);
+    line-height: .9;
+    overflow-wrap: break-word;
+  }
+
+  .links-hero .lead {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .links-hero .button-row {
+    margin-top: 20px;
+  }
+
+  .social-grid {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .social-card {
+    width: 100%;
+    min-height: 245px;
+  }
+
+  .contact-strip {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

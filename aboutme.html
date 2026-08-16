@@ -11,7 +11,22 @@
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
-<header class="site-header"><nav class="topnav" aria-label="Main navigation"><a href="/">Home</a><a href="/content">Our Content</a><a href="/community">Community</a><a href="/games">Games</a><a href="/aboutme" aria-current="page">About Me</a><a href="/links">Links</a><a class="nav-donate" href="https://streamelements.com/duffball16/tip" target="_blank" rel="noopener noreferrer">Donate</a></nav></header>
+<header class="site-header" data-mobile-nav>
+    <button
+      class="mobile-nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Open website pages"
+    >
+      <span class="mobile-nav-brand" aria-hidden="true">DB16</span>
+      <span class="mobile-nav-current">About Me</span>
+      <span class="mobile-nav-hint">Pages</span>
+      <span class="mobile-nav-chevron" aria-hidden="true">⌄</span>
+    </button>
+
+    <nav class="topnav" id="primary-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/content">Our Content</a><a href="/community">Community</a><a href="/games">Games</a><a href="/aboutme" aria-current="page">About Me</a><a href="/links">Links</a><a class="nav-donate" href="https://streamelements.com/duffball16/tip" target="_blank" rel="noopener noreferrer">Donate</a></nav>
+  </header>
 <main id="main-content">
   <section class="about-hero page-section">
     <div class="shell about-hero-grid">
@@ -32,4 +47,5 @@
   <section class="page-section section-rule"><div class="shell"><div class="split-heading"><div><p class="eyebrow">06 // Quick connections</p><h2 class="section-title">Find me <span class="outline-word">online.</span></h2></div><p>These quick cards keep the most useful creator routes close by. The dedicated Links page has the full set.</p></div><div class="mini-links"><a href="https://www.youtube.com/@Duffball16" target="_blank" rel="noopener noreferrer"><small>YouTube</small><strong>Duffball16</strong><span>Videos, Shorts & streams →</span></a><a href="https://discord.gg/Ua54adg5vu" target="_blank" rel="noopener noreferrer"><small>Discord</small><strong>Duffinians</strong><span>Community server →</span></a><a href="/contact"><small>Contact</small><strong>Get in touch</strong><span>Creator & website contact →</span></a></div></div></section>
 </main>
 <footer class="site-footer"><div class="footer-inner"><div class="footer-brand">DUFFBALL16</div><nav class="footer-links"><a href="/">Home</a><a href="/content">Content</a><a href="/community">Community</a><a href="/games">Games</a><a href="/aboutme">About</a><a href="/links">Links</a><a href="/contact">Contact</a><a href="/termsofservice">Terms</a><a href="/privacypolicy">Privacy</a></nav><p class="footer-credit">Website made by <a href="https://www.youtube.com/@PMOG" target="_blank" rel="noopener noreferrer">Portal Master Of Games (@PMOG)</a>.</p><p class="footer-copy">© 2026 Duffball16. All rights reserved.</p></div></footer>
+  <script src="js/site.js"></script>
 </body></html>

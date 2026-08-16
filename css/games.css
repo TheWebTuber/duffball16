@@ -1317,3 +1317,180 @@ body {
     animation: none;
   }
 }
+
+
+/* =========================================================
+   FINAL GAMES PHONE NAV CAPSULE
+   ========================================================= */
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .topnav {
+    justify-content: center;
+    overflow-x: visible;
+  }
+
+  .topnav a {
+    padding-inline: 11px;
+    font-size: .5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    display: block;
+    width: 100%;
+    min-height: 64px;
+    padding: 8px 10px;
+    overflow: visible;
+    border-bottom: 0;
+    background:
+      linear-gradient(180deg, rgba(2, 3, 8, .98), rgba(2, 3, 8, .88));
+  }
+
+  .mobile-nav-toggle {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    width: min(100%, 520px);
+    min-height: 48px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px 6px 7px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 16px;
+    background:
+      linear-gradient(
+        115deg,
+        rgba(25, 217, 255, .08),
+        rgba(255, 255, 255, .035)
+      );
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .32);
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .mobile-nav-brand {
+    display: grid;
+    width: 34px;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid rgba(25, 217, 255, .48);
+    border-radius: 11px;
+    background: rgba(25, 217, 255, .10);
+    color: var(--cyan);
+    font: 800 .5rem/1 var(--font-display);
+  }
+
+  .mobile-nav-current {
+    min-width: 0;
+    overflow: hidden;
+    font: 800 .62rem/1 var(--font-display);
+    letter-spacing: .08em;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .mobile-nav-hint {
+    color: #687288;
+    font: 700 .42rem/1 var(--font-display);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .mobile-nav-chevron {
+    display: grid;
+    width: 27px;
+    height: 27px;
+    place-items: center;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, .055);
+    color: var(--cyan);
+    font-size: 1rem;
+    transition: transform .22s ease;
+  }
+
+  .site-header.mobile-nav-open .mobile-nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  .site-header .topnav {
+    position: absolute;
+    top: calc(100% - 4px);
+    left: 50%;
+    z-index: 2;
+    display: grid;
+    width: min(calc(100% - 20px), 520px);
+    max-width: none;
+    max-height: 0;
+    margin: 0;
+    padding: 0 8px;
+    overflow: hidden;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    border: 0;
+    border-radius: 18px;
+    background: rgba(7, 10, 18, .985);
+    box-shadow: 0 24px 55px rgba(0, 0, 0, .48);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -8px);
+    transition:
+      max-height .30s ease,
+      padding .30s ease,
+      opacity .20s ease,
+      transform .30s ease,
+      visibility 0s linear .30s;
+  }
+
+  .site-header.mobile-nav-open .topnav {
+    max-height: 520px;
+    padding: 9px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    transition:
+      max-height .30s ease,
+      padding .30s ease,
+      opacity .20s ease,
+      transform .30s ease,
+      visibility 0s;
+  }
+
+  .site-header .topnav a {
+    width: 100%;
+    min-height: 42px;
+    justify-content: flex-start;
+    padding: 0 14px;
+    border-radius: 11px;
+    font-size: .5rem;
+  }
+
+  .site-header .topnav a[aria-current="page"] {
+    justify-content: space-between;
+  }
+
+  .site-header .topnav a[aria-current="page"]::after {
+    content: "CURRENT";
+    opacity: .58;
+    font-size: .36rem;
+    letter-spacing: .12em;
+  }
+
+  .site-header .topnav a.nav-donate {
+    justify-content: center;
+    margin-top: 2px;
+  }
+}
