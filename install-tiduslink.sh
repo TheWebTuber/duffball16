@@ -3,6 +3,11 @@ set -euo pipefail
 
 APP_NAME="TidusLink"
 VERSION="1.1"
+CREATOR_NAME="Portal Master Of Games"
+
+# Optional support links. Add your real URLs here when ready.
+SUBSCRIBE_URL="https://www.youtube.com/@PMOG"
+DONATE_URL="https://www.paypal.com/donate/?hosted_button_id=SMU6EYH4K844N"
 
 X64_URL="https://duffball16.com/tiduslink/TidusLink_v1.1_Linux.zip"
 ARM64_URL="https://duffball16.com/tiduslink/TidusLink_v1.1_Linux_ARM64.zip"
@@ -13,6 +18,7 @@ ARM64_SHA256="d4f6915f0f4d721eae74307f0e0c008555e5d9054648b5f375c711f73377099b"
 INSTALL_DIR="${HOME}/.local/share/tiduslink"
 BIN_DIR="${HOME}/.local/bin"
 COMMAND_PATH="${BIN_DIR}/tiduslink"
+GLOBAL_COMMAND="/usr/local/bin/tiduslink"
 
 say() {
   printf '%s\n' "$*"
@@ -27,6 +33,11 @@ say ""
 say "======================================"
 say "        TidusLink Installer v${VERSION}"
 say "======================================"
+say "        Made by ${CREATOR_NAME}"
+say ""
+say "Thank you for choosing TidusLink!"
+say "This installer will download, verify and set up TidusLink for you."
+say "TidusLink is free, open source and ad-free."
 say ""
 
 [ "$(uname -s)" = "Linux" ] || fail "This installer currently supports Linux only."
@@ -108,29 +119,90 @@ for doc in README.txt LICENSE.txt DISCLAIMER.txt CREDITS.txt SHA256SUMS.txt; do
   fi
 done
 
+# Always create the normal per-user command too.
 ln -sfn "${INSTALL_DIR}/TidusLink" "$COMMAND_PATH"
+
+# Make `tiduslink` available immediately in the current terminal.
+# If ~/.local/bin is already in PATH, nothing more is needed.
+COMMAND_READY=0
+case ":${PATH}:" in
+  *":${BIN_DIR}:"*)
+    COMMAND_READY=1
+    ;;
+esac
+
+if [ "$COMMAND_READY" -eq 0 ]; then
+  WRAPPER_FILE="${TMP_DIR}/tiduslink"
+  cat > "$WRAPPER_FILE" <<'WRAPPER'
+#!/bin/sh
+exec "$HOME/.local/share/tiduslink/TidusLink" "$@"
+WRAPPER
+  chmod 0755 "$WRAPPER_FILE"
+
+  say ""
+  say "Setting up the 'tiduslink' command..."
+
+  if [ -d /usr/local/bin ] && [ -w /usr/local/bin ]; then
+    install -m 0755 "$WRAPPER_FILE" "$GLOBAL_COMMAND"
+    COMMAND_READY=1
+  elif command -v sudo >/dev/null 2>&1; then
+    say "Administrator permission is needed once to add the command to /usr/local/bin."
+    if sudo install -m 0755 "$WRAPPER_FILE" "$GLOBAL_COMMAND"; then
+      COMMAND_READY=1
+    fi
+  fi
+fi
 
 say ""
 say "✓ TidusLink installed successfully"
 say "  App: ${INSTALL_DIR}/TidusLink"
-say "  Command: ${COMMAND_PATH}"
+say "  User command: ${COMMAND_PATH}"
+
+if [ "$COMMAND_READY" -eq 1 ]; then
+  say "  Command: tiduslink"
+  say ""
+  say "Start TidusLink with:"
+  say "  tiduslink"
+else
+  # Fallback for systems without sudo or a writable directory already in PATH.
+  PROFILE_FILE="${HOME}/.profile"
+  PATH_LINE='export PATH="$HOME/.local/bin:$PATH"'
+
+  if ! grep -Fqx "$PATH_LINE" "$PROFILE_FILE" 2>/dev/null; then
+    printf '\n%s\n' "$PATH_LINE" >> "$PROFILE_FILE"
+  fi
+
+  say ""
+  say "! Could not create /usr/local/bin/tiduslink."
+  say "  TidusLink is installed and ~/.local/bin was added to ~/.profile."
+  say "  For this terminal, start it with:"
+  say "  ${COMMAND_PATH}"
+  say ""
+  say "  New login sessions can use:"
+  say "  tiduslink"
+fi
+
 say ""
-
-case ":${PATH}:" in
-  *":${BIN_DIR}:"*)
-    say "Run it with:"
-    say "  tiduslink"
-    ;;
-  *)
-    say "Your shell does not currently include ${BIN_DIR} in PATH."
-    say "You can start TidusLink now with:"
-    say "  ${COMMAND_PATH}"
-    say ""
-    say "Or add this to ~/.profile and sign in again:"
-    say '  export PATH="$HOME/.local/bin:$PATH"'
-    ;;
-esac
-
+say "======================================"
+say "        Installation complete!"
+say "======================================"
+say ""
+say "Thank you for choosing and installing TidusLink!"
+say "TidusLink is made by ${CREATOR_NAME}."
 say ""
 say "TidusLink is free, open source and ad-free."
+
+if [ -n "$SUBSCRIBE_URL" ] || [ -n "$DONATE_URL" ]; then
+  say ""
+  say "If you enjoy TidusLink and would like to support the project:"
+  if [ -n "$SUBSCRIBE_URL" ]; then
+    say "  Subscribe: $SUBSCRIBE_URL"
+  fi
+  if [ -n "$DONATE_URL" ]; then
+    say "  Donate:    $DONATE_URL"
+  fi
+fi
+
+say ""
+say "Enjoy TidusLink!"
 say "Done."
