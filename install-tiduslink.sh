@@ -4,8 +4,8 @@ set -euo pipefail
 APP_NAME="TidusLink"
 VERSION="1.1"
 
-X64_URL="https://duffball16.com/TidusLink_v1.1_Linux.zip"
-ARM64_URL="https://duffball16.com/TidusLink_v1.1_Linux_ARM64.zip"
+X64_URL="https://duffball16.com/tiduslink/TidusLink_v1.1_Linux.zip"
+ARM64_URL="https://duffball16.com/tiduslink/TidusLink_v1.1_Linux_ARM64.zip"
 
 X64_SHA256="94521885cdd83e6b67814afd130de3b38e8c0ca249c3c1c78481197d3bf73d8a"
 ARM64_SHA256="20b0cd9701f62febb46f1d773a2a7a7ad66283be6d08956c32f113a369626518"
