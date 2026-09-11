@@ -127,8 +127,8 @@
         </div>
 
         <ol class="steps-grid">
-          <li><span>01</span><div><strong>Download & extract</strong><p>Choose the build for Windows x64, Linux x64, or Linux ARM64 below and extract the archive.</p></div></li>
-          <li><span>02</span><div><strong>Start TidusLink</strong><p>Run the app. On Windows, allow private-network firewall access if asked. On Linux, make the binary executable if your system requires it.</p></div></li>
+          <li><span>01</span><div><strong>Install TidusLink</strong><p>Windows users can download and extract the ZIP. Linux users can use the one-command installer below, which automatically chooses x64 or ARM64.</p></div></li>
+          <li><span>02</span><div><strong>Start TidusLink</strong><p>On Windows, run the app and allow private-network firewall access if asked. On Linux, simply open a terminal and type <code>tiduslink</code>.</p></div></li>
           <li><span>03</span><div><strong>Enter server details</strong><p>Paste the Bedrock server address and UDP port, then choose the LAN name and subtitle you want to see.</p></div></li>
           <li><span>04</span><div><strong>Start LAN Link</strong><p>Press <b>Start LAN Link</b> and leave TidusLink running while the console connects.</p></div></li>
           <li><span>05</span><div><strong>Open Bedrock</strong><p>On the console, open Play and look in the Friends/LAN area for the name you chose.</p></div></li>
@@ -167,8 +167,9 @@
         <div class="download-heading">
           <p class="eyebrow"><span></span> 03 // DOWNLOAD</p>
           <h2>CHOOSE YOUR <em>BUILD.</em></h2>
-          <p>You’ve seen what it does. Now pick the version that matches the computer or device that will run TidusLink on your local network.</p>
+          <p>Download the ZIP that matches your device. Linux users can also use the easier one-command terminal installer directly below the downloads.</p>
         </div>
+
 
         <div class="download-grid">
           <article class="download-card recommended">
@@ -185,8 +186,8 @@
             <div class="os-icon linux" aria-hidden="true">⌁</div>
             <small>LINUX</small>
             <h3>Linux x64</h3>
-            <p>For most 64-bit Linux desktop/laptop systems using an Intel or AMD processor.</p>
-            <a class="download-button linux-button" href="tiduslink/TidusLink_v1.1_Linux_ARM64.zip" download>Download Linux x64 <b>↓</b></a>
+            <p>Manual ZIP for most 64-bit Linux desktop/laptop systems using an Intel or AMD processor.</p>
+            <a class="download-button linux-button" href="tiduslink/TidusLink_v1.1_Linux.zip" download>Download Linux x64 <b>↓</b></a>
             <code>TidusLink_v1.1_Linux.zip</code>
           </article>
 
@@ -194,13 +195,78 @@
             <div class="os-icon arm" aria-hidden="true">A64</div>
             <small>LINUX // ARM</small>
             <h3>Linux ARM64</h3>
-            <p>For 64-bit ARM Linux devices, including many Raspberry Pi systems and ARM computers.</p>
+            <p>Manual ZIP for 64-bit ARM Linux devices, including many Raspberry Pi systems and ARM computers.</p>
             <a class="download-button arm-button" href="tiduslink/TidusLink_v1.1_Linux_ARM64.zip" download>Download Linux ARM64 <b>↓</b></a>
             <code>TidusLink_v1.1_Linux_ARM64.zip</code>
           </article>
         </div>
 
+        <section class="linux-installer" aria-labelledby="linux-install-title">
+          <div class="linux-installer-head">
+            <div>
+              <p class="eyebrow"><span></span> LINUX QUICK INSTALL // RECOMMENDED</p>
+              <h3 id="linux-install-title">One command. Ready to run.</h3>
+              <p>Works on supported Linux x64 and ARM64 systems. The installer detects your architecture, downloads the correct TidusLink package, verifies its SHA-256 checksum, installs it, and creates the <code>tiduslink</code> command.</p>
+            </div>
+            <span class="auto-detect-badge">AUTO-DETECTS x64 / ARM64</span>
+          </div>
+
+          <div class="command-list">
+            <article class="command-card primary-command">
+              <div class="command-copy-row">
+                <div>
+                  <small>INSTALL OR UPDATE</small>
+                  <strong>Run this in your Linux terminal</strong>
+                </div>
+                <button class="command-copy" type="button" data-copy="curl -fsSL https://duffball16.com/install-tiduslink.sh | bash">Copy command</button>
+              </div>
+              <pre><code>curl -fsSL https://duffball16.com/install-tiduslink.sh | bash</code></pre>
+              <p>Running the same command again later installs the current v1.1 package over your existing TidusLink installation.</p>
+            </article>
+
+            <div class="command-grid">
+              <article class="command-card">
+                <div class="command-copy-row">
+                  <div><small>START</small><strong>Open TidusLink</strong></div>
+                  <button class="command-copy" type="button" data-copy="tiduslink">Copy</button>
+                </div>
+                <pre><code>tiduslink</code></pre>
+              </article>
+
+              <article class="command-card">
+                <div class="command-copy-row">
+                  <div><small>UNINSTALL</small><strong>Remove TidusLink</strong></div>
+                  <button class="command-copy" type="button" data-copy="tiduslink --uninstall">Copy</button>
+                </div>
+                <pre><code>tiduslink --uninstall</code></pre>
+              </article>
+
+              <article class="command-card">
+                <div class="command-copy-row">
+                  <div><small>HELP</small><strong>Show available commands</strong></div>
+                  <button class="command-copy" type="button" data-copy="tiduslink --help">Copy</button>
+                </div>
+                <pre><code>tiduslink --help</code></pre>
+              </article>
+            </div>
+          </div>
+
+          <div class="installer-details">
+            <div><span>01</span><p><strong>Detects your Linux CPU</strong><br />Chooses the x64 or ARM64 build automatically.</p></div>
+            <div><span>02</span><p><strong>Verifies the download</strong><br />Checks the package SHA-256 before installing it.</p></div>
+            <div><span>03</span><p><strong>Installs for your user</strong><br />Stores TidusLink in <code>~/.local/share/tiduslink</code>.</p></div>
+            <div><span>04</span><p><strong>Creates a simple command</strong><br />After installation, start the app by typing <code>tiduslink</code>.</p></div>
+          </div>
+
+          <div class="installer-note">
+            <strong>What will the command do?</strong>
+            <p>The script is downloaded from Duffball16.com and run with Bash. On systems where <code>~/.local/bin</code> is not already available in your terminal, the installer may ask for administrator permission once so it can make the <code>tiduslink</code> command available immediately.</p>
+            <a href="/install-tiduslink.sh">View or download the installer script →</a>
+          </div>
+        </section>
+
         <div class="download-notes">
+          <p><strong>Linux recommendation:</strong> use the one-command installer unless you specifically need the raw ZIP.</p>
           <p><strong>macOS:</strong> no public macOS build is offered right now because that release has not been verified.</p>
           <p><strong>Open source:</strong> want to inspect or build it yourself? <a href="tiduslink/TidusLink_v1.1_Source.zip" download>Download the v1.1 source package →</a></p>
         </div>
@@ -230,7 +296,7 @@
       <a href="/termsofservice">Terms</a>
       <a href="/privacypolicy">Privacy</a>
     </nav>
-    <p>© <span data-year></span> TidusLink community project • Hosted on Duffball16.com</p>
+    <p>© <span data-year></span> TidusLink • Made by Portal Master Of Games • Hosted on Duffball16.com</p>
   </footer>
 
   <div class="toast" role="status" aria-live="polite" data-toast></div>

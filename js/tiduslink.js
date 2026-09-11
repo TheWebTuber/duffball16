@@ -28,12 +28,26 @@ async function copyText(value) {
     }
     showToast(`Copied: ${value}`);
     if (copyStatus) copyStatus.textContent = `Copied: ${value}`;
+    return true;
   } catch {
     showToast(`Copy manually: ${value}`);
     if (copyStatus) copyStatus.textContent = `Copy manually: ${value}`;
+    return false;
   }
 }
 
 document.querySelectorAll('[data-copy]').forEach((button) => {
-  button.addEventListener('click', () => copyText(button.dataset.copy));
+  button.addEventListener('click', async () => {
+    const originalLabel = button.textContent;
+    const copied = await copyText(button.dataset.copy);
+
+    if (button.classList.contains('command-copy')) {
+      button.textContent = copied ? 'Copied!' : 'Copy manually';
+      button.classList.toggle('is-copied', copied);
+      window.setTimeout(() => {
+        button.textContent = originalLabel;
+        button.classList.remove('is-copied');
+      }, 1800);
+    }
+  });
 });
