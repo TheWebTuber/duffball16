@@ -5,7 +5,6 @@ APP_NAME="TidusLink"
 VERSION="1.1"
 CREATOR_NAME="Portal Master Of Games"
 
-# Optional support links. Add your real URLs here when ready.
 SUBSCRIBE_URL="https://www.youtube.com/@PMOG"
 DONATE_URL="https://www.paypal.com/donate/?hosted_button_id=SMU6EYH4K844N"
 
@@ -19,6 +18,8 @@ INSTALL_DIR="${HOME}/.local/share/tiduslink"
 BIN_DIR="${HOME}/.local/bin"
 COMMAND_PATH="${BIN_DIR}/tiduslink"
 GLOBAL_COMMAND="/usr/local/bin/tiduslink"
+PROFILE_FILE="${HOME}/.profile"
+PATH_LINE='export PATH="$HOME/.local/bin:$PATH"'
 
 say() {
   printf '%s\n' "$*"
@@ -107,11 +108,10 @@ fi
 [ -n "${SOURCE_BINARY:-}" ] && [ -f "$SOURCE_BINARY" ] || fail "Could not find the TidusLink executable inside the downloaded package."
 
 mkdir -p "$INSTALL_DIR" "$BIN_DIR"
-
 cp "$SOURCE_BINARY" "${INSTALL_DIR}/TidusLink"
-chmod +x "${INSTALL_DIR}/TidusLink"
+chmod 0755 "${INSTALL_DIR}/TidusLink"
 
-# Copy release documents when they are present.
+# Copy release documents when present.
 for doc in README.txt LICENSE.txt DISCLAIMER.txt CREDITS.txt SHA256SUMS.txt; do
   found="$(find "$EXTRACT_DIR" -type f -name "$doc" -print -quit || true)"
   if [ -n "$found" ]; then
@@ -119,11 +119,92 @@ for doc in README.txt LICENSE.txt DISCLAIMER.txt CREDITS.txt SHA256SUMS.txt; do
   fi
 done
 
-# Always create the normal per-user command too.
-ln -sfn "${INSTALL_DIR}/TidusLink" "$COMMAND_PATH"
+# The user launcher handles BOTH normal startup and `tiduslink --uninstall`.
+cat > "$COMMAND_PATH" <<'LAUNCHER'
+#!/usr/bin/env bash
+set -euo pipefail
 
-# Make `tiduslink` available immediately in the current terminal.
-# If ~/.local/bin is already in PATH, nothing more is needed.
+INSTALL_DIR="$HOME/.local/share/tiduslink"
+APP_PATH="$INSTALL_DIR/TidusLink"
+USER_COMMAND="$HOME/.local/bin/tiduslink"
+GLOBAL_COMMAND="/usr/local/bin/tiduslink"
+GLOBAL_MARKER="# TidusLink global command helper"
+
+uninstall_tiduslink() {
+  AUTO_YES=0
+  if [ "${2:-}" = "--yes" ] || [ "${2:-}" = "-y" ]; then
+    AUTO_YES=1
+  fi
+
+  printf '\n======================================\n'
+  printf '        TidusLink Uninstaller\n'
+  printf '======================================\n\n'
+  printf 'This will remove TidusLink from this user account.\n'
+  printf 'Installed files: %s\n\n' "$INSTALL_DIR"
+
+  if [ "$AUTO_YES" -ne 1 ]; then
+    printf 'Continue? [y/N]: '
+    read -r answer
+    case "$answer" in
+      y|Y|yes|YES|Yes) ;;
+      *)
+        printf 'Uninstall cancelled.\n'
+        exit 0
+        ;;
+    esac
+  fi
+
+  # Remove the optional /usr/local/bin helper only if it is ours.
+  if [ -f "$GLOBAL_COMMAND" ] && grep -Fq "$GLOBAL_MARKER" "$GLOBAL_COMMAND" 2>/dev/null; then
+    if [ -w "$GLOBAL_COMMAND" ] || [ -w "$(dirname "$GLOBAL_COMMAND")" ]; then
+      rm -f "$GLOBAL_COMMAND"
+    elif command -v sudo >/dev/null 2>&1; then
+      printf 'Administrator permission is needed to remove %s.\n' "$GLOBAL_COMMAND"
+      sudo rm -f "$GLOBAL_COMMAND" || true
+    fi
+  fi
+
+  rm -rf "$INSTALL_DIR"
+
+  printf '\n✓ TidusLink has been uninstalled.\n'
+  printf 'Thank you for trying TidusLink.\n'
+
+  # Remove this launcher last. The running shell already has it open.
+  rm -f "$USER_COMMAND"
+  exit 0
+}
+
+case "${1:-}" in
+  --uninstall)
+    uninstall_tiduslink "$@"
+    ;;
+  --help|-h)
+    printf 'TidusLink\n\n'
+    printf 'Usage:\n'
+    printf '  tiduslink                 Start TidusLink\n'
+    printf '  tiduslink --uninstall     Uninstall TidusLink\n'
+    printf '  tiduslink --uninstall --yes   Uninstall without confirmation\n'
+    printf '  tiduslink --help          Show this help\n'
+    exit 0
+    ;;
+esac
+
+if [ ! -x "$APP_PATH" ]; then
+  printf 'TidusLink is not installed correctly for this user.\n' >&2
+  printf 'Reinstall it using the official TidusLink installer.\n' >&2
+  exit 1
+fi
+
+exec "$APP_PATH" "$@"
+LAUNCHER
+chmod 0755 "$COMMAND_PATH"
+
+# Add ~/.local/bin for future login sessions if it is not already configured.
+if ! grep -Fqx "$PATH_LINE" "$PROFILE_FILE" 2>/dev/null; then
+  printf '\n%s\n' "$PATH_LINE" >> "$PROFILE_FILE"
+fi
+
+# Make `tiduslink` available immediately in this terminal.
 COMMAND_READY=0
 case ":${PATH}:" in
   *":${BIN_DIR}:"*)
@@ -132,22 +213,23 @@ case ":${PATH}:" in
 esac
 
 if [ "$COMMAND_READY" -eq 0 ]; then
-  WRAPPER_FILE="${TMP_DIR}/tiduslink"
-  cat > "$WRAPPER_FILE" <<'WRAPPER'
+  GLOBAL_HELPER="${TMP_DIR}/tiduslink-global"
+  cat > "$GLOBAL_HELPER" <<'GLOBAL'
 #!/bin/sh
-exec "$HOME/.local/share/tiduslink/TidusLink" "$@"
-WRAPPER
-  chmod 0755 "$WRAPPER_FILE"
+# TidusLink global command helper
+exec "$HOME/.local/bin/tiduslink" "$@"
+GLOBAL
+  chmod 0755 "$GLOBAL_HELPER"
 
   say ""
   say "Setting up the 'tiduslink' command..."
 
   if [ -d /usr/local/bin ] && [ -w /usr/local/bin ]; then
-    install -m 0755 "$WRAPPER_FILE" "$GLOBAL_COMMAND"
+    install -m 0755 "$GLOBAL_HELPER" "$GLOBAL_COMMAND"
     COMMAND_READY=1
   elif command -v sudo >/dev/null 2>&1; then
     say "Administrator permission is needed once to add the command to /usr/local/bin."
-    if sudo install -m 0755 "$WRAPPER_FILE" "$GLOBAL_COMMAND"; then
+    if sudo install -m 0755 "$GLOBAL_HELPER" "$GLOBAL_COMMAND"; then
       COMMAND_READY=1
     fi
   fi
@@ -163,23 +245,22 @@ if [ "$COMMAND_READY" -eq 1 ]; then
   say ""
   say "Start TidusLink with:"
   say "  tiduslink"
-else
-  # Fallback for systems without sudo or a writable directory already in PATH.
-  PROFILE_FILE="${HOME}/.profile"
-  PATH_LINE='export PATH="$HOME/.local/bin:$PATH"'
-
-  if ! grep -Fqx "$PATH_LINE" "$PROFILE_FILE" 2>/dev/null; then
-    printf '\n%s\n' "$PATH_LINE" >> "$PROFILE_FILE"
-  fi
-
   say ""
-  say "! Could not create /usr/local/bin/tiduslink."
-  say "  TidusLink is installed and ~/.local/bin was added to ~/.profile."
-  say "  For this terminal, start it with:"
+  say "Uninstall TidusLink anytime with:"
+  say "  tiduslink --uninstall"
+else
+  say ""
+  say "! TidusLink was installed, but this shell cannot use 'tiduslink' immediately."
+  say "  ~/.local/bin has been added to ~/.profile for future login sessions."
+  say ""
+  say "Start it in this terminal with:"
   say "  ${COMMAND_PATH}"
   say ""
-  say "  New login sessions can use:"
+  say "After signing in again, use:"
   say "  tiduslink"
+  say ""
+  say "Uninstall with:"
+  say "  ${COMMAND_PATH} --uninstall"
 fi
 
 say ""
