@@ -1494,3 +1494,188 @@ body {
     margin-top: 2px;
   }
 }
+
+
+/* =========================================================
+   TIDUSLINK CARD — CURRENT GAMES HUB
+   ========================================================= */
+
+.tiduslink-card {
+  grid-column: 1 / -1;
+  min-height: 430px;
+  border-color: rgba(149, 84, 255, 0.34);
+  background:
+    radial-gradient(circle at 73% 42%, rgba(25, 217, 255, 0.13), transparent 21rem),
+    radial-gradient(circle at 86% 70%, rgba(149, 84, 255, 0.18), transparent 24rem),
+    linear-gradient(125deg, #040610 0%, #080719 50%, #03050d 100%);
+}
+
+.tiduslink-card:hover,
+.tiduslink-card:focus-visible {
+  border-color: rgba(149, 84, 255, 0.58);
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.48),
+    0 0 54px rgba(149, 84, 255, 0.12),
+    0 0 30px rgba(25, 217, 255, 0.08);
+}
+
+.tiduslink-gradient {
+  background:
+    linear-gradient(90deg, rgba(2, 4, 12, 0.98) 0%, rgba(2, 4, 12, 0.88) 38%, rgba(3, 4, 14, 0.28) 67%, rgba(2, 3, 10, 0.62) 100%),
+    linear-gradient(180deg, rgba(2, 3, 10, 0.08), rgba(2, 3, 10, 0.82));
+}
+
+.category-tidus i {
+  border-radius: 50%;
+  background: var(--purple);
+  box-shadow:
+    0 0 12px var(--purple),
+    0 0 18px rgba(25, 217, 255, 0.32);
+}
+
+.tiduslink-card .card-index {
+  color: #bd9aff;
+}
+
+.tiduslink-card .card-content {
+  max-width: 690px;
+}
+
+.tiduslink-card .card-content p {
+  max-width: 650px;
+}
+
+.tiduslink-card .card-link {
+  border-color: rgba(149, 84, 255, 0.44);
+  background: linear-gradient(90deg, rgba(149, 84, 255, 0.10), rgba(25, 217, 255, 0.05));
+}
+
+.tiduslink-card:hover .card-link,
+.tiduslink-card:focus-visible .card-link {
+  background: linear-gradient(115deg, var(--purple), var(--cyan));
+  color: #03030a;
+}
+
+.tidus-corner {
+  color: rgba(149, 84, 255, 0.08);
+  font-size: 6.2rem;
+}
+
+.tiduslink-card-visual {
+  position: absolute;
+  top: 50%;
+  right: clamp(35px, 8vw, 120px);
+  z-index: 0;
+  width: min(38vw, 410px);
+  aspect-ratio: 1.35;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.tl-node {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 82px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(5, 7, 18, 0.86);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+  color: #d9e3ff;
+  font: 800 0.76rem/1 var(--font-display);
+  letter-spacing: 0.08em;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+}
+
+.tl-node-center {
+  top: 50%;
+  left: 50%;
+  width: 112px;
+  border-color: rgba(149, 84, 255, 0.65);
+  background:
+    radial-gradient(circle, rgba(149, 84, 255, 0.23), rgba(5, 7, 18, 0.92) 68%);
+  box-shadow:
+    0 0 50px rgba(149, 84, 255, 0.18),
+    inset 0 0 28px rgba(25, 217, 255, 0.05);
+  color: #cdaeff;
+  font-size: 1.45rem;
+  transform: translate(-50%, -50%);
+}
+
+.tl-node-left {
+  top: 50%;
+  left: 0;
+  border-color: rgba(25, 217, 255, 0.38);
+  color: var(--cyan);
+  transform: translateY(-50%);
+}
+
+.tl-node-right {
+  top: 50%;
+  right: 0;
+  border-color: rgba(96, 243, 145, 0.34);
+  color: var(--green);
+  transform: translateY(-50%);
+}
+
+.tl-orbit {
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--green));
+  box-shadow: 0 0 17px rgba(25, 217, 255, 0.25);
+  transform: translateY(-50%);
+}
+
+.tl-orbit-one {
+  right: 18%;
+  left: 18%;
+}
+
+.tl-orbit-two {
+  top: 17%;
+  left: 50%;
+  width: 1px;
+  height: 66%;
+  background: linear-gradient(180deg, transparent, rgba(149, 84, 255, 0.6), transparent);
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  .tiduslink-card {
+    grid-column: auto;
+    min-height: 610px;
+  }
+
+  .tiduslink-card-visual {
+    top: 31%;
+    right: 50%;
+    width: min(72vw, 390px);
+    opacity: 0.82;
+    transform: translate(50%, -50%);
+  }
+
+  .tiduslink-card .card-content {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .tiduslink-card {
+    min-height: 590px;
+  }
+
+  .tiduslink-card-visual {
+    top: 28%;
+    width: min(80vw, 345px);
+  }
+
+  .tl-node {
+    width: 66px;
+  }
+
+  .tl-node-center {
+    width: 91px;
+  }
+}
