@@ -7,8 +7,8 @@ VERSION="1.1"
 X64_URL="https://duffball16.com/tiduslink/TidusLink_v1.1_Linux.zip"
 ARM64_URL="https://duffball16.com/tiduslink/TidusLink_v1.1_Linux_ARM64.zip"
 
-X64_SHA256="94521885cdd83e6b67814afd130de3b38e8c0ca249c3c1c78481197d3bf73d8a"
-ARM64_SHA256="20b0cd9701f62febb46f1d773a2a7a7ad66283be6d08956c32f113a369626518"
+X64_SHA256="54de72b7552a7254aff112f72f7292f894d9ad24ba74b609835fe82f19c5c353"
+ARM64_SHA256="d4f6915f0f4d721eae74307f0e0c008555e5d9054648b5f375c711f73377099b"
 
 INSTALL_DIR="${HOME}/.local/share/tiduslink"
 BIN_DIR="${HOME}/.local/bin"
