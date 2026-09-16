@@ -402,7 +402,7 @@ a {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-top: 65px;
 }
@@ -430,6 +430,12 @@ a {
 }
 
 .contact-card:nth-child(3) {
+  background:
+    linear-gradient(145deg, rgba(56,101,255,.065), transparent 44%),
+    rgba(8,12,21,.79);
+}
+
+.contact-card:nth-child(4) {
   background:
     linear-gradient(145deg, rgba(109,255,176,.045), transparent 44%),
     rgba(8,12,21,.79);
@@ -473,6 +479,29 @@ a {
 .card-icon.tertiary {
   border-color: rgba(109,255,176,.35);
   color: var(--green);
+}
+
+.card-icon.collaboration-icon {
+  border-color: rgba(56,101,255,.48);
+  background: rgba(56,101,255,.055);
+  color: #8fa7ff;
+  font-size: 11px;
+}
+
+.address-box.collaboration-box {
+  border-color: var(--blue);
+  background: rgba(56,101,255,.055);
+}
+
+.collaboration-action {
+  border-color: rgba(56,101,255,.34);
+  background: rgba(56,101,255,.075);
+}
+
+.collaboration-action:hover,
+.collaboration-action:focus-visible {
+  border-color: #8fa7ff;
+  color: #b7c5ff;
 }
 
 .contact-card h3 {
@@ -556,6 +585,259 @@ a {
   border-color: rgba(255,255,255,.13);
   background: rgba(255,255,255,.025);
 }
+
+
+/* COLLABORATIONS */
+
+.collaboration-section {
+  border-block: 1px solid rgba(255,255,255,.06);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(56,101,255,.075), transparent 31rem),
+    radial-gradient(circle at 88% 72%, rgba(139,93,255,.06), transparent 30rem),
+    #040711;
+}
+
+.collaboration-heading {
+  align-items: end;
+}
+
+.collaboration-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr);
+  gap: 22px;
+  margin-top: 62px;
+  align-items: start;
+}
+
+.collaboration-guide,
+.template-panel {
+  border: 1px solid rgba(255,255,255,.11);
+  background: rgba(8,12,21,.86);
+  box-shadow: 0 28px 70px rgba(0,0,0,.24);
+}
+
+.collaboration-guide {
+  position: sticky;
+  top: 98px;
+  padding: clamp(25px, 3vw, 38px);
+  background:
+    linear-gradient(145deg, rgba(39,219,255,.055), transparent 42%),
+    rgba(8,12,21,.88);
+}
+
+.mini-label {
+  margin: 0;
+  color: var(--cyan);
+  font: 800 8px/1.2 var(--font-display);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.collaboration-guide h3,
+.template-panel h3 {
+  margin: 13px 0 0;
+  font: 750 clamp(22px, 2.5vw, 31px)/1.05 var(--font-display);
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+}
+
+.collaboration-guide > p:not(.mini-label) {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.collaboration-guide > p strong {
+  color: #fff;
+}
+
+.collab-points {
+  margin-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.11);
+}
+
+.collab-point {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 14px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(255,255,255,.095);
+}
+
+.collab-point > span {
+  color: #8fa7ff;
+  font: 800 10px/1.2 var(--font-display);
+}
+
+.collab-point strong {
+  display: block;
+  font: 700 11px/1.25 var(--font-display);
+  text-transform: uppercase;
+}
+
+.collab-point p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+.collab-email-button {
+  width: 100%;
+  margin-top: 28px;
+}
+
+.template-panel {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.template-panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px 30px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  background:
+    linear-gradient(120deg, rgba(139,93,255,.075), transparent 50%),
+    rgba(255,255,255,.018);
+}
+
+.copy-template-button {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 0 15px;
+  border: 1px solid rgba(39,219,255,.34);
+  background: rgba(39,219,255,.055);
+  color: var(--cyan);
+  font: 750 8px/1 var(--font-display);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.copy-template-button:hover,
+.copy-template-button:focus-visible {
+  border-color: var(--cyan);
+  background: var(--cyan);
+  color: #001015;
+  outline: none;
+}
+
+.template-intro {
+  margin: 0;
+  padding: 23px 30px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.template-intro code {
+  padding: 2px 5px;
+  border: 1px solid rgba(139,93,255,.22);
+  background: rgba(139,93,255,.075);
+  color: #cbbdff;
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+}
+
+.email-preview {
+  margin: 23px 30px 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: #f6f8fc;
+  color: #172033;
+  box-shadow: 0 22px 60px rgba(0,0,0,.22);
+}
+
+.email-preview-meta {
+  display: grid;
+  gap: 0;
+  border-bottom: 1px solid #dbe1ea;
+  background: #eef2f7;
+}
+
+.email-preview-meta > div {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 14px;
+  padding: 12px 18px;
+  border-bottom: 1px solid #dbe1ea;
+}
+
+.email-preview-meta > div:last-child {
+  border-bottom: 0;
+}
+
+.email-preview-meta span {
+  color: #677287;
+  font: 800 9px/1.5 var(--font-display);
+  letter-spacing: .12em;
+}
+
+.email-preview-meta strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #172033;
+  font: 650 12px/1.5 var(--font-body);
+}
+
+.email-preview-body {
+  padding: clamp(24px, 4vw, 38px);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.email-preview-body p {
+  margin: 0 0 18px;
+}
+
+.email-preview-body p:last-child {
+  margin-bottom: 0;
+}
+
+.email-preview mark {
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: rgba(56,101,255,.11);
+  color: #274bbd;
+  font-weight: 650;
+}
+
+.copy-source {
+  position: fixed;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.template-footnote {
+  display: grid;
+  grid-template-columns: 31px 1fr;
+  gap: 13px;
+  margin: 23px 30px 30px;
+  padding: 17px 18px;
+  border: 1px solid rgba(139,93,255,.18);
+  background: rgba(139,93,255,.04);
+}
+
+.template-footnote > span {
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border: 1px solid rgba(139,93,255,.38);
+  color: #bba7ff;
+  font: 800 10px/1 var(--font-display);
+}
+
+.template-footnote p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
 
 /* HELP */
 
@@ -744,8 +1026,12 @@ a {
     grid-template-columns: 1fr 1fr;
   }
 
-  .contact-card:last-child {
-    grid-column: 1 / -1;
+  .collaboration-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .collaboration-guide {
+    position: static;
   }
 }
 
@@ -764,8 +1050,9 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .contact-card:last-child {
-    grid-column: auto;
+  .template-panel-top {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .footer {
@@ -845,6 +1132,40 @@ a {
 
   .privacy-panel {
     padding: 25px 21px;
+  }
+
+  .collaboration-guide {
+    padding: 23px;
+  }
+
+  .template-panel-top {
+    padding: 23px;
+  }
+
+  .copy-template-button {
+    width: 100%;
+  }
+
+  .template-intro {
+    padding: 20px 23px 0;
+  }
+
+  .email-preview {
+    margin: 20px 23px 0;
+  }
+
+  .email-preview-meta > div {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .email-preview-body {
+    padding: 22px 20px;
+    font-size: 12px;
+  }
+
+  .template-footnote {
+    margin: 20px 23px 23px;
   }
 
   .final-copy h2 {
