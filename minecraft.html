@@ -113,7 +113,7 @@
         <dl class="hero-stats" aria-label="Server highlights">
           <div>
             <dt>Access</dt>
-            <dd>Java + Bedrock</dd>
+            <dd id="hero-access-state">Checking...</dd>
           </div>
           <i aria-hidden="true"></i>
           <div>
@@ -204,14 +204,20 @@
           <h2>CHOOSE YOUR <em>EDITION.</em></h2>
           <p class="heading-note">
             Both editions use the same server address. Bedrock players also need the port shown below.
+            Live availability is checked separately for Java and Bedrock before you join.
           </p>
         </div>
 
         <div class="join-grid">
-          <article class="edition-card edition-java">
+          <article class="edition-card edition-java" data-edition-card="java">
             <div class="edition-topline">
               <span>JAVA EDITION</span>
               <b>01</b>
+            </div>
+
+            <div class="edition-live-status edition-status-checking" data-edition-status="java" aria-live="polite">
+              <span aria-hidden="true"></span>
+              <strong>Checking Java access...</strong>
             </div>
 
             <div class="edition-symbol" aria-hidden="true">J</div>
@@ -236,10 +242,15 @@
             </ol>
           </article>
 
-          <article class="edition-card edition-bedrock">
+          <article class="edition-card edition-bedrock" data-edition-card="bedrock">
             <div class="edition-topline">
               <span>BEDROCK EDITION</span>
               <b>02</b>
+            </div>
+
+            <div class="edition-live-status edition-status-checking" data-edition-status="bedrock" aria-live="polite">
+              <span aria-hidden="true"></span>
+              <strong>Checking Bedrock access...</strong>
             </div>
 
             <div class="edition-symbol" aria-hidden="true">B</div>
@@ -272,10 +283,15 @@
             </ol>
           </article>
 
-          <article class="edition-card tiduslink-helper">
+          <article class="edition-card tiduslink-helper" data-edition-card="bedrock">
             <div class="edition-topline">
               <span>CONSOLE BEDROCK HELPER</span>
               <b>TL</b>
+            </div>
+
+            <div class="edition-live-status edition-status-checking tidus-edition-status" data-edition-status="bedrock" aria-live="polite">
+              <span aria-hidden="true"></span>
+              <strong>Checking Bedrock access...</strong>
             </div>
 
             <div class="tidus-helper-layout">
@@ -314,16 +330,41 @@
           <p class="eyebrow"><span></span> 03 // LIVE SERVER</p>
           <h2>CHECK BEFORE <em>YOU JOIN.</em></h2>
           <p>
-            The status panel uses the existing Duffball16 Minecraft status script to show whether
-            the server is reachable and, when available, which players are currently online.
+            Java and Bedrock are checked separately. A green card means that edition is responding
+            and players can try to join. If an edition is red, wait for the next Discord update before retrying.
+          </p>
+
+          <div class="edition-availability-grid" aria-label="Current Java and Bedrock availability">
+            <article class="availability-card availability-checking" id="java-live-card">
+              <div class="availability-heading">
+                <span>JAVA EDITION</span>
+                <b id="java-live-state">CHECKING</b>
+              </div>
+              <strong class="availability-title" id="java-live-title">Checking Java...</strong>
+              <p id="java-live-message">Testing the Java server endpoint now.</p>
+            </article>
+
+            <article class="availability-card availability-checking" id="bedrock-live-card">
+              <div class="availability-heading">
+                <span>BEDROCK EDITION</span>
+                <b id="bedrock-live-state">CHECKING</b>
+              </div>
+              <strong class="availability-title" id="bedrock-live-title">Checking Bedrock...</strong>
+              <p id="bedrock-live-message">Testing the Bedrock / Geyser endpoint now.</p>
+            </article>
+          </div>
+
+          <p class="status-discord-note">
+            If an edition is unavailable, please wait for an update in Discord before trying again.
+            <a href="/community">Open the community page →</a>
           </p>
 
           <div class="connection-facts">
-            <div>
+            <div data-edition-fact="java">
               <small>JAVA</small>
               <strong>mc.duffball16.com</strong>
             </div>
-            <div>
+            <div data-edition-fact="bedrock">
               <small>BEDROCK</small>
               <strong>mc.duffball16.com : 19133</strong>
             </div>
@@ -347,13 +388,18 @@
             </div>
 
             <div class="console-line">
-              <span>NETWORK</span>
-              <strong>JAVA + BEDROCK</strong>
+              <span>PLAYABLE NOW</span>
+              <strong id="network-status-summary">CHECKING...</strong>
+            </div>
+
+            <div class="console-line">
+              <span>LAST CHECK</span>
+              <strong id="status-last-checked">WAITING...</strong>
             </div>
 
             <div class="console-live">
               <small>LIVE STATUS</small>
-              <div id="status-mirror">See status above</div>
+              <div id="status-mirror">Checking Java and Bedrock...</div>
             </div>
 
             <!--
@@ -389,10 +435,14 @@
         </div>
 
         <div class="guide-columns">
-          <article class="guide-card">
+          <article class="guide-card" data-edition-card="java">
             <div class="guide-title">
               <b>JAVA</b>
               <h3>Java Edition</h3>
+            </div>
+            <div class="edition-live-status edition-status-checking guide-edition-status" data-edition-status="java" aria-live="polite">
+              <span aria-hidden="true"></span>
+              <strong>Checking Java access...</strong>
             </div>
             <ol class="join-steps">
               <li>
@@ -419,10 +469,14 @@
             </ol>
           </article>
 
-          <article class="guide-card">
+          <article class="guide-card" data-edition-card="bedrock">
             <div class="guide-title">
               <b>BEDROCK</b>
               <h3>Bedrock Edition</h3>
+            </div>
+            <div class="edition-live-status edition-status-checking guide-edition-status" data-edition-status="bedrock" aria-live="polite">
+              <span aria-hidden="true"></span>
+              <strong>Checking Bedrock access...</strong>
             </div>
             <ol class="join-steps">
               <li>
@@ -592,7 +646,7 @@
               <span aria-hidden="true">+</span>
             </summary>
             <p>
-              Yes. In Java Edition, add <code>mc.duffball16.com</code> as the server address.
+              Check the live Java status above first. When Java is green, add <code>mc.duffball16.com</code> as the server address and join normally.
             </p>
           </details>
 
@@ -602,8 +656,8 @@
               <span aria-hidden="true">+</span>
             </summary>
             <p>
-              Yes. On Bedrock platforms that support custom servers, use
-              <code>mc.duffball16.com</code> with port <code>19133</code>.
+              Check the live Bedrock status above first. When Bedrock is green, use
+              <code>mc.duffball16.com</code> with port <code>19133</code>. If it is red, wait for the Discord update.
             </p>
           </details>
 
@@ -613,7 +667,7 @@
               <span aria-hidden="true">+</span>
             </summary>
             <p>
-              Yes. Duffball16 SMP is set up so Java and Bedrock players can share the same server world.
+              Yes, when both live status cards are green. If one edition is unavailable, only the edition shown as online can currently join.
             </p>
           </details>
 
@@ -737,6 +791,8 @@
             mirrorStatus.classList.add("mirror-online");
           } else if (sourceStatus.classList.contains("status-offline")) {
             mirrorStatus.classList.add("mirror-offline");
+          } else if (sourceStatus.classList.contains("status-partial")) {
+            mirrorStatus.classList.add("mirror-partial");
           } else if (sourceStatus.classList.contains("status-maintenance")) {
             mirrorStatus.classList.add("mirror-maintenance");
           }
