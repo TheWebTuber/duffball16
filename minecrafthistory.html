@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore the Duffball16 Minecraft SMP history and download world backups from the archive."
+    />
+    <meta name="theme-color" content="#020603" />
+    <title>Minecraft History | Duffball16</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23090d0a'/%3E%3Cpath d='M7 8h18v5H7z' fill='%239bd86b'/%3E%3Cpath d='M7 15h18v10H7z' fill='%23598043'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/minecraft-history.css" />
+    <script src="js/minecraft-history.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#archive">Skip to backups</a>
+    <nav class="smp-nav" aria-label="Minecraft page navigation">
+      <a class="smp-brand" href="https://duffball16.com/minecraft">
+        <span class="brand-cube" aria-hidden="true">DB16</span>
+        <span><strong>DUFFBALL16 SMP</strong><small>WORLD HISTORY</small></span>
+      </a>
+      <div class="smp-links">
+        <a href="https://duffball16.com/minecraft">Server</a>
+        <a href="#archive">Backups</a>
+        <a href="#backup-help">How to use</a>
+        <a
+          href="https://map.duffball16.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Live Map</a
+        >
+      </div>
+      <a class="nav-cta" href="https://duffball16.com/minecraft#join"
+        >Join the SMP</a
+      >
+    </nav>
+
+    <main>
+      <section class="mh-hero" id="top" aria-labelledby="page-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-haze hero-haze-left" aria-hidden="true"></div>
+        <div class="hero-haze hero-haze-right" aria-hidden="true"></div>
+        <div class="mh-shell mh-intro">
+          <div class="mh-intro-copy">
+            <p class="mh-eyebrow">DUFFBALL16 // MINECRAFT SMP</p>
+            <h1 id="page-title">OUR WORLD.<br /><em>ITS HISTORY.</em></h1>
+            <p class="mh-lead">
+              Every backup is another moment in our world. Pick a date, download
+              a save, and explore the SMP as it was.
+            </p>
+            <div class="mh-hero-actions">
+              <a class="mh-button" href="#archive">Explore the backups</a>
+              <a
+                class="mh-button mh-button-ghost"
+                href="https://duffball16.com/minecraft"
+                >Back to the SMP</a
+              >
+            </div>
+          </div>
+          <aside class="mh-latest" aria-labelledby="latest-title" hidden>
+            <p class="mh-eyebrow" id="latest-title">LATEST IN THE ARCHIVE</p>
+            <strong id="latest-date"></strong>
+            <p id="latest-time"></p>
+            <a class="mh-button" id="latest-download">Download latest ZIP</a>
+          </aside>
+        </div>
+      </section>
+      <div class="mh-signal-strip">
+        <span>SURVIVAL WORLD</span><i aria-hidden="true">◆</i
+        ><span>THE DUFFINIANS’ ARCHIVE</span><i aria-hidden="true">◆</i
+        ><span>BUILD · EXPLORE · REMEMBER</span>
+      </div>
+
+      <section
+        class="mh-shell mh-archive"
+        id="archive"
+        aria-labelledby="archive-title"
+      >
+        <div class="mh-archive-heading">
+          <div>
+            <p class="mh-eyebrow">01 // THE WORLD ARCHIVE</p>
+            <h2 id="archive-title">WALK BACK<br /><em>THROUGH TIME.</em></h2>
+          </div>
+          <p id="archive-count" role="status"></p>
+        </div>
+        <div class="mh-layout">
+          <aside class="mh-sidebar">
+            <div class="mh-sidebar-inner">
+              <label for="month-jump">Jump to a month</label>
+              <select id="month-jump">
+                <option value="">Choose a month</option>
+              </select>
+              <nav id="month-links" aria-label="Archive months"></nav>
+              <p class="mh-hint">
+                Newest first.<br />Scroll down to go further back.
+              </p>
+              <a class="mh-server-link" href="https://duffball16.com/minecraft"
+                >Visit the Minecraft server page</a
+              >
+            </div>
+          </aside>
+          <div>
+            <p class="mh-time-note">
+              Dates and times are taken from the backup filenames. Times use the
+              server’s recorded clock.
+            </p>
+            <div id="timeline"></div>
+            <noscript
+              ><p>Enable JavaScript to browse the full backup timeline.</p>
+              <p>
+                <a href="/minecraftbackups/2026-10-05_19-07-29.zip" download
+                  >Download the 5 October 2026 backup</a
+                >
+              </p></noscript
+            >
+            <p class="mh-end" id="archive-end" hidden>
+              You’ve reached the earliest backup in this archive.
+            </p>
+            <details class="mh-help" id="backup-help">
+              <summary>How do I use a backup?</summary>
+              <p>
+                Choose a date and select “Download ZIP”. Extract the ZIP to see
+                the saved world files. Use a Minecraft edition and version
+                compatible with that world. This is all server backups from the
+                Duffball16 SMP, so you’ll need to be on the same edition and
+                version as the server was at that time or you can try updating
+                that world to a newer version of Minecraft. Reminder that this
+                is a paper server, so you know what you are getting into. If you
+                are unsure, ask in the Discord for help.
+              </p>
+              <p>
+                Keep a separate copy of your existing world before importing a
+                save. Need the right version or help with the files?
+                <a
+                  href="https://duffball16.com/discord"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Ask in the Duffball16 Discord.</a
+                >
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="mh-footer">
+      <a class="footer-brand" href="https://duffball16.com/minecraft">
+        <span class="brand-cube" aria-hidden="true">DB16</span>
+        <span
+          ><strong>DUFFBALL16 SMP</strong
+          ><small>THE WORLD HISTORY ARCHIVE</small></span
+        >
+      </a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://duffball16.com/">Home</a>
+        <a href="https://duffball16.com/community">Community</a>
+        <a href="https://duffball16.com/contact">Contact</a>
+        <a href="https://duffball16.com/minecraft">Minecraft SMP</a>
+      </nav>
+      <p>
+        This website is made by
+        <a href="https://www.youtube.com/@PMOG">Portal Master Of Games</a>
+      </p>
+      <p class="mh-legal">
+        Minecraft is a trademark of Microsoft/Mojang. Duffball16 SMP is an
+        independent community server and is not affiliated with or endorsed by
+        Microsoft or Mojang.
+      </p>
+      <p>
+        <a href="https://duffball16.com/termsofservice">Terms of Service</a> ·
+        <a href="https://duffball16.com/privacypolicy">Privacy Policy</a> · ©
+        <span id="year">2026</span> Duffball16
+      </p>
+    </footer>
+  </body>
+</html>
