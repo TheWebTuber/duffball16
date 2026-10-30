@@ -7,6 +7,13 @@ const JAVA_PORT = 25565;
 const BEDROCK_PORT = 19133;
 const STATUS_REFRESH_MS = 60000;
 const STATUS_TIMEOUT_MS = 10000;
+// Newer Bedrock clients connect via NetherNet. mcstatus.io only probes legacy RakNet.
+// This optional public NetherNet probe is checked at most every 15 minutes per open page.
+// If neither method confirms availability, show UNKNOWN rather than falsely claiming OFFLINE.
+const NETHERNET_STATUS_URL = `https://icefetch.tools.kt04.com/api/info?host=${encodeURIComponent(SERVER_IP)}&port=${BEDROCK_PORT}`;
+const BEDROCK_REFRESH_MS = 15 * 60 * 1000;
+let lastBedrockCheck = 0;
+let cachedBedrockStatus = null;
 
 /*
   Optional manual override for known compatibility/maintenance problems.
@@ -71,6 +78,68 @@ async function fetchEditionStatus(edition, port) {
   }
 }
 
+// Retrieve metadata from NetherNet's TCP signaling endpoint through a public checker.
+// This confirms signaling reachability, not a completed gameplay login.
+// The public checker has quota limits and can fail due to CORS/network restrictions.
+async function fetchBedrockStatus() {
+  if (MANUAL_STATUS_OVERRIDE.bedrock) {
+    return fetchEditionStatus('bedrock', BEDROCK_PORT);
+  }
+
+  const now = Date.now();
+  if (cachedBedrockStatus && now - lastBedrockCheck < BEDROCK_REFRESH_MS) {
+    return cachedBedrockStatus;
+  }
+  lastBedrockCheck = now;
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), STATUS_TIMEOUT_MS);
+    let response;
+    try {
+      response = await fetch(NETHERNET_STATUS_URL, {
+        signal: controller.signal,
+        cache: 'no-store'
+      });
+    } finally {
+      clearTimeout(timeout);
+    }
+
+    if (response.ok) {
+      const result = await response.json();
+      if (result?.ok === true && result.status === 200 && result.info) {
+        const players = Number(result.info.players);
+        cachedBedrockStatus = {
+          edition: 'bedrock',
+          state: 'online',
+          data: {
+            players: { online: Number.isFinite(players) ? players : undefined, list: [] }
+          },
+          reason: 'NetherNet signaling is reachable.'
+        };
+        return cachedBedrockStatus;
+      }
+    }
+  } catch (error) {
+    console.warn('NetherNet status check unavailable; trying legacy RakNet status', error);
+  }
+
+  // A positive legacy ping still confirms the Bedrock endpoint is answering.
+  const legacyResult = await fetchEditionStatus('bedrock', BEDROCK_PORT);
+  if (legacyResult.state === 'online') {
+    cachedBedrockStatus = legacyResult;
+  } else {
+    // A RakNet failure is NOT proof that newer NetherNet gameplay is offline.
+    cachedBedrockStatus = {
+      edition: 'bedrock',
+      state: 'unknown',
+      data: null,
+      reason: 'Legacy RakNet cannot confirm NetherNet availability.'
+    };
+  }
+  return cachedBedrockStatus;
+}
+
 function getEditionCopy(edition, result) {
   const name = editionName(edition);
 
@@ -98,8 +167,12 @@ function getEditionCopy(edition, result) {
   return {
     stateLabel: 'UNKNOWN',
     title: `${name} status could not be confirmed`,
-    message: 'The automatic status check failed. Check Discord/community updates before joining.',
-    badge: `STATUS UNKNOWN — Check Discord before joining`
+    message: edition === 'bedrock'
+      ? 'Bedrock status could not be verified. NetherNet players may still be able to join. Try connecting directly or check Discord.'
+      : 'The automatic status check failed. Check Discord/community updates before joining.',
+    badge: edition === 'bedrock'
+      ? 'UNVERIFIED — Bedrock may still be playable'
+      : 'STATUS UNKNOWN — Check Discord before joining'
   };
 }
 
@@ -287,7 +360,7 @@ function updateLastChecked() {
 async function fetchStatus() {
   const [javaResult, bedrockResult] = await Promise.all([
     fetchEditionStatus('java', JAVA_PORT),
-    fetchEditionStatus('bedrock', BEDROCK_PORT)
+    fetchBedrockStatus()
   ]);
 
   setEditionUI('java', javaResult);
