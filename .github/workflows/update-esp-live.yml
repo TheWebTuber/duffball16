@@ -15,42 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch YouTube stats
-        run: |
-          mkdir -p live
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
 
-          STATS_URL="https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${{ secrets.YOUTUBE_CHANNEL_ID }}&key=${{ secrets.YOUTUBE_API_KEY }}"
-          LIVE_URL="https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${{ secrets.YOUTUBE_CHANNEL_ID }}&eventType=live&type=video&key=${{ secrets.YOUTUBE_API_KEY }}"
+      - name: Validate Hub integration
+        run: node --test tests/*.test.mjs
 
-          STATS=$(curl -s "$STATS_URL")
-          LIVE=$(curl -s "$LIVE_URL")
-
-          SUBS=$(echo "$STATS" | jq -r '.items[0].statistics.subscriberCount // "0"')
-          VIEWS=$(echo "$STATS" | jq -r '.items[0].statistics.viewCount // "0"')
-          VIDEOS=$(echo "$STATS" | jq -r '.items[0].statistics.videoCount // "0"')
-          LIVE_COUNT=$(echo "$LIVE" | jq -r '.items | length')
-
-          if [ "$LIVE_COUNT" -gt 0 ]; then
-            STATUS="Streaming Live"
-          else
-            STATUS="Not Livestreaming"
-          fi
-
-          UPDATED=$(TZ="Europe/Amsterdam" date +"%H:%M")
-
-          jq -n \
-            --argjson subscribers "$SUBS" \
-            --argjson views "$VIEWS" \
-            --argjson videos "$VIDEOS" \
-            --arg status "$STATUS" \
-            --arg updated "$UPDATED" \
-            '{
-              subscribers: $subscribers,
-              views: $views,
-              videos: $videos,
-              status: $status,
-              updated: $updated
-            }' > live/esp.json
+      - name: Read CreatorPromote Hub snapshot
+        run: node scripts/update-esp.mjs
 
       - name: Commit ESP JSON
         run: |
