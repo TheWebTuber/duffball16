@@ -30,16 +30,27 @@ test('stale stream cannot render a LIVE badge or assert it completed',()=>{
 test('ESP keeps numeric fields and uses observation time; stale LIVE expires',()=>{
   const data=structuredClone(fixture);data.live=data.catalog[0];delete data.live.liveStreamingDetails.actualEndTime;data.live.snippet.liveBroadcastContent='live';
   assert.equal(toEsp(data,now).status,'Streaming Live');
-  const stale=toEsp(data,now+3600000);assert.equal(stale.status,'Live status unavailable');
+  const stale=toEsp(data,now+3600000);assert.equal(stale.status,'Not Livestreaming');
   assert.deepEqual(Object.keys(stale),['subscribers','views','videos','status','updated']);
   assert.equal(stale.subscribers,1234);assert.equal(stale.updated,'13:00');
   delete data.channel.statistics.subscriberCount;assert.throws(()=>toEsp(data,now));
 });
+test('ESP unknown and cached observations retain the exact legacy non-live string',()=>{
+  const data=structuredClone(fixture);
+  assert.equal(toEsp(data,now).status,'Not Livestreaming');
+  data.live=structuredClone(data.catalog[0]);delete data.live.liveStreamingDetails.actualEndTime;
+  data.live.snippet.liveBroadcastContent='live';data.sections.videos.status='cached';
+  const result=toEsp(data,now);
+  assert.equal(result.status,'Not Livestreaming');
+  assert.deepEqual(Object.keys(result),['subscribers','views','videos','status','updated']);
+  assert.ok(['subscribers','views','videos'].every(k=>typeof result[k]==='number'));
+  assert.match(result.updated,/^\d{2}:\d{2}$/);
+});
 test('ESP outage retains prior counts and timestamp but clears LIVE',async()=>{
   const dir=await fs.mkdtemp(path.join(os.tmpdir(),'creatorpromote-esp-test-'));const file=path.join(dir,'esp.json');
   try {
-    await fs.writeFile(file,JSON.stringify({subscribers:123,views:456,videos:7,status:'Streaming Live',updated:'09:10'}));
+    await fs.writeFile(file,JSON.stringify({subscribers:123,views:456,videos:7,status:'Streaming Live',updated:'09:10',extra:'must not leak into the five-field contract'}));
     const result=await updateEsp({file,fetcher:async()=>{throw Error('offline');},now});
-    assert.deepEqual(result,{subscribers:123,views:456,videos:7,status:'Live status unavailable',updated:'09:10'});
+    assert.deepEqual(result,{subscribers:123,views:456,videos:7,status:'Not Livestreaming',updated:'09:10'});
   } finally {await fs.unlink(file);await fs.rmdir(dir);}
 });

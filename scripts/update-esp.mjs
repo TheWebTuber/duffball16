@@ -15,7 +15,9 @@ export function toEsp(feed, now = Date.now()) {
   }
   const live=data.freshness.liveFresh && data.live?.snippet?.liveBroadcastContent==='live' &&
     data.live.liveStreamingDetails?.actualStartTime && !data.live.liveStreamingDetails?.actualEndTime;
-  result.status=live ? 'Streaming Live' : data.freshness.liveFresh ? 'No live stream detected' : 'Live status unavailable';
+  // Preserve the device's original two exact strings. Non-live also covers
+  // unknown/stale observations; the Hub remains the richer source of truth.
+  result.status=live ? 'Streaming Live' : 'Not Livestreaming';
   result.updated=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Amsterdam',hour:'2-digit',minute:'2-digit'})
     .format(new Date(data.sections?.channel?.updatedAt || data.updatedAt));
   return result;
@@ -28,9 +30,9 @@ export async function updateEsp({file=new URL('../live/esp.json',import.meta.url
     result=toEsp(await response.json(),now);
   } catch {
     // Preserve last successful counts and timestamp; never keep an old LIVE label.
-    result=JSON.parse(await fs.readFile(file,'utf8'));
-    if (!['subscribers','views','videos'].every(k=>Number.isFinite(result[k]) && result[k]>=0) || typeof result.updated!=='string') throw Error('No saved statistics');
-    result.status='Live status unavailable';
+    const saved=JSON.parse(await fs.readFile(file,'utf8'));
+    if (!['subscribers','views','videos'].every(k=>Number.isFinite(saved[k]) && saved[k]>=0) || typeof saved.updated!=='string') throw Error('No saved statistics');
+    result={subscribers:saved.subscribers,views:saved.views,videos:saved.videos,status:'Not Livestreaming',updated:saved.updated};
   }
   await fs.writeFile(file,JSON.stringify(result,null,2)+'\n');
   return result;
